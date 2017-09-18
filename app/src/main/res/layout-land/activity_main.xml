@@ -25,7 +25,7 @@
                 android:layout_marginRight="8dp"
                 android:layout_marginTop="3dp"
                 android:textColor="@color/cardview_light_background"
-                android:textSize="20sp"
+                android:textSize="25sp"
                 tools:text="Барнаул-Белокуриха" />
 
 
@@ -34,10 +34,32 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
+                android:paddingLeft="10dp"
                 android:textColor="@color/cardview_light_background"
                 android:textSize="20sp"
                 tools:ignore="RtlSymmetry"
-                tools:text="ООО Рубцовское ПАП"/>
+                tools:text="ООО Рубцовское ПАП" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:textColor="@color/cardview_light_background"
+                android:textSize="20sp"
+                android:paddingLeft="20dp"
+                tools:ignore="RtlSymmetry"
+                tools:text="всего мест" />
+
+            <TextView
+                android:id="@+id/max_seats"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:textColor="@color/cardview_light_background"
+                android:textSize="20sp"
+                android:paddingLeft="31dp"
+                tools:ignore="RtlSymmetry"
+                tools:text="43" />
 
         </LinearLayout>
 
@@ -72,6 +94,7 @@
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginTop="3dp"
+                android:paddingLeft="50dp"
                 android:textColor="@color/cardview_light_background"
                 android:textSize="20sp"
                 tools:ignore="RtlSymmetry"
@@ -88,6 +111,27 @@
                 android:textSize="20sp"
                 tools:ignore="RtlSymmetry"
                 tools:text="2209039243" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:textColor="@color/cardview_light_background"
+                android:textSize="20sp"
+                android:paddingLeft="20dp"
+                tools:ignore="RtlSymmetry"
+                tools:text="свободных мест" />
+
+            <TextView
+                android:id="@+id/free_seats"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:textColor="@color/cardview_light_background"
+                android:textSize="20sp"
+                android:paddingLeft="5dp"
+                tools:ignore="RtlSymmetry"
+                tools:text="22" />
 
         </LinearLayout>
 
