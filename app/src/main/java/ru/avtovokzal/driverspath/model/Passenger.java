@@ -14,16 +14,16 @@ public class Passenger {
     public String mGender;
 
     @SerializedName("firstName")
-    public String mFirstname;
+    public String mFirstName;
 
     @SerializedName("lastName")
-    public String mLastname;
+    public String mLastName;
 
     @SerializedName("middleName")
-    public String mMiddlename;
+    public String mMiddleName;
 
     @SerializedName("docNum")
-    public String mDocnum;
+    public String mDocNum;
 
     @SerializedName("docSeries")
     public String mDocseries;
@@ -36,4 +36,40 @@ public class Passenger {
 
     @SerializedName("citizenshipISO2")
     public String mCitizenshipiso2;
+
+    public String getFirstName() {
+        return mFirstName;
+    }
+
+    public String getLastName() {
+        return mLastName;
+    }
+
+    public String getMiddleName() {
+        return mMiddleName;
+    }
+
+    public String getDocNum() {
+        return mDocNum;
+    }
+
+    public String getDocSeries() {
+        return mDocseries;
+    }
+
+    public String getDocTypeId() {
+        return mDoctypeid;
+    }
+
+    public String getBirthday() {
+        return mBirthday;
+    }
+
+    public String getCitizenship() {
+        return mCitizenshipiso2;
+    }
+
+    public String getGender() {
+        return mGender;
+    }
 }

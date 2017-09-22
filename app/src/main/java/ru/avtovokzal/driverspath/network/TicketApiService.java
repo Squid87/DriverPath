@@ -3,17 +3,20 @@ package ru.avtovokzal.driverspath.network;
 
 import android.content.Context;
 
+import java.util.Observable;
+
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import rx.Observer;
 
-public class DriverPathApiService {
+public class TicketApiService {
     private String BASE_URL = "http://webapp.avtovokzal.ru";
     private Retrofit mRetrofit;
-    private static DriverPathApiService sInstance;
+    private static TicketApiService sInstance;
 
-    private DriverPathApiService(Context context) {
+    private TicketApiService(Context context) {
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
@@ -24,18 +27,18 @@ public class DriverPathApiService {
                 .build();
     }
 
-    public static DriverPathApiService getsInstance(Context context) {
+    public static TicketApiService getsInstance(Context context) {
         if (sInstance == null) {
-            synchronized (DriverPathApiService.class) {
+            synchronized (TicketApiService.class) {
                 if (sInstance == null) {
-                    sInstance = new DriverPathApiService(context);
+                    sInstance = new TicketApiService(context);
                 }
             }
         }
         return sInstance;
     }
 
-    public DriverPathApiInterface createApi() {
-        return mRetrofit.create(DriverPathApiInterface.class);
+    public TicketApiInterface createApi() {
+        return mRetrofit.create(TicketApiInterface.class);
     }
 }

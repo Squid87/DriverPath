@@ -36,4 +36,24 @@ public class Ticket {
 
     @SerializedName("ticketNumber")
     public String mTicketnumber;
+
+    public int getPrice() {
+        return mPrice;
+    }
+
+    public int getSeatnum() {
+        return mSeatnum;
+    }
+
+    public String getDispatchStationName() {
+        return mDispatchstationname;
+    }
+
+    public String getArrivalStationName() {
+        return mArrivalstationname;
+    }
+
+    public Passenger getPassenger() {
+        return mPassenger;
+    }
 }

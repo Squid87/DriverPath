@@ -1,3 +1,16 @@
 <resources>
+	<!--passenger information-->
 	<string name="app_name">DriverPath</string>
+	<string name="lastname">Фамилия</string>
+	<string name="firstname">Имя</string>
+	<string name="meddlename">Отчество</string>
+	<string name="citizen">Гражданство</string>
+	<string name="birthday">Дата рождения</string>
+	<string name="document">Документ</string>
+	<string name="docSeries">Серия</string>
+	<string name="docNumber">Номер</string>
+	<string name="gender">Пол</string>
+	<string name="ticket_price">Цена Билета</string>
+
+
 </resources>

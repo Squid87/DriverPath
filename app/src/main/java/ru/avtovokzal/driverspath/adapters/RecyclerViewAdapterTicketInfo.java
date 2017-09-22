@@ -21,17 +21,23 @@ public class RecyclerViewAdapterTicketInfo extends RecyclerView.Adapter<Recycler
 
     @Override
     public RecyclerViewTicketInfoHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        //View mInflate = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_ticket_info,parent,false);
-        return null;
+        View mInflate = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_ticket_info, parent, false);
+        return new RecyclerViewTicketInfoHolder(mInflate);
     }
 
     @Override
     public void onBindViewHolder(RecyclerViewTicketInfoHolder holder, int position) {
+        holder.bind(mTickets.get(position));
 
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return mTickets.size();
+    }
+
+    public void setTiketInfo(List<TicketInfo> tickets) {
+        mTickets.addAll(tickets);
+        notifyDataSetChanged();
     }
 }

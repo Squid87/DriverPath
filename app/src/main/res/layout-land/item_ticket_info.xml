@@ -15,8 +15,8 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:background="@color/cardview_background_linear_layout">
+            android:background="@color/cardview_background_linear_layout"
+            android:gravity="center">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -269,6 +269,7 @@
                 android:textSize="@dimen/underline_item_text_size" />
 
             <TextView
+                android:id="@+id/textView12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@+id/item_passenger_birthday"
@@ -279,77 +280,77 @@
                 android:text="@string/ticket_price"
                 android:textColor="@color/cardview_black_text"
                 android:textSize="@dimen/underline_item_text_size"
-                tools:text="Цена билета"
-                android:id="@+id/textView12" />
+                tools:text="Цена билета" />
 
             <TextView
                 android:id="@+id/item_document"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/textView7"
+                android:layout_alignBottom="@+id/textView7"
+                android:layout_marginStart="29dp"
+                android:layout_toEndOf="@+id/textView12"
                 android:gravity="center"
                 android:padding="@dimen/padding_headline_text"
                 android:textColor="@color/cardview_black_text"
                 android:textSize="@dimen/underline_item_text_size"
-                tools:text="Паспорт"
-                android:layout_marginStart="29dp"
-                android:layout_alignBaseline="@+id/textView7"
-                android:layout_alignBottom="@+id/textView7"
-                android:layout_toEndOf="@+id/textView12" />
+                tools:text="Паспорт" />
 
             <TextView
                 android:id="@+id/item_document_series"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/textView8"
+                android:layout_alignBottom="@+id/textView8"
+                android:layout_alignStart="@+id/item_document"
                 android:gravity="center"
                 android:padding="@dimen/padding_headline_text"
                 android:textColor="@color/cardview_black_text"
                 android:textSize="@dimen/underline_item_text_size"
-                tools:text="01 00"
-                android:layout_alignBaseline="@+id/textView8"
-                android:layout_alignBottom="@+id/textView8"
-                android:layout_alignStart="@+id/item_document" />
+                tools:text="01 00" />
 
             <TextView
                 android:id="@+id/item_document_number"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/textView9"
+                android:layout_alignBottom="@+id/textView9"
+                android:layout_alignStart="@+id/item_document_series"
                 android:gravity="center"
                 android:padding="@dimen/padding_headline_text"
                 android:textColor="@color/cardview_black_text"
                 android:textSize="@dimen/underline_item_text_size"
-                tools:text="11 11 11"
-                android:layout_alignBaseline="@+id/textView9"
-                android:layout_alignBottom="@+id/textView9"
-                android:layout_alignStart="@+id/item_document_series"/>
+                tools:text="11 11 11" />
 
             <TextView
                 android:id="@+id/item_passenger_gender"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/textView10"
+                android:layout_alignBottom="@+id/textView10"
+                android:layout_alignStart="@+id/item_document_number"
                 android:gravity="center"
                 android:padding="@dimen/padding_headline_text"
                 android:textColor="@color/cardview_black_text"
                 android:textSize="@dimen/underline_item_text_size"
-                tools:text="М/Ж"
-                android:layout_alignBaseline="@+id/textView10"
-                android:layout_alignBottom="@+id/textView10"
-                android:layout_alignStart="@+id/item_document_number" />
+                tools:text="М/Ж" />
 
             <TextView
                 android:id="@+id/item_ticket_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/textView12"
+                android:layout_alignBottom="@+id/textView12"
+                android:layout_alignStart="@+id/item_passenger_gender"
                 android:gravity="center"
                 android:padding="@dimen/padding_headline_text"
                 android:textColor="@color/cardview_black_text"
                 android:textSize="@dimen/underline_item_text_size"
-                tools:text="450"
-                android:layout_alignBaseline="@+id/textView12"
-                android:layout_alignBottom="@+id/textView12"
-                android:layout_alignStart="@+id/item_passenger_gender" />
+                tools:text="450" />
 
 
         </RelativeLayout>
+
 
     </android.support.v7.widget.CardView>
 

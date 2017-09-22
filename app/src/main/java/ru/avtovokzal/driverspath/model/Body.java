@@ -18,19 +18,19 @@ public class Body {
     @SerializedName("ticket")
     public List<Ticket> mTicket;
 
-    public Carrier getmCarrier() {
+    public Carrier getCarrier() {
         return mCarrier;
     }
 
-    public int getmFreeseats() {
+    public int getFreeseats() {
         return mFreeseats;
     }
 
-    public int getmMaxseats() {
+    public int getMaxseats() {
         return mMaxseats;
     }
 
-    public List<Ticket> getmTicket() {
+    public List<Ticket> getTicket() {
         return mTicket;
     }
 }

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="marginLeft">8dp</dimen>
+    <dimen name="marginRight">8dp</dimen>
+    <dimen name="marginTop">3dp</dimen>
+
+    <!--Text Size land orientation-->
+    <dimen name="head_line_text_size">40sp</dimen>
+    <dimen name="under_line_text_size">30sp</dimen>
+
+    <!--Text Size item_ticket_info-->
+    <dimen name="head_item_text_size">30sp</dimen>
+    <dimen name="portrait_under_line">10sp</dimen>
+    <dimen name="padding_headline_text">10dp</dimen>
+    <dimen name="underline_item_text_size">20sp</dimen>
+
+
+
+</resources>
