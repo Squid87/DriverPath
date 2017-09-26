@@ -1,5 +1,7 @@
 package ru.avtovokzal.driverspath.mvp;
 
+import android.util.Base64;
+
 import com.arellomobile.mvp.InjectViewState;
 import com.arellomobile.mvp.MvpPresenter;
 import com.google.common.eventbus.Subscribe;
@@ -27,11 +29,9 @@ import rx.schedulers.Schedulers;
 public class TicketInfoPresenter extends MvpPresenter<TicketInformationView> {
 
     public TicketApiService mTicketApiService = TicketApiService.getsInstance(Application.getInstance());
-    public TicketApiInterface mTicketApiInterface;
 
     @Override
     protected void onFirstViewAttach() {
-        super.onFirstViewAttach();
         rx.Observable.fromCallable(this::requestTicketInfo)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -50,45 +50,29 @@ public class TicketInfoPresenter extends MvpPresenter<TicketInformationView> {
                     @Override
                     public void onNext(Response<RegistrationResponse> response) {
                         RegistrationResponse registrationResponse = response.body();
-                        List<TicketInfo> mTicketInfos = registrationResponse.getTicketInfos();
-                        getViewState().showTicketInfo(mTicketInfos);
+                        getViewState().showTicketInfo(registrationResponse.getTicketInfos());
                     }
                 });
     }
 
     private Response<RegistrationResponse> requestTicketInfo() throws IOException {
+
         RegistrationBody body = new RegistrationBody();
-        body.arrivalStationUid = "25CBF1CE4E224C0A85C4CCEAD3E4C537";
-        body.dispatchStationUid = "E19A767A4C4C43F3855E10DA31CD3749";
-        body.dispatchTime = "11:30:00";
-        return mTicketApiService.createApi().getTicketInfo(body).execute();
+        body.routeKey.dispatchStationUid = "E19A767A4C4C43F3855E10DA31CD3749";
+        body.routeKey.arrivalStationUid = "25CBF1CE4E224C0A85C4CCEAD3E4C537";
+        body.routeKey.dispatchTime = "11:30:00";
+        body.date = "2017-09-05";
+
+        String userName = "transit-test";
+        String password = "apsHFrD8";
+        String base = userName + ":" + password;
+        String authHeader = "Basic " + Base64.encodeToString(base.getBytes(), Base64.NO_WRAP);
+        String contentType = "application/json";
+        String accept = "application/json";
+        return mTicketApiService.createApi().getTicketInfo(authHeader, contentType, accept, body).execute();
     }
 }
 
-//        RegistrationBody body = new RegistrationBody();
-//        body.arrivalStationUid = "25CBF1CE4E224C0A85C4CCEAD3E4C537";
-//        body.dispatchStationUid = "E19A767A4C4C43F3855E10DA31CD3749";
-//        body.dispatchTime = "11:30:00";
-//        rx.Observable.fromCallable(mTicketApiInterface.getTicketInfo(body))
-//                .subscribeOn(Schedulers.io())
-//                .observeOn(AndroidSchedulers.mainThread())
-//                .subscribe(new Subscriber<Response<RegistrationResponse>>() {
-//                    @Override
-//                    public void onCompleted() {
-//
-//                    }
-//
-//                    @Override
-//                    public void onError(Throwable e) {
-//
-//                    }
-//
-//                    @Override
-//                    public void onNext(Response<RegistrationResponse> response) {
-//
-//                    }
-//
-//                });
 
 
 
