@@ -1,27 +1,24 @@
 package ru.avtovokzal.driverspath.fragments;
 
 
-import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.arellomobile.mvp.MvpAppCompatFragment;
 import com.arellomobile.mvp.presenter.InjectPresenter;
-
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import ru.avtovokzal.driverspath.R;
 import ru.avtovokzal.driverspath.adapters.RecyclerViewAdapterTicketInfo;
-import ru.avtovokzal.driverspath.adapters.RecyclerViewTicketInfoHolder;
-import ru.avtovokzal.driverspath.model.TicketInfo;
+import ru.avtovokzal.driverspath.model.Body;
 import ru.avtovokzal.driverspath.mvp.TicketInfoPresenter;
 import ru.avtovokzal.driverspath.mvp.View.TicketInformationView;
 
@@ -29,11 +26,32 @@ public class TicketInformationFragment extends MvpAppCompatFragment implements T
 
     @InjectPresenter
     TicketInfoPresenter mTicketInfoPresenter;
-
     RecyclerViewAdapterTicketInfo mRecyclerViewAdapterTicketInfo;
 
     @BindView(R.id.fragment_ticket_info_recycler_view)
     RecyclerView mRecyclerView;
+
+    @BindView(R.id.free_seats)
+    TextView mFreeSeats;
+
+    @BindView(R.id.max_seats)
+    TextView mMaxSeats;
+
+    @BindView(R.id.driver_dispatch_station)
+    TextView mDispatchStation;
+
+    @BindView(R.id.driver_arrival_station)
+    TextView mArrivalStation;
+
+    @BindView(R.id.driver_time_out)
+    TextView mDriverTimeOut;
+
+    @BindView(R.id.driver_inn)
+    TextView mDriverInn;
+
+    @BindView(R.id.progress_bar)
+    ProgressBar mProgressBar;
+
 
     @Nullable
     @Override
@@ -56,7 +74,30 @@ public class TicketInformationFragment extends MvpAppCompatFragment implements T
     }
 
     @Override
-    public void showTicketInfo(List<TicketInfo> ticketInfo) {
-        mRecyclerViewAdapterTicketInfo.setTiketInfo(ticketInfo);
+    public void showTicketInfo(Body mBody) {
+        mRecyclerViewAdapterTicketInfo.setTiketInfo(mBody.getTicket());
+
+        mFreeSeats.setText(String.valueOf(mBody.getFreeseats()) + " " + "/" + " ");
+        mMaxSeats.setText(String.valueOf(mBody.getMaxseats()));
+        mDispatchStation.setText("Белокуриха" + " " + "-");
+        mArrivalStation.setText("Барнаул");
+        mDriverTimeOut.setText("11:30");
+        mDriverInn.setText(mBody.getCarrier().getInn());
     }
+
+    @Override
+    public void showError() {
+
+    }
+
+    @Override
+    public void showProgressBar() {
+        mProgressBar.setVisibility(ProgressBar.VISIBLE);
+    }
+
+    @Override
+    public void hideProgressBar() {
+        mProgressBar.setVisibility(ProgressBar.GONE);
+    }
+
 }

@@ -7,10 +7,15 @@ import com.arellomobile.mvp.viewstate.strategy.StateStrategyType;
 
 import java.util.List;
 
-import ru.avtovokzal.driverspath.model.TicketInfo;
+import ru.avtovokzal.driverspath.model.Body;
+import ru.avtovokzal.driverspath.model.Ticket;
 
 @StateStrategyType(SkipStrategy.class)
 public interface TicketInformationView extends MvpView {
 
-    void showTicketInfo(List<TicketInfo> ticketInfo);
+    void showTicketInfo(Body mBody);
+    void  showError();
+    void  showProgressBar();
+    void  hideProgressBar();
+
 }

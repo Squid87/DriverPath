@@ -10,11 +10,11 @@ public class Carrier {
     @SerializedName("name")
     public String mName;
 
-    public String getmInn() {
+    public String getInn() {
         return mInn;
     }
 
-    public String getmName() {
+    public String getName() {
         return mName;
     }
 }

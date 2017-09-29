@@ -1,16 +1,21 @@
 package ru.avtovokzal.driverspath.adapters;
 
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import ru.avtovokzal.driverspath.Application;
+import ru.avtovokzal.driverspath.MainActivity;
 import ru.avtovokzal.driverspath.R;
-import ru.avtovokzal.driverspath.model.TicketInfo;
+import ru.avtovokzal.driverspath.model.Ticket;
 
 
-public class RecyclerViewTicketInfoHolder extends RecyclerView.ViewHolder {
+public class RecyclerViewTicketInfoHolder extends RecyclerView.ViewHolder{
 
     @BindView(R.id.seat_number)
     TextView mSeatNumber;
@@ -52,46 +57,71 @@ public class RecyclerViewTicketInfoHolder extends RecyclerView.ViewHolder {
     TextView mTicketPrice;
 
 
-    @BindView(R.id.driver_dispatch_station)
-    TextView mDriverDispetchStation;
-
-    @BindView(R.id.driver_arrival_station)
-    TextView mDriverArrivalStation;
-
-    @BindView(R.id.driver_time_out)
-    TextView mDriverTimeOut;
-
-    @BindView(R.id.free_seats)
-    TextView mFreeSeats;
-
-    @BindView(R.id.max_seats)
-    TextView mMaxSeats;
-
-
     public RecyclerViewTicketInfoHolder(View itemView) {
         super(itemView);
         ButterKnife.bind(this, itemView);
     }
 
-    public void bind(TicketInfo ticketInfo) {
+    public void bind(Ticket ticketInfo, int position) {
 
-        mFreeSeats.setText(ticketInfo.getBody().getFreeseats());
-        mMaxSeats.setText(ticketInfo.getBody().getMaxseats());
 
-        mSeatNumber.setText(ticketInfo.getBody().getTicket().get(0).getSeatnum());
-        mDispatchStation.setText(ticketInfo.getBody().getTicket().get(0).getDispatchStationName());
-        mArrivalStation.setText(ticketInfo.getBody().getTicket().get(0).getArrivalStationName());
-        mPassengerSecondName.setText(ticketInfo.getBody().getTicket().get(0).getPassenger().getLastName());
-        mPassengerFirstName.setText(ticketInfo.getBody().getTicket().get(0).getPassenger().getFirstName());
-        mPassengerMiddleName.setText(ticketInfo.getBody().getTicket().get(0).getPassenger().getMiddleName());
-        mPassengerCitizen.setText(ticketInfo.getBody().getTicket().get(0).getPassenger().getCitizenship());
-        //mPassengerBirthday.setText(ticketInfo.getBody().getTicket().get(i).getPassenger().getBirthday());
-        mDocument.setText(ticketInfo.getBody().getTicket().get(0).getPassenger().getDocTypeId());
-        mDocumentNumber.setText(ticketInfo.getBody().getTicket().get(0).getPassenger().getDocNum());
-        mDocumentSeries.setText(ticketInfo.getBody().getTicket().get(0).getPassenger().getDocSeries());
-        // mPassengerGender.setText(ticketInfo.getBody().getTicket().get(i).getPassenger().getGender());
-        mTicketPrice.setText(ticketInfo.getBody().getTicket().get(0).getPrice());
+        mSeatNumber.setText("Место" + " " + String.valueOf(ticketInfo.getSeatnum()));
+        mDispatchStation.setText(ticketInfo.getDispatchStationName() + "   " + "-");
+        mArrivalStation.setText(ticketInfo.getArrivalStationName());
 
+
+        if (ticketInfo.getPassenger().getLastName() != null) {
+            mPassengerSecondName.setText(ticketInfo.getPassenger().getLastName());
+        } else {
+            mPassengerSecondName.setText(R.string.noInformatione);
+        }
+        if (ticketInfo.getPassenger().getFirstName() != null) {
+            mPassengerFirstName.setText(ticketInfo.getPassenger().getFirstName());
+        } else {
+            mPassengerFirstName.setText(R.string.noInformatione);
+        }
+        if (ticketInfo.getPassenger().getMiddleName() != null) {
+            mPassengerMiddleName.setText(ticketInfo.getPassenger().getMiddleName());
+        } else {
+            mPassengerMiddleName.setText(R.string.noInformatione);
+        }
+
+        if (ticketInfo.getPassenger().getCitizenship() != null) {
+            mPassengerCitizen.setText(ticketInfo.getPassenger().getCitizenship());
+        } else {
+            mPassengerCitizen.setText(R.string.noInformatione);
+        }
+
+        if (ticketInfo.getPassenger().getBirthday() != null) {
+            mPassengerBirthday.setText(ticketInfo.getPassenger().getBirthday());
+        } else {
+            mPassengerBirthday.setText(R.string.noInformatione);
+        }
+
+        if (ticketInfo.getPassenger().getDocTypeId() != null) {
+            mDocument.setText(ticketInfo.getPassenger().getDocTypeId());
+        } else {
+            mDocument.setText(R.string.noInformatione);
+        }
+        if (ticketInfo.getPassenger().getDocSeries() != null) {
+            mDocumentSeries.setText(ticketInfo.getPassenger().getDocSeries());
+        } else {
+            mDocumentSeries.setText(R.string.noInformatione);
+        }
+
+        if (ticketInfo.getPassenger().getDocNum() != null) {
+            mDocumentNumber.setText(ticketInfo.getPassenger().getDocNum());
+        } else {
+            mDocumentNumber.setText(R.string.noInformatione);
+        }
+
+        if (ticketInfo.getPassenger().getGender() != null) {
+            mPassengerGender.setText(ticketInfo.getPassenger().getGender());
+        } else {
+            mPassengerGender.setText(R.string.noInformatione);
+        }
+
+        mTicketPrice.setText(ticketInfo.getPrice() + " " + "руб.");
 
     }
 }

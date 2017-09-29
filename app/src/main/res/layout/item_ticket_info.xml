@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_height="265dp"
+        android:layout_marginTop="10dp"
         android:paddingLeft="@dimen/marginLeft"
         android:paddingRight="@dimen/marginRight"
-        android:paddingTop="@dimen/marginTop">
+        android:paddingTop="@dimen/marginTop"
+        card_view:cardCornerRadius="20dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -19,10 +21,11 @@
             android:background="@color/cardview_background_linear_layout">
 
             <TextView
+                android:id="@+id/mesto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:padding="@dimen/padding_headline_text"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="@dimen/padding_headline_text"
                 android:textColor="@color/cardview_black_text"
                 android:textSize="@dimen/head_item_text_size"
                 tools:text="Место" />
@@ -31,11 +34,8 @@
                 android:id="@+id/seat_number"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginStart="106dp"
-                android:gravity="center"
-                android:padding="@dimen/padding_headline_text"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="85dp"
                 android:textColor="@color/cardview_black_text"
                 android:textSize="@dimen/head_item_text_size"
                 tools:text="4" />
@@ -44,54 +44,114 @@
                 android:id="@+id/dispatch_station"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginStart="210dp"
-                android:gravity="center"
-                android:padding="@dimen/padding_headline_text"
+                android:layout_marginLeft="210dp"
+                android:layout_marginTop="@dimen/padding_headline_text"
                 android:textColor="@color/cardview_black_text"
                 android:textSize="@dimen/head_item_text_size"
                 tools:text="Барнаул" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginStart="340dp"
-                android:gravity="center"
-                android:padding="@dimen/padding_headline_text"
-                android:textColor="@color/cardview_black_text"
-                android:textSize="@dimen/head_item_text_size"
-                tools:text="-" />
 
             <TextView
                 android:id="@+id/arrival_station"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
-                android:layout_marginStart="360dp"
-                android:gravity="center"
-                android:padding="@dimen/padding_headline_text"
+                android:layout_marginLeft="380dp"
+                android:layout_marginTop="@dimen/padding_headline_text"
                 android:textColor="@color/cardview_black_text"
                 android:textSize="@dimen/head_item_text_size"
                 tools:text="Белокуриха" />
 
         </RelativeLayout>
 
+        <!--<TableLayout-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="horizontal">-->
+
+            <!--<TableRow-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content" />-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/mesto"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginStart="15dp"-->
+                <!--android:layout_marginTop="@dimen/padding_headline_text"-->
+                <!--android:textColor="@color/cardview_black_text"-->
+                <!--android:textSize="@dimen/head_item_text_size"-->
+                <!--tools:text="Место" />-->
+
+        <!--</TableLayout>-->
+
+        <!--<TableLayout-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content">-->
+
+            <!--<TableRow-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content" />-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/seat_number"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginStart="85dp"-->
+                <!--android:layout_marginTop="10dp"-->
+                <!--android:textColor="@color/cardview_black_text"-->
+                <!--android:textSize="@dimen/head_item_text_size"-->
+                <!--tools:text="4" />-->
+
+        <!--</TableLayout>-->
+
+        <!--<TableLayout-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content">-->
+
+            <!--<TableRow-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content" />-->
+            <!--<TextView-->
+                <!--android:id="@+id/dispatch_station"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginLeft="180dp"-->
+                <!--android:layout_marginTop="@dimen/padding_headline_text"-->
+                <!--android:textColor="@color/cardview_black_text"-->
+                <!--android:textSize="@dimen/head_item_text_size"-->
+                <!--tools:text="Барнаул" />-->
+
+        <!--</TableLayout>-->
+
+        <!--<TableLayout-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content">-->
+
+            <!--<TableRow-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content" />-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/arrival_station"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginLeft="380dp"-->
+                <!--android:layout_marginTop="@dimen/padding_headline_text"-->
+                <!--android:textColor="@color/cardview_black_text"-->
+                <!--android:textSize="@dimen/head_item_text_size"-->
+                <!--tools:text="Белокуриха" />-->
+
+        <!--</TableLayout>-->
+
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center">
+            android:layout_height="wrap_content">
 
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
                 android:layout_marginTop="60dp"
-                android:gravity="center"
                 android:padding="@dimen/padding_headline_text"
                 android:text="@string/lastname"
                 android:textColor="@color/cardview_black_text"
@@ -155,10 +215,8 @@
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@+id/textView"
                 android:layout_alignBottom="@+id/textView"
-                android:layout_marginStart="14dp"
                 android:layout_toEndOf="@+id/textView3"
                 android:gravity="center"
-                android:padding="@dimen/padding_headline_text"
                 android:textColor="@color/cardview_black_text"
                 android:textSize="@dimen/underline_item_text_size"
                 tools:text="Палицкий" />
@@ -171,7 +229,6 @@
                 android:layout_alignBottom="@+id/textView5"
                 android:layout_alignStart="@+id/item_passenger_second_name"
                 android:gravity="center"
-                android:padding="@dimen/padding_headline_text"
                 android:textColor="@color/cardview_black_text"
                 android:textSize="@dimen/underline_item_text_size"
                 tools:text="Александр" />
@@ -184,7 +241,6 @@
                 android:layout_alignBottom="@+id/textView3"
                 android:layout_alignStart="@+id/item_passenger_first_name"
                 android:gravity="center"
-                android:padding="@dimen/padding_headline_text"
                 android:textColor="@color/cardview_black_text"
                 android:textSize="@dimen/underline_item_text_size"
                 tools:text="Михайлович" />
@@ -195,9 +251,8 @@
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@+id/textView2"
                 android:layout_alignBottom="@+id/textView2"
-                android:layout_toEndOf="@+id/textView6"
+                android:layout_toEndOf="@+id/textView2"
                 android:gravity="center"
-                android:padding="@dimen/padding_headline_text"
                 android:textColor="@color/cardview_black_text"
                 android:textSize="@dimen/underline_item_text_size"
                 tools:text="RU" />
@@ -210,7 +265,6 @@
                 android:layout_alignBottom="@+id/textView6"
                 android:layout_toEndOf="@+id/textView6"
                 android:gravity="center"
-                android:padding="@dimen/padding_headline_text"
                 android:textColor="@color/cardview_black_text"
                 android:textSize="@dimen/underline_item_text_size"
                 tools:text="01/01/01" />
@@ -221,10 +275,9 @@
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@+id/item_passenger_second_name"
                 android:layout_alignBottom="@+id/item_passenger_second_name"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="20dp"
                 android:layout_toEndOf="@+id/item_passenger_birthday"
                 android:gravity="center"
-                android:padding="@dimen/padding_headline_text"
                 android:text="@string/document"
                 android:textColor="@color/cardview_black_text"
                 android:textSize="@dimen/underline_item_text_size" />
@@ -235,9 +288,8 @@
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@+id/item_passenger_first_name"
                 android:layout_alignBottom="@+id/item_passenger_first_name"
-                android:layout_alignStart="@+id/textView7"
+                android:layout_alignEnd="@+id/textView7"
                 android:gravity="center"
-                android:padding="@dimen/padding_headline_text"
                 android:text="@string/docSeries"
                 android:textColor="@color/cardview_black_text"
                 android:textSize="@dimen/underline_item_text_size" />
@@ -248,9 +300,8 @@
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@+id/item_passenger_middle_name"
                 android:layout_alignBottom="@+id/item_passenger_middle_name"
-                android:layout_alignStart="@+id/textView8"
+                android:layout_alignEnd="@+id/textView8"
                 android:gravity="center"
-                android:padding="@dimen/padding_headline_text"
                 android:text="@string/docNumber"
                 android:textColor="@color/cardview_black_text"
                 android:textSize="@dimen/underline_item_text_size" />
@@ -261,92 +312,80 @@
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@+id/item_passenger_citizen"
                 android:layout_alignBottom="@+id/item_passenger_citizen"
-                android:layout_alignStart="@+id/textView8"
+                android:layout_alignEnd="@+id/textView9"
                 android:gravity="center"
-                android:padding="@dimen/padding_headline_text"
                 android:text="@string/gender"
                 android:textColor="@color/cardview_black_text"
                 android:textSize="@dimen/underline_item_text_size" />
 
             <TextView
+                android:id="@+id/textView12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@+id/item_passenger_birthday"
                 android:layout_alignBottom="@+id/item_passenger_birthday"
-                android:layout_alignStart="@+id/textView10"
+                android:layout_alignStart="@+id/textView7"
                 android:gravity="center"
-                android:padding="@dimen/padding_headline_text"
                 android:text="@string/ticket_price"
                 android:textColor="@color/cardview_black_text"
                 android:textSize="@dimen/underline_item_text_size"
-                tools:text="Цена билета"
-                android:id="@+id/textView12" />
+                tools:text="Цена билета" />
 
             <TextView
                 android:id="@+id/item_document"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:padding="@dimen/padding_headline_text"
-                android:textColor="@color/cardview_black_text"
-                android:textSize="@dimen/underline_item_text_size"
-                tools:text="Паспорт"
-                android:layout_marginStart="29dp"
                 android:layout_alignBaseline="@+id/textView7"
                 android:layout_alignBottom="@+id/textView7"
-                android:layout_toEndOf="@+id/textView12" />
+                android:layout_marginStart="20dp"
+                android:layout_toEndOf="@+id/textView7"
+                android:textColor="@color/cardview_black_text"
+                android:textSize="@dimen/underline_item_text_size"
+                tools:text="Паспорт" />
 
             <TextView
                 android:id="@+id/item_document_series"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:padding="@dimen/padding_headline_text"
-                android:textColor="@color/cardview_black_text"
-                android:textSize="@dimen/underline_item_text_size"
-                tools:text="01 00"
                 android:layout_alignBaseline="@+id/textView8"
                 android:layout_alignBottom="@+id/textView8"
-                android:layout_alignStart="@+id/item_document" />
+                android:layout_alignStart="@+id/item_document"
+                android:textColor="@color/cardview_black_text"
+                android:textSize="@dimen/underline_item_text_size"
+                tools:text="01 00" />
 
             <TextView
                 android:id="@+id/item_document_number"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:padding="@dimen/padding_headline_text"
-                android:textColor="@color/cardview_black_text"
-                android:textSize="@dimen/underline_item_text_size"
-                tools:text="11 11 11"
                 android:layout_alignBaseline="@+id/textView9"
                 android:layout_alignBottom="@+id/textView9"
-                android:layout_alignStart="@+id/item_document_series"/>
+                android:layout_alignStart="@+id/item_document_series"
+                android:textColor="@color/cardview_black_text"
+                android:textSize="@dimen/underline_item_text_size"
+                tools:text="11 11 11" />
 
             <TextView
                 android:id="@+id/item_passenger_gender"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:padding="@dimen/padding_headline_text"
-                android:textColor="@color/cardview_black_text"
-                android:textSize="@dimen/underline_item_text_size"
-                tools:text="М/Ж"
                 android:layout_alignBaseline="@+id/textView10"
                 android:layout_alignBottom="@+id/textView10"
-                android:layout_alignStart="@+id/item_document_number" />
+                android:layout_alignStart="@+id/item_document_number"
+                android:textColor="@color/cardview_black_text"
+                android:textSize="@dimen/underline_item_text_size"
+                tools:text="М/Ж" />
 
             <TextView
                 android:id="@+id/item_ticket_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:padding="@dimen/padding_headline_text"
-                android:textColor="@color/cardview_black_text"
-                android:textSize="@dimen/underline_item_text_size"
-                tools:text="450"
                 android:layout_alignBaseline="@+id/textView12"
                 android:layout_alignBottom="@+id/textView12"
-                android:layout_alignStart="@+id/item_passenger_gender" />
+                android:layout_toEndOf="@+id/textView12"
+                android:textColor="@color/cardview_black_text"
+                android:textSize="@dimen/underline_item_text_size"
+                tools:text="450" />
 
 
         </RelativeLayout>
