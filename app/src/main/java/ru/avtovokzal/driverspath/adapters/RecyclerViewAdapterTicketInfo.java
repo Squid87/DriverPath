@@ -31,7 +31,7 @@ public class RecyclerViewAdapterTicketInfo extends RecyclerView.Adapter<Recycler
 
     @Override
     public void onBindViewHolder(RecyclerViewTicketInfoHolder holder, int position) {
-        holder.bind(mTickets.get(position), position);
+        holder.bind(mTickets.get(position));
 
 
     }

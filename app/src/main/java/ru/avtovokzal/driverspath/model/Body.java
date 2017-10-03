@@ -6,31 +6,32 @@ import java.util.List;
 
 public class Body {
 
-    @SerializedName("carrier")
-    public Carrier mCarrier;
+	@SerializedName("carrier")
+	public Carrier mCarrier;
 
-    @SerializedName("freeSeats")
-    public int mFreeseats;
+	@SerializedName("freeSeats")
+	public int mFreeseats;
 
-    @SerializedName("maxSeats")
-    public int mMaxseats;
+	@SerializedName("maxSeats")
+	public int mMaxseats;
 
-    @SerializedName("ticket")
-    public List<Ticket> mTicket;
+	@SerializedName("ticket")
+	public List<Ticket> mTicket;
 
-    public Carrier getCarrier() {
-        return mCarrier;
-    }
+	public Carrier getCarrier() {
+		return mCarrier;
+	}
 
-    public int getFreeseats() {
-        return mFreeseats;
-    }
+	public int getFreeseats() {
+		return mFreeseats;
+	}
 
-    public int getMaxseats() {
-        return mMaxseats;
-    }
+	public int getMaxseats() {
+		return mMaxseats;
+	}
 
-    public List<Ticket> getTicket() {
-        return mTicket;
-    }
+	public List<Ticket> getTicket() {
+		return mTicket;
+	}
+
 }

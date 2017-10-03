@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content">
+	
+	<RelativeLayout
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content">
+		
+		<TextView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="Место"
+			android:textColor="@color/cardview_black_text"
+			android:textSize="@dimen/head_line_text_size"
+			tools:text="Место" />
+		
+		<TextView
+			android:id="@+id/mesto2"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignParentRight="true"
+			android:layout_marginRight="480dp"
+			android:textColor="@color/cardview_black_text"
+			android:textSize="@dimen/head_line_text_size"
+			tools:text="4" />
+		
+		<TextView
+			android:id="@+id/depetsch"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignParentRight="true"
+			android:layout_marginRight="300dp"
+			android:textColor="@color/cardview_black_text"
+			android:textSize="@dimen/head_line_text_size"
+			tools:text="Барнаул" />
+		
+		<TextView
+			android:id="@+id/arrive"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignParentRight="true"
+			android:layout_marginRight="100dp"
+			android:textColor="@color/cardview_black_text"
+			android:textSize="@dimen/head_line_text_size"
+			tools:text="Белокуриха" />
+		
+		<ImageButton
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:src="@mipmap/ic_launcher"
+			android:visibility="visible"
+			android:layout_alignParentRight="true"
+			/>
+	
+	</RelativeLayout>
+
+</android.support.v7.widget.CardView>

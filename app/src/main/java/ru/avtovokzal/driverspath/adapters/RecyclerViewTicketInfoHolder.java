@@ -62,7 +62,7 @@ public class RecyclerViewTicketInfoHolder extends RecyclerView.ViewHolder{
         ButterKnife.bind(this, itemView);
     }
 
-    public void bind(Ticket ticketInfo, int position) {
+    public void bind(Ticket ticketInfo) {
 
 
         mSeatNumber.setText("Место" + " " + String.valueOf(ticketInfo.getSeatnum()));

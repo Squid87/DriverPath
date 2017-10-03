@@ -65,6 +65,11 @@ android {
         compile "com.aurelhubert:ahbottomnavigation:1.5.1"
         compile "com.roughike:bottom-bar:2.0.2"
 
+
+        //compile 'com.bignerdranch.android:expandablerecyclerview:1.0.3'
+
+        compile 'com.thoughtbot:expandablecheckrecyclerview:1.4'
+
     }
 }
 dependencies {

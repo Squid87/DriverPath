@@ -1,8 +1,17 @@
 package ru.avtovokzal.driverspath.model;
 
-import com.google.gson.annotations.SerializedName;
+import java.util.ArrayList;
+import java.util.List;
 
-public class Ticket {
+import com.google.gson.annotations.SerializedName;
+import com.thoughtbot.expandablerecyclerview.models.ExpandableGroup;
+
+public class Ticket extends ExpandableGroup {
+
+    public Ticket(String title, List items) {
+        super(title, items);
+    }
+
 
     @SerializedName("price")
     public int mPrice;
@@ -56,4 +65,5 @@ public class Ticket {
     public Passenger getPassenger() {
         return mPassenger;
     }
+
 }
