@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/qqq"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="3dp"
+        android:layout_marginTop="@dimen/marginTop"
+        android:padding="5dp"
+        android:gravity=""
+        android:text="Место"
+        android:textColor="@color/cardview_black_text"
+        android:textSize="@dimen/head_line_text_size"
+        tools:text="Место" />
+
+    <TextView
+        android:id="@+id/www"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="3dp"
+        android:layout_marginTop="50dp"
+        android:padding="5dp"
+        android:gravity=""
+        android:text="Место"
+        android:textColor="@color/cardview_black_text"
+        android:textSize="@dimen/head_line_text_size"
+        tools:text="Место" />
+
+
+</FrameLayout>

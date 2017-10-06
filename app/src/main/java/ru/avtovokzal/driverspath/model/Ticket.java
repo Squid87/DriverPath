@@ -1,17 +1,15 @@
 package ru.avtovokzal.driverspath.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import com.google.gson.annotations.SerializedName;
 import com.thoughtbot.expandablerecyclerview.models.ExpandableGroup;
 
-public class Ticket extends ExpandableGroup {
-
-    public Ticket(String title, List items) {
-        super(title, items);
-    }
-
+public class Ticket{
 
     @SerializedName("price")
     public int mPrice;
@@ -45,6 +43,7 @@ public class Ticket extends ExpandableGroup {
 
     @SerializedName("ticketNumber")
     public String mTicketnumber;
+
 
     public int getPrice() {
         return mPrice;
