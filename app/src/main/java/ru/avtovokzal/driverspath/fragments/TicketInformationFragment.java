@@ -3,7 +3,6 @@ package ru.avtovokzal.driverspath.fragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.annotation.StringDef;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -22,9 +21,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import ru.avtovokzal.driverspath.R;
 import ru.avtovokzal.driverspath.adapters.TicketAdapter;
-import ru.avtovokzal.driverspath.adapters.RecyclerViewAdapterTicketInfo;
 import ru.avtovokzal.driverspath.model.Body;
-import ru.avtovokzal.driverspath.model.SomeClass;
+import ru.avtovokzal.driverspath.model.TicketCollector;
 import ru.avtovokzal.driverspath.mvp.TicketInfoPresenter;
 import ru.avtovokzal.driverspath.mvp.View.TicketInformationView;
 
@@ -32,7 +30,6 @@ public class TicketInformationFragment extends MvpAppCompatFragment implements T
 
     @InjectPresenter
     TicketInfoPresenter mTicketInfoPresenter;
-    RecyclerViewAdapterTicketInfo mRecyclerViewAdapterTicketInfo;
     TicketAdapter mTicketAdapter;
 
     @BindView(R.id.fragment_ticket_info_recycler_view)
@@ -75,29 +72,22 @@ public class TicketInformationFragment extends MvpAppCompatFragment implements T
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        //mRecyclerViewAdapterTicketInfo = new RecyclerViewAdapterTicketInfo();
-        //mRecyclerView.setAdapter(mRecyclerViewAdapterTicketInfo);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
     }
 
     @Override
     public void showTicketInfo(Body mBody) {
-        //mRecyclerViewAdapterTicketInfo.setTiketInfo(mBody.getTicket());
-
-        List<SomeClass> mSomeList = new ArrayList<>();
+        List<TicketCollector> mSomeList = new ArrayList<>();
         int j = 1;
+
         for (int i = 0; i < mBody.getTicket().size(); i++) {
-            SomeClass mSomeClass = new SomeClass(String.valueOf(i), mBody.getTicket().subList(i, j));
-            mSomeList.add(mSomeClass);
+            TicketCollector mTicketCollector = new TicketCollector(String.valueOf(i), mBody.getTicket().subList(i, j));
+            mSomeList.add(mTicketCollector);
             j++;
         }
         mTicketAdapter = new TicketAdapter(mSomeList);
         mRecyclerView.setAdapter(mTicketAdapter);
-
-
-        //mTicketAdapter.setTiketInfo(mBody.getTicket());
-
 
         mFreeSeats.setText(String.valueOf(mBody.getFreeseats()) + " " + "/" + " ");
         mMaxSeats.setText(String.valueOf(mBody.getMaxseats()));

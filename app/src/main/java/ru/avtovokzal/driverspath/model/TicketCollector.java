@@ -5,9 +5,9 @@ import com.thoughtbot.expandablerecyclerview.models.ExpandableGroup;
 
 import java.util.List;
 
-public class SomeClass extends ExpandableGroup {
+public class TicketCollector extends ExpandableGroup {
 
-    public SomeClass(String title, List items) {
+    public TicketCollector(String title, List items) {
         super(title, items);
     }
 }

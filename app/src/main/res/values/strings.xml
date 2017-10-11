@@ -1,9 +1,9 @@
 <resources>
 	<!--passenger information-->
 	<string name="app_name">DriverPath</string>
-	<string name="lastname">Фамилия:</string>
-	<string name="firstname">Имя:</string>
-	<string name="meddlename">Отчество:</string>
+	<string name="last_name">Фамилия:</string>
+	<string name="first_name">Имя:</string>
+	<string name="meddle_name">Отчество:</string>
 	<string name="citizen">Гражданство:</string>
 	<string name="birthday">Дата рождения:</string>
 	<string name="document">Документ:</string>
@@ -11,7 +11,7 @@
 	<string name="docNumber">Номер:</string>
 	<string name="gender">Пол:</string>
 	<string name="ticket_price">Цена Билета:</string>
-    <string name="noInformatione">No info</string>
+    <string name="noInformatione">No informat</string>
 
 
 </resources>

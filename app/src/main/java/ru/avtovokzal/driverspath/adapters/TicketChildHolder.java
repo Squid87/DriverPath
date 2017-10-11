@@ -13,14 +13,6 @@ import ru.avtovokzal.driverspath.model.Ticket;
 
 public class TicketChildHolder extends ChildViewHolder {
 
-    @BindView(R.id.seat_number)
-    TextView mSeatNumber;
-
-    @BindView(R.id.dispatch_station)
-    TextView mDispatchStation;
-
-    @BindView(R.id.arrival_station)
-    TextView mArrivalStation;
 
     @BindView(R.id.item_passenger_second_name)
     TextView mPassengerSecondName;

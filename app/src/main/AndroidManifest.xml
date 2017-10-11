@@ -6,10 +6,12 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_bus"
+        android:label="BusRoute"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:screenOrientation="landscape">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
                 <action android:name="android.intent.action.MAIN" />
@@ -17,5 +19,4 @@
         </activity>
 
     </application>
-    <!--android:label="Bus Rout"-->
 </manifest>

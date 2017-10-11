@@ -12,27 +12,25 @@
 
     <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:background="@color/cardview_background_linear_layout">
+        android:layout_height="71dp"
+        android:gravity="center">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="3dp"
+            android:layout_marginLeft="100dp"
             android:layout_marginTop="@dimen/marginTop"
-            android:gravity=""
             android:padding="5dp"
-            android:text="Место"
             android:textColor="@color/cardview_black_text"
             android:textSize="@dimen/head_line_text_size"
+            android:text="Место"
             tools:text="Место" />
 
         <TextView
             android:id="@+id/ticket_seat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="100dp"
+            android:layout_marginLeft="250dp"
             android:layout_marginTop="@dimen/marginTop"
             android:gravity="center"
             android:padding="5dp"
@@ -44,7 +42,7 @@
             android:id="@+id/ticket_despatch"
             android:layout_width="180dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="140dp"
+            android:layout_marginLeft="350dp"
             android:layout_marginTop="@dimen/marginTop"
             android:gravity="center"
             android:padding="5dp"
@@ -56,7 +54,7 @@
             android:id="@+id/ticket_arrive"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="320dp"
+            android:layout_marginLeft="550dp"
             android:layout_marginTop="@dimen/marginTop"
             android:padding="5dp"
             android:textColor="@color/cardview_black_text"
@@ -71,15 +69,6 @@
             android:scaleY="1.0"
             android:src="@mipmap/ic_arrow"
             android:visibility="visible" />
-
-        <!--<ImageButton-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:src="@mipmap/ic_arrow"-->
-        <!--android:scaleX="1.0"-->
-        <!--android:scaleY="1.0"-->
-        <!--android:visibility="visible"-->
-        <!--android:layout_alignParentRight="true"/>-->
 
     </RelativeLayout>
 

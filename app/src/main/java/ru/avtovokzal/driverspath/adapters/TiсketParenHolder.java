@@ -10,18 +10,18 @@ import butterknife.ButterKnife;
 import ru.avtovokzal.driverspath.R;
 import ru.avtovokzal.driverspath.model.Ticket;
 
-public class TiketParenHolder extends GroupViewHolder {
+public class TiсketParenHolder extends GroupViewHolder {
 
-    @BindView(R.id.mesto2)
+    @BindView(R.id.ticket_seat)
     TextView mMesto;
 
-    @BindView(R.id.depetsch)
+    @BindView(R.id.ticket_despatch)
     TextView mDespetch;
 
-    @BindView(R.id.arrive)
+    @BindView(R.id.ticket_arrive)
     TextView mArrive;
 
-    public TiketParenHolder(View itemView) {
+    public TiсketParenHolder(View itemView) {
         super(itemView);
         ButterKnife.bind(this, itemView);
     }

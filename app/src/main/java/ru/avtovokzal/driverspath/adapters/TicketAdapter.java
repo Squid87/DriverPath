@@ -12,24 +12,27 @@ import com.thoughtbot.expandablerecyclerview.ExpandableRecyclerViewAdapter;
 import com.thoughtbot.expandablerecyclerview.models.ExpandableGroup;
 
 import ru.avtovokzal.driverspath.R;
-import ru.avtovokzal.driverspath.model.Body;
+import ru.avtovokzal.driverspath.model.TicketCollector;
 import ru.avtovokzal.driverspath.model.Ticket;
 
-public class TicketAdapter extends ExpandableRecyclerViewAdapter<TiketParenHolder, TicketChildHolder> {
+public class TicketAdapter extends ExpandableRecyclerViewAdapter<TiсketParenHolder, TicketChildHolder> {
+
+    private List<TicketCollector> mTickets = new ArrayList<>();
 
     public TicketAdapter(List<? extends ExpandableGroup> groups) {
         super(groups);
+        mTickets= (List<TicketCollector>) groups;
     }
 
     @Override
-    public TiketParenHolder onCreateGroupViewHolder(ViewGroup parent, int viewType) {
+    public TiсketParenHolder onCreateGroupViewHolder(ViewGroup parent, int viewType) {
         View mInflate1 = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_ticket_parent, parent, false);
-        return new TiketParenHolder(mInflate1);
+        return new TiсketParenHolder(mInflate1);
     }
 
     @Override
     public TicketChildHolder onCreateChildViewHolder(ViewGroup parent, int viewType) {
-        View mInflate2 = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_ticket_info, parent, false);
+        View mInflate2 = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_ticket_child, parent, false);
         return new TicketChildHolder(mInflate2);
     }
 
@@ -40,8 +43,8 @@ public class TicketAdapter extends ExpandableRecyclerViewAdapter<TiketParenHolde
     }
 
     @Override
-    public void onBindGroupViewHolder(TiketParenHolder holder, int flatPosition, ExpandableGroup group) {
-        holder.bind((Ticket) group.getItems().get(flatPosition));
+    public void onBindGroupViewHolder(TiсketParenHolder holder, int flatPosition, ExpandableGroup group) {
+        holder.bind((Ticket) group.getItems().get(0));
     }
 
 }
