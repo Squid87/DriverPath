@@ -19,17 +19,26 @@ public class DatabaseService {
     }
 
     public void saveTickets(Body body) throws SQLException {
-        body.setmId(0);
-        body.getCarrier().setmId(0);
+        List<Ticket> mTickets = new ArrayList<>();
+        mTickets.addAll(body.getTicket());  //TODO может все таки можно подругому?!
+
+        body.setmId(1);
+        body.getCarrier().setmId(1);
         mDatabaseHelper.getBodyDao().createOrUpdate(body);
         mDatabaseHelper.getCarrierDao().createOrUpdate(body.getCarrier());
 
-
-        for (int i = 0; i < body.getTicket().size(); i++) {
-            body.getTicket().get(i).setmId(i);
-            body.getTicket().get(i).getPassenger().setmId(i);
-            mDatabaseHelper.getTicketDao().createOrUpdate((Ticket) body.getTicket());
-            mDatabaseHelper.getPassengerDao().createOrUpdate(body.getTicket().get(i).getPassenger());
+        for (int i = 0; i < mTickets.size(); i++) {
+            mTickets.get(i).setmId(i);
+            mTickets.get(i).getPassenger().setmId(i);
+            mTickets.get(i).setParentBodyId(body);
+            mDatabaseHelper.getTicketDao().createOrUpdate(mTickets.get(i));
+            mDatabaseHelper.getPassengerDao().createOrUpdate(mTickets.get(i).getPassenger());
         }
+
     }
+
+    public Body loadTickets() throws SQLException {
+        return mDatabaseHelper.getBodyDao().queryForId(1);
+    }
+
 }

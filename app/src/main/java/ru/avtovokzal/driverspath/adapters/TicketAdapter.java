@@ -42,7 +42,7 @@ public class TicketAdapter extends ExpandableRecyclerViewAdapter<TiсketParenHol
         holder.bind((Ticket) group.getItems().get(childIndex));
     }
 
-    @Override
+    @Override //TODO может всетаки можно подругому?
     public void onBindGroupViewHolder(TiсketParenHolder holder, int flatPosition, ExpandableGroup group) {
         holder.bind((Ticket) group.getItems().get(0));
     }

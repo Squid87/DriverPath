@@ -41,12 +41,10 @@ public class Body {
     @SerializedName("maxSeats")
     public int mMaxseats;
 
-    @SerializedName("ticket")
-    public List<Ticket> mTicket;
-
-
     @ForeignCollectionField(columnName = TICKETS, eager = true)
-    public Collection<Ticket> mTickets = convertList();
+    @SerializedName("ticket")
+    public Collection<Ticket> mTicket;
+
 
     public Carrier getCarrier() {
         return mCarrier;
@@ -60,7 +58,7 @@ public class Body {
         return mMaxseats;
     }
 
-    public List<Ticket> getTicket() {
+    public Collection<Ticket> getTicket() {
         return mTicket;
     }
 
@@ -68,17 +66,12 @@ public class Body {
         this.mId = mId;
     }
 
-    public static void onCreate(SQLiteDatabase database, ConnectionSource connectionSource) throws SQLException {
+    public int getmId() {
+        return mId;
+    }
 
+    public static void onCreate(SQLiteDatabase database, ConnectionSource connectionSource) throws SQLException {
         TableUtils.createTable(connectionSource, Body.class);
     }
 
-    private Collection<Ticket> convertList() {
-
-        Collection<Ticket> mTikets = new ArrayList<>();
-        for (int i = 0; i < getTicket().size(); i++) {
-            mTikets.add(getTicket().get(i));
-        }
-        return mTikets;
-    }
 }

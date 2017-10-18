@@ -53,6 +53,12 @@ public class TicketInfoPresenter extends MvpPresenter<TicketInformationView> {
                                 "Произошла ошибка!", Toast.LENGTH_LONG);
                         toast.show();
                         toast.setGravity(Gravity.CENTER, 0, 0);
+
+                        try {
+                            getViewState().showTicketInfo(mDatabaseService.loadTickets());
+                        } catch (SQLException e1) {
+                            e1.printStackTrace();
+                        }
                     }
 
                     @Override

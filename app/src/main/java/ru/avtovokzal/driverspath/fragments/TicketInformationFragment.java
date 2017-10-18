@@ -22,6 +22,7 @@ import butterknife.ButterKnife;
 import ru.avtovokzal.driverspath.R;
 import ru.avtovokzal.driverspath.adapters.TicketAdapter;
 import ru.avtovokzal.driverspath.model.Body;
+import ru.avtovokzal.driverspath.model.Ticket;
 import ru.avtovokzal.driverspath.model.TicketCollector;
 import ru.avtovokzal.driverspath.mvp.TicketInfoPresenter;
 import ru.avtovokzal.driverspath.mvp.View.TicketInformationView;
@@ -79,10 +80,12 @@ public class TicketInformationFragment extends MvpAppCompatFragment implements T
     @Override
     public void showTicketInfo(Body mBody) {
         List<TicketCollector> mSomeList = new ArrayList<>();
+        List<Ticket> mTickets = new ArrayList<>(); //TODO может всетаки можно подругому?
+        mTickets.addAll(mBody.getTicket());
         int j = 1;
 
-        for (int i = 0; i < mBody.getTicket().size(); i++) {
-            TicketCollector mTicketCollector = new TicketCollector(String.valueOf(i), mBody.getTicket().subList(i, j));
+        for (int i = 0; i < mTickets.size(); i++) {
+            TicketCollector mTicketCollector = new TicketCollector(String.valueOf(i), mTickets.subList(i, j));
             mSomeList.add(mTicketCollector);
             j++;
         }

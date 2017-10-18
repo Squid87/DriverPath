@@ -28,7 +28,7 @@ public class Passenger {
     private static final String CITIZENSHIP = "citizenship";
 
 
-    @DatabaseField(columnName = COLUMN_ID, generatedId =  true)
+    @DatabaseField(columnName = COLUMN_ID, id =  true)
     private int mId;
 
     @SerializedName("info")
@@ -42,6 +42,7 @@ public class Passenger {
     public String mGender;
 
     @DatabaseField(columnName = FIRST_NAME)
+
     @SerializedName("firstName")
     public String mFirstName;
 

@@ -20,9 +20,12 @@ public class Ticket {
     private static final String DISPATCH_STATION_NAME = "dispatch_station_name";
     private static final String ARRIVAL_STATION_NAME = "arrival_station_name";
     private static final String PASSENGER = "passenger";
+    private static final String PARENT_BODY = "parent_body";
 
+    @DatabaseField(columnName = PARENT_BODY, foreign = true)
+    private Body parentBody;
 
-    @DatabaseField(columnName = COLUMN_ID, generatedId =  true)
+    @DatabaseField(columnName = COLUMN_ID, id = true)
     private int mId;
 
     @DatabaseField(columnName = PRICE)
@@ -85,6 +88,10 @@ public class Ticket {
 
     public Passenger getPassenger() {
         return mPassenger;
+    }
+
+    public void setParentBodyId(Body parentBody) {
+        this.parentBody = parentBody;
     }
 
     public static void onCreate(SQLiteDatabase database, ConnectionSource connectionSource) throws SQLException {
