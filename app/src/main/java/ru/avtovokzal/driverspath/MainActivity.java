@@ -2,23 +2,15 @@ package ru.avtovokzal.driverspath;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.widget.TextView;
 
 import com.arellomobile.mvp.MvpAppCompatActivity;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 
-import butterknife.BindView;
 import butterknife.ButterKnife;
 import ru.avtovokzal.driverspath.fragments.TicketInformationFragment;
-import ru.avtovokzal.driverspath.model.Body;
-import ru.avtovokzal.driverspath.mvp.MainPresenter;
-import ru.avtovokzal.driverspath.mvp.View.MainView;
 
-public class MainActivity extends MvpAppCompatActivity implements MainView {
-    @InjectPresenter
-    MainPresenter mainPresenter;
+public class MainActivity extends MvpAppCompatActivity {
+
 
 
     @Override
@@ -26,6 +18,11 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initBind();
+
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.activity_main_conteiner, new TicketInformationFragment())
+                .commit();
+        getSupportFragmentManager().executePendingTransactions();
     }
 
     protected void onSaveInstanceState(Bundle outState) {
@@ -37,13 +34,4 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
         ButterKnife.bind(this);
     }
 
-
-    @Override
-    public void start() {
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.activity_main_conteiner, new TicketInformationFragment())
-                .commit();
-        getSupportFragmentManager().executePendingTransactions();
-
-    }
 }

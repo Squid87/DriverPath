@@ -8,11 +8,16 @@ import com.arellomobile.mvp.InjectViewState;
 import com.arellomobile.mvp.MvpPresenter;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import okhttp3.ResponseBody;
 import retrofit2.Response;
 import ru.avtovokzal.driverspath.Application;
+import ru.avtovokzal.driverspath.database.DatabaseService;
 import ru.avtovokzal.driverspath.model.RegistrationResponse;
+import ru.avtovokzal.driverspath.model.Ticket;
 import ru.avtovokzal.driverspath.mvp.View.TicketInformationView;
 import ru.avtovokzal.driverspath.network.RegistrationBody;
 import ru.avtovokzal.driverspath.network.TicketApiService;
@@ -24,6 +29,9 @@ import rx.schedulers.Schedulers;
 public class TicketInfoPresenter extends MvpPresenter<TicketInformationView> {
 
     public TicketApiService mTicketApiService = TicketApiService.getsInstance(Application.getInstance());
+    DatabaseService mDatabaseService = new DatabaseService(Application.getInstance());
+
+
 
     @Override
     protected void onFirstViewAttach() {
@@ -52,6 +60,12 @@ public class TicketInfoPresenter extends MvpPresenter<TicketInformationView> {
                         getViewState().showProgressBar();
                         RegistrationResponse registrationResponse = response.body();
                         getViewState().showTicketInfo(registrationResponse.getBody());
+
+                        try {
+                            mDatabaseService.saveTickets(registrationResponse.getBody());
+                        } catch (SQLException e) {
+                            e.printStackTrace();
+                        }
                     }
                 });
     }
