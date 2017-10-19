@@ -80,8 +80,7 @@ public class TicketInformationFragment extends MvpAppCompatFragment implements T
     @Override
     public void showTicketInfo(Body mBody) {
         List<TicketCollector> mSomeList = new ArrayList<>();
-        List<Ticket> mTickets = new ArrayList<>(); //TODO может всетаки можно подругому?
-        mTickets.addAll(mBody.getTicket());
+        List<Ticket> mTickets = new ArrayList<>(mBody.getTicket()); //TODO может всетаки можно подругому?
         int j = 1;
 
         for (int i = 0; i < mTickets.size(); i++) {

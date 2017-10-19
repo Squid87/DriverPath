@@ -19,9 +19,7 @@ public class DatabaseService {
     }
 
     public void saveTickets(Body body) throws SQLException {
-        List<Ticket> mTickets = new ArrayList<>();
-        mTickets.addAll(body.getTicket());  //TODO может все таки можно подругому?!
-
+        List<Ticket> mTickets = new ArrayList<>(body.getTicket());
         body.setmId(1);
         body.getCarrier().setmId(1);
         mDatabaseHelper.getBodyDao().createOrUpdate(body);
