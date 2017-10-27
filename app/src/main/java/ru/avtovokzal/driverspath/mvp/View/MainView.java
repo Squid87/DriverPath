@@ -8,6 +8,8 @@ import com.arellomobile.mvp.viewstate.strategy.StateStrategyType;
 @StateStrategyType(SkipStrategy.class)
 public interface MainView extends MvpView {
 
-	void start();
+	void startShowTickets();
+	void startShowStations();
+	void close();
 
 }

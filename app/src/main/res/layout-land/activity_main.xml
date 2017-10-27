@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -13,13 +12,16 @@
 
     </FrameLayout>
 
-    <!--<android.support.design.widget.BottomNavigationView-->
-    <!--android:id="@+id/activity_main_forecast_bottom_navigation"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:layout_alignParentBottom="true"-->
-    <!--app:itemBackground="@color/colorPrimary"-->
-    <!--app:itemTextColor="@color/cardview_light_background"-->
-    <!--app:menu="@menu/menu_navigation" />-->
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/bottom_navigation_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:foregroundGravity="center"
+        android:background="@color/colorBottomNavigationPrimary"
+        app:itemIconTint="@color/bb_darkBackgroundColor"
+        app:itemTextColor="@color/cardview_black_text"
+        app:menu="@menu/menu_navigation" />
+
 
 </RelativeLayout>

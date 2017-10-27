@@ -1,4 +1,4 @@
-package ru.avtovokzal.driverspath.model;
+package ru.avtovokzal.driverspath.modelTickets;
 
 
 import com.thoughtbot.expandablerecyclerview.models.ExpandableGroup;

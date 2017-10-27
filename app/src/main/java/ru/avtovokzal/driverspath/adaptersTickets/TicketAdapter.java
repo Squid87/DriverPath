@@ -1,7 +1,6 @@
-package ru.avtovokzal.driverspath.adapters;
+package ru.avtovokzal.driverspath.adaptersTickets;
 
 
-import java.util.ArrayList;
 import java.util.List;
 
 import android.view.LayoutInflater;
@@ -12,16 +11,14 @@ import com.thoughtbot.expandablerecyclerview.ExpandableRecyclerViewAdapter;
 import com.thoughtbot.expandablerecyclerview.models.ExpandableGroup;
 
 import ru.avtovokzal.driverspath.R;
-import ru.avtovokzal.driverspath.model.TicketCollector;
-import ru.avtovokzal.driverspath.model.Ticket;
+import ru.avtovokzal.driverspath.modelTickets.Ticket;
 
 public class TicketAdapter extends ExpandableRecyclerViewAdapter<TiсketParenHolder, TicketChildHolder> {
 
-    private List<TicketCollector> mTickets = new ArrayList<>();
+
 
     public TicketAdapter(List<? extends ExpandableGroup> groups) {
         super(groups);
-        mTickets= (List<TicketCollector>) groups;
     }
 
     @Override
@@ -40,7 +37,7 @@ public class TicketAdapter extends ExpandableRecyclerViewAdapter<TiсketParenHol
     public void onBindChildViewHolder(TicketChildHolder holder, int flatPosition, ExpandableGroup group, int childIndex) {
         Ticket ticket = (Ticket) group.getItems().get(childIndex);
         holder.bind((Ticket) group.getItems().get(childIndex));
-    }
+}
 
     @Override //TODO может всетаки можно подругому?
     public void onBindGroupViewHolder(TiсketParenHolder holder, int flatPosition, ExpandableGroup group) {

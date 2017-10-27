@@ -2,22 +2,18 @@ package ru.avtovokzal.driverspath.database;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
 
 import com.j256.ormlite.android.apptools.OpenHelperManager;
 import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
 import com.j256.ormlite.dao.Dao;
-import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.support.ConnectionSource;
 
 import java.sql.SQLException;
 
-import javax.xml.transform.sax.SAXTransformerFactory;
-
-import ru.avtovokzal.driverspath.model.Body;
-import ru.avtovokzal.driverspath.model.Carrier;
-import ru.avtovokzal.driverspath.model.Passenger;
-import ru.avtovokzal.driverspath.model.Ticket;
+import ru.avtovokzal.driverspath.modelTickets.Body;
+import ru.avtovokzal.driverspath.modelTickets.Carrier;
+import ru.avtovokzal.driverspath.modelTickets.Passenger;
+import ru.avtovokzal.driverspath.modelTickets.Ticket;
 
 public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 

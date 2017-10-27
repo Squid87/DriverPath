@@ -1,7 +1,6 @@
-package ru.avtovokzal.driverspath.model;
+package ru.avtovokzal.driverspath.modelTickets;
 
 import android.database.sqlite.SQLiteDatabase;
-import android.support.design.widget.TabLayout;
 
 import com.google.gson.annotations.SerializedName;
 import com.j256.ormlite.field.DatabaseField;

@@ -3,12 +3,16 @@ package ru.avtovokzal.driverspath.database;
 
 import android.content.Context;
 
+import com.j256.ormlite.stmt.DeleteBuilder;
+
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import ru.avtovokzal.driverspath.model.Body;
-import ru.avtovokzal.driverspath.model.Ticket;
+import ru.avtovokzal.driverspath.modelTickets.Body;
+import ru.avtovokzal.driverspath.modelTickets.Carrier;
+import ru.avtovokzal.driverspath.modelTickets.Passenger;
+import ru.avtovokzal.driverspath.modelTickets.Ticket;
 
 public class DatabaseService {
 
@@ -19,6 +23,7 @@ public class DatabaseService {
     }
 
     public void saveTickets(Body body) throws SQLException {
+
         List<Ticket> mTickets = new ArrayList<>(body.getTicket());
         body.setmId(1);
         body.getCarrier().setmId(1);
@@ -37,6 +42,21 @@ public class DatabaseService {
 
     public Body loadTickets() throws SQLException {
         return mDatabaseHelper.getBodyDao().queryForId(1);
+    }
+
+    public void deleteDatabase() throws SQLException {
+
+        DeleteBuilder<Body, Integer> deleteBody = mDatabaseHelper.getBodyDao().deleteBuilder();
+        deleteBody.delete();
+
+        DeleteBuilder<Carrier, Integer> deleteCarrier = mDatabaseHelper.getCarrierDao().deleteBuilder();
+        deleteCarrier.delete();
+
+        DeleteBuilder<Ticket, Integer> deleteTicket = mDatabaseHelper.getTicketDao().deleteBuilder();
+        deleteTicket.delete();
+
+        DeleteBuilder<Passenger, Integer> deletePassenger = mDatabaseHelper.getPassengerDao().deleteBuilder();
+        deletePassenger.delete();
     }
 
 }

@@ -14,13 +14,13 @@
 
     </FrameLayout>
 
-    <!--<android.support.design.widget.BottomNavigationView-->
-        <!--android:id="@+id/activity_main_forecast_bottom_navigation"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_alignParentBottom="true"-->
-        <!--app:itemBackground="@color/colorPrimary"-->
-        <!--app:itemTextColor="@color/cardview_light_background"-->
-        <!--app:menu="@menu/menu_navigation" />-->
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/activity_main_forecast_bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:itemBackground="@color/colorPrimary"
+        app:itemTextColor="@color/cardview_light_background"
+        app:menu="@menu/menu_navigation" />
 
 </RelativeLayout>

@@ -9,18 +9,15 @@ import com.arellomobile.mvp.MvpPresenter;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
 
-import okhttp3.ResponseBody;
 import retrofit2.Response;
 import ru.avtovokzal.driverspath.Application;
+import ru.avtovokzal.driverspath.database.DatabaseHelper;
 import ru.avtovokzal.driverspath.database.DatabaseService;
-import ru.avtovokzal.driverspath.model.RegistrationResponse;
-import ru.avtovokzal.driverspath.model.Ticket;
+import ru.avtovokzal.driverspath.modelTickets.RegistrationResponse;
 import ru.avtovokzal.driverspath.mvp.View.TicketInformationView;
 import ru.avtovokzal.driverspath.network.RegistrationBody;
-import ru.avtovokzal.driverspath.network.TicketApiService;
+import ru.avtovokzal.driverspath.network.ApiService;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
@@ -28,9 +25,11 @@ import rx.schedulers.Schedulers;
 @InjectViewState
 public class TicketInfoPresenter extends MvpPresenter<TicketInformationView> {
 
-    public TicketApiService mTicketApiService = TicketApiService.getsInstance(Application.getInstance());
-    DatabaseService mDatabaseService = new DatabaseService(Application.getInstance());
+    private String BASE_URL = "http://webapp.avtovokzal.ru";
 
+    public ApiService mApiService = ApiService.getsInstance(Application.getInstance(),BASE_URL);
+    DatabaseService mDatabaseService = new DatabaseService(Application.getInstance());
+    DatabaseHelper mDatabaseHelper = new DatabaseHelper(Application.getInstance());
 
 
     @Override
@@ -50,7 +49,7 @@ public class TicketInfoPresenter extends MvpPresenter<TicketInformationView> {
                     public void onError(Throwable e) {
                         getViewState().hideProgressBar();
                         Toast toast = Toast.makeText(Application.getInstance(),
-                                "Произошла ошибка!", Toast.LENGTH_LONG);
+                                "Данные загружены из Базы данных!", Toast.LENGTH_LONG);
                         toast.show();
                         toast.setGravity(Gravity.CENTER, 0, 0);
 
@@ -68,7 +67,13 @@ public class TicketInfoPresenter extends MvpPresenter<TicketInformationView> {
                         getViewState().showTicketInfo(registrationResponse.getBody());
 
                         try {
-                            mDatabaseService.saveTickets(registrationResponse.getBody());
+                            if(!mDatabaseHelper.getBodyDao().isTableExists()){
+                                mDatabaseService.saveTickets(registrationResponse.getBody());
+                            }
+                            else {
+                                mDatabaseService.deleteDatabase();
+                                mDatabaseService.saveTickets(registrationResponse.getBody());
+                            }
                         } catch (SQLException e) {
                             e.printStackTrace();
                         }
@@ -89,7 +94,7 @@ public class TicketInfoPresenter extends MvpPresenter<TicketInformationView> {
         String base = userName + ":" + password;
         String authHeader = "Basic " + Base64.encodeToString(base.getBytes(), Base64.NO_WRAP);
 
-        return mTicketApiService.createApi().getTicketInfo(authHeader, body).execute();
+        return mApiService.createApi().getTicketInfo(authHeader, body).execute();
     }
 }
 

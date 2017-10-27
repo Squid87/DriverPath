@@ -1,4 +1,4 @@
-package ru.avtovokzal.driverspath.adapters;
+package ru.avtovokzal.driverspath.adaptersTickets;
 
 import android.view.View;
 import android.widget.TextView;
@@ -8,7 +8,7 @@ import com.thoughtbot.expandablerecyclerview.viewholders.ChildViewHolder;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import ru.avtovokzal.driverspath.R;
-import ru.avtovokzal.driverspath.model.Ticket;
+import ru.avtovokzal.driverspath.modelTickets.Ticket;
 
 
 public class TicketChildHolder extends ChildViewHolder {

@@ -2,9 +2,15 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/menu_navigation_home"
-        android:title="Home" />
+        android:id="@+id/menu_navigation_ticket"
+        android:icon="@drawable/tickets_icon"
+        android:title="@string/tickets" />
     <item
-        android:id="@+id/menu_navigation_settings"
-        android:title="Settings" />
+        android:id="@+id/menu_navigation_stations"
+        android:icon="@drawable/bus_icon"
+        android:title="@string/stations" />
+    <item
+        android:id="@+id/menu_navigation_about"
+        android:icon="@drawable/about_icon"
+        android:title="@string/about" />
 </menu>

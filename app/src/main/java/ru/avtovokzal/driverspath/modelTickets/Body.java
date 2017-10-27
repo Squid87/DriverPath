@@ -1,4 +1,4 @@
-package ru.avtovokzal.driverspath.model;
+package ru.avtovokzal.driverspath.modelTickets;
 
 import android.database.sqlite.SQLiteDatabase;
 
@@ -10,9 +10,7 @@ import com.j256.ormlite.table.DatabaseTable;
 import com.j256.ormlite.table.TableUtils;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
 
 @DatabaseTable(tableName = Body.TABLE_NAME)

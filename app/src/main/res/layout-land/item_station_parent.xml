@@ -16,50 +16,51 @@
         android:gravity="center">
 
         <TextView
+            android:id="@+id/station_dispatch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="100dp"
-            android:layout_marginTop="@dimen/marginTop"
-            android:padding="5dp"
-            android:text="Место"
-            android:textColor="@color/cardview_black_text"
-            android:textSize="@dimen/head_line_text_size"
-            tools:text="Место" />
-
-        <TextView
-            android:id="@+id/ticket_seat"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="250dp"
-            android:layout_marginTop="@dimen/marginTop"
+            android:layout_marginLeft="10dp"
             android:gravity="center"
-            android:padding="5dp"
-            android:textColor="@color/cardview_black_text"
-            android:textSize="@dimen/head_line_text_size"
-            tools:text="4" />
-
-        <TextView
-            android:id="@+id/ticket_dispatch"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="300dp"
             android:layout_marginTop="@dimen/marginTop"
-            android:gravity="center"
             android:padding="5dp"
             android:textColor="@color/cardview_black_text"
             android:textSize="@dimen/head_line_text_size"
             tools:text="Белокуриха" />
 
         <TextView
-            android:id="@+id/ticket_arrive"
+            android:id="@+id/station_dispatch_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="550dp"
+            android:layout_marginLeft="350dp"
+            android:layout_marginTop="@dimen/marginTop"
+            android:gravity="center"
+            android:padding="5dp"
+            android:textColor="@color/cardview_black_text"
+            android:textSize="@dimen/head_line_text_size"
+            tools:text="11:30" />
+
+        <TextView
+            android:id="@+id/station_in_people"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="570dp"
+            android:layout_marginTop="@dimen/marginTop"
+            android:gravity="center"
+            android:padding="5dp"
+            android:textColor="@color/cardview_black_text"
+            android:textSize="@dimen/head_line_text_size"
+            tools:text="↑10" />
+
+        <TextView
+            android:id="@+id/station_out_people"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="750dp"
             android:layout_marginTop="@dimen/marginTop"
             android:padding="5dp"
             android:textColor="@color/cardview_black_text"
             android:textSize="@dimen/head_line_text_size"
-            tools:text="Белокуриха" />
+            tools:text="↓0" />
 
         <ImageView
             android:layout_width="wrap_content"

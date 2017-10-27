@@ -1,10 +1,7 @@
-package ru.avtovokzal.driverspath.model;
+package ru.avtovokzal.driverspath.modelTickets;
 
 
 import com.google.gson.annotations.SerializedName;
-
-import java.util.ArrayList;
-import java.util.List;
 //TODO нужна ли проверка на null?
 
 public class RegistrationResponse {
@@ -15,5 +12,4 @@ public class RegistrationResponse {
     public Body getBody() {
         return mBody;
     }
-
 }

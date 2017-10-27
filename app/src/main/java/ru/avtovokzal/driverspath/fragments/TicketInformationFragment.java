@@ -20,10 +20,10 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import ru.avtovokzal.driverspath.R;
-import ru.avtovokzal.driverspath.adapters.TicketAdapter;
-import ru.avtovokzal.driverspath.model.Body;
-import ru.avtovokzal.driverspath.model.Ticket;
-import ru.avtovokzal.driverspath.model.TicketCollector;
+import ru.avtovokzal.driverspath.adaptersTickets.TicketAdapter;
+import ru.avtovokzal.driverspath.modelTickets.Body;
+import ru.avtovokzal.driverspath.modelTickets.Ticket;
+import ru.avtovokzal.driverspath.modelTickets.TicketCollector;
 import ru.avtovokzal.driverspath.mvp.TicketInfoPresenter;
 import ru.avtovokzal.driverspath.mvp.View.TicketInformationView;
 
@@ -80,9 +80,9 @@ public class TicketInformationFragment extends MvpAppCompatFragment implements T
     @Override
     public void showTicketInfo(Body mBody) {
         List<TicketCollector> mSomeList = new ArrayList<>();
-        List<Ticket> mTickets = new ArrayList<>(mBody.getTicket()); //TODO может всетаки можно подругому?
-        int j = 1;
+        List<Ticket> mTickets = new ArrayList<>(mBody.getTicket());
 
+        int j = 1;
         for (int i = 0; i < mTickets.size(); i++) {
             TicketCollector mTicketCollector = new TicketCollector(String.valueOf(i), mTickets.subList(i, j));
             mSomeList.add(mTicketCollector);
@@ -91,17 +91,17 @@ public class TicketInformationFragment extends MvpAppCompatFragment implements T
         mTicketAdapter = new TicketAdapter(mSomeList);
         mRecyclerView.setAdapter(mTicketAdapter);
 
+        bindToolHead(mBody);
+
+    }
+
+    public void bindToolHead(Body mBody){
         mFreeSeats.setText(String.valueOf(mBody.getFreeseats()) + " " + "/" + " ");
         mMaxSeats.setText(String.valueOf(mBody.getMaxseats()));
         mDispatchStation.setText("Белокуриха" + " " + "-");
         mArrivalStation.setText("Барнаул");
         mDriverTimeOut.setText("11:30");
         mDriverInn.setText(mBody.getCarrier().getInn());
-    }
-
-    @Override
-    public void showError() {
-
     }
 
     @Override
