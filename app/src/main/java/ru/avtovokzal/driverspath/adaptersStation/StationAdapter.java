@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import com.thoughtbot.expandablerecyclerview.ExpandableRecyclerViewAdapter;
 import com.thoughtbot.expandablerecyclerview.models.ExpandableGroup;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import ru.avtovokzal.driverspath.R;
@@ -25,23 +26,24 @@ public class StationAdapter extends ExpandableRecyclerViewAdapter<StationParenHo
 
     @Override
     public StationParenHolder onCreateGroupViewHolder(ViewGroup parent, int viewType) {
-        View mInflate1 = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_station_parent_2, parent, false);
+        View mInflate1 = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_station_parent, parent, false);
         return new StationParenHolder(mInflate1);
     }
 
     @Override
     public StationChildHolder onCreateChildViewHolder(ViewGroup parent, int viewType) {
-        View mInflate2 = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_station_child_2, parent, false);
+        View mInflate2 = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_ticket_parent, parent, false);
         return new StationChildHolder(mInflate2);
     }
 
     @Override
     public void onBindChildViewHolder(StationChildHolder holder, int flatPosition, ExpandableGroup group, int childIndex) {
-        Stops stops = (Stops) group.getItems().get(childIndex);
-        holder.bind((Stops) group.getItems().get(childIndex));
-        holder.itemView.setOnClickListener(v -> {
+        //holder.bind((Stops) group.getItems().get(childIndex));
 
-        });
+
+        //вот тут нужно кинуть по идеи класс IN или Out в bind. и собственно показывать его. Типа holder.bind2(stops.getIn);
+        Stops stops = (Stops) group.getItems().get(childIndex);
+        holder.bind2(stops);
     }
 
     @Override

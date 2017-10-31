@@ -22,11 +22,11 @@ class StationParenHolder extends GroupViewHolder {
     @BindView(R.id.station_dispatch_time)
     TextView mStationDispatchTime;
 
-    @BindView(R.id.station_in_arrival_time)
+    @BindView(R.id.station_in_people)
     TextView mPeopleIn;
 
-//    @BindView(R.id.station_out_people)
-//    TextView mPeopleOut;
+    @BindView(R.id.station_out_people)
+    TextView mPeopleOut;
 
     public StationParenHolder(View itemView) {
         super(itemView);
@@ -35,23 +35,27 @@ class StationParenHolder extends GroupViewHolder {
 
     public void bind(Stops stops) {
         mStationDispatch.setText(stops.getName());
-        if (stops.getDispatchtime() != null) {
-            mStationDispatchTime.setText(String.valueOf(stops.getDispatchtime()));
+        if (stops.getIn() != null) {
+            mPeopleIn.setText("↑ " + String.valueOf(stops.getIn().size()));
         } else {
-            mStationDispatchTime.setText("00:00");
+            mPeopleIn.setText("↑ " + "0");
         }
-        if (stops.getmArrivaltime() != null) {
-            mPeopleIn.setText(String.valueOf(stops.getmArrivaltime()));
+        if (stops.getOut() != null) {
+            mPeopleOut.setText("↓ " + String.valueOf(stops.getOut().size()));
         } else {
-            mPeopleIn.setText("00:00");
+            mPeopleOut.setText("↓ " + "0");
         }
-
-
-//        if (stops.getOut() != null) {
-//            mPeopleOut.setText("↓ " + String.valueOf(stops.getOut().size()));
-//        } else {
-//            mPeopleOut.setText("↓ " + "0");
-//        }
     }
-
 }
+
+//        if (stops.getDispatchtime() != null) {
+//            mStationDispatchTime.setText(String.valueOf(stops.getDispatchtime()));
+//        } else {
+//            mStationDispatchTime.setText("00:00");
+//        }
+//        if (stops.getmArrivaltime() != null) {
+//            mPeopleIn.setText(String.valueOf(stops.getmArrivaltime()));
+//        } else {
+//            mPeopleIn.setText("00:00");
+//        }
+//
