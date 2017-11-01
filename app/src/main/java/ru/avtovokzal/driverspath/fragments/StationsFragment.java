@@ -62,13 +62,10 @@ public class StationsFragment extends MvpAppCompatFragment implements StationInf
     @Override
     public void showStations(Collection<Stops> station) {
         List<StationCollector> mStationCollectors = new ArrayList<>();
-        List<Stops> mStation = new ArrayList<>(station);
 
-        int j = 1;
-        for (int i = 0; i < mStation.size(); i++) {
-            StationCollector stationCollector = new StationCollector(String.valueOf(i), mStation.subList(i, j));
+        for (Stops stop : station) {
+            StationCollector stationCollector = new StationCollector(stop.getName(), new ArrayList<>(stop.getIn()));
             mStationCollectors.add(stationCollector);
-            j++;
         }
         mStationAdapter = new StationAdapter(mStationCollectors);
         mStationRecyclerView.setAdapter(mStationAdapter);

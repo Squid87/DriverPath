@@ -3,7 +3,6 @@ package ru.avtovokzal.driverspath.modelStation;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Collection;
-import java.util.List;
 
 public class Stops {
 
@@ -20,10 +19,10 @@ public class Stops {
     public String mArrivaltime;
 
     @SerializedName("in")
-    public Collection<In> mIn;
+    public Collection<Ticket> mIn;
 
     @SerializedName("out")
-    public Collection<Out> mOut;
+    public Collection<Ticket> mOut;
 
     @SerializedName("order")
     public int mOrder;
@@ -36,11 +35,11 @@ public class Stops {
         return mDispatchtime;
     }
 
-    public Collection<In> getIn() {
+    public Collection<Ticket> getIn() {
         return mIn;
     }
 
-    public Collection<Out> getOut() {
+    public Collection<Ticket> getOut() {
         return mOut;
     }
 

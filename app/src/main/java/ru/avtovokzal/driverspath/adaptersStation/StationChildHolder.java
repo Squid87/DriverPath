@@ -1,28 +1,18 @@
 package ru.avtovokzal.driverspath.adaptersStation;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.nfc.cardemulation.CardEmulation;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.thoughtbot.expandablerecyclerview.viewholders.ChildViewHolder;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import ru.avtovokzal.driverspath.Application;
 import ru.avtovokzal.driverspath.R;
-import ru.avtovokzal.driverspath.modelStation.In;
-import ru.avtovokzal.driverspath.modelStation.Out;
+import ru.avtovokzal.driverspath.modelStation.Ticket;
 import ru.avtovokzal.driverspath.modelStation.Stops;
-import ru.avtovokzal.driverspath.modelTickets.Ticket;
 
 class StationChildHolder extends ChildViewHolder {
 
@@ -63,15 +53,20 @@ class StationChildHolder extends ChildViewHolder {
 //    }
 
     public void bind2(Stops stops) {
-       List<In> mIn = new ArrayList<>(stops.getIn());
+       List<Ticket> mIn = new ArrayList<>(stops.getIn());
        for(int i=0;i<mIn.size();i++){
            bindIn(mIn.get(i));
        }
 
     }
 
-    private void bindIn(In in) {
+    private void bindIn(Ticket in) {
         mSeatNumber.setText(String.valueOf(in.getSeatnum()));
     }
 
+    public void bind(Ticket ticket) {
+        this.mSeatNumber.setText(String.valueOf(ticket.mSeatnum));
+        this.mArrive.setText(ticket.mArrivalstationname);
+        this.mDispatch.setText(ticket.mDispatchstationname);
+    }
 }

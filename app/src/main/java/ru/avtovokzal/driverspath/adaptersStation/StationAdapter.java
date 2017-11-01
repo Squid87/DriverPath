@@ -8,14 +8,11 @@ import android.view.ViewGroup;
 import com.thoughtbot.expandablerecyclerview.ExpandableRecyclerViewAdapter;
 import com.thoughtbot.expandablerecyclerview.models.ExpandableGroup;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import ru.avtovokzal.driverspath.R;
-import ru.avtovokzal.driverspath.modelStation.In;
-import ru.avtovokzal.driverspath.modelStation.Out;
 import ru.avtovokzal.driverspath.modelStation.Stops;
-import ru.avtovokzal.driverspath.modelTickets.Ticket;
+import ru.avtovokzal.driverspath.modelStation.Ticket;
 
 
 public class StationAdapter extends ExpandableRecyclerViewAdapter<StationParenHolder, StationChildHolder> {
@@ -42,12 +39,12 @@ public class StationAdapter extends ExpandableRecyclerViewAdapter<StationParenHo
 
 
         //вот тут нужно кинуть по идеи класс IN или Out в bind. и собственно показывать его. Типа holder.bind2(stops.getIn);
-        Stops stops = (Stops) group.getItems().get(childIndex);
-        holder.bind2(stops);
+        holder.bind((Ticket)group.getItems().get(childIndex));
     }
 
     @Override
     public void onBindGroupViewHolder(StationParenHolder holder, int flatPosition, ExpandableGroup group) {
+
         holder.bind((Stops) group.getItems().get(0));
     }
 }

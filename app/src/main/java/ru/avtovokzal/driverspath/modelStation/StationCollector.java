@@ -3,14 +3,16 @@ package ru.avtovokzal.driverspath.modelStation;
 
 import com.thoughtbot.expandablerecyclerview.models.ExpandableGroup;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class StationCollector extends ExpandableGroup {
 
+public class StationCollector extends ExpandableGroup<Ticket> {
 
-    public StationCollector(String title, List items) {
-        super(title, items);
+    public Stops stop;
+
+    public StationCollector(Stops stop, List<Ticket> items) {
+        super(stop.getName(), items);
+        this.stop = stop;
     }
 
 }
