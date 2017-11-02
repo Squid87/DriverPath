@@ -11,6 +11,7 @@ import com.thoughtbot.expandablerecyclerview.models.ExpandableGroup;
 import java.util.List;
 
 import ru.avtovokzal.driverspath.R;
+import ru.avtovokzal.driverspath.modelStation.StationCollector;
 import ru.avtovokzal.driverspath.modelStation.Stops;
 import ru.avtovokzal.driverspath.modelStation.Ticket;
 
@@ -45,6 +46,7 @@ public class StationAdapter extends ExpandableRecyclerViewAdapter<StationParenHo
     @Override
     public void onBindGroupViewHolder(StationParenHolder holder, int flatPosition, ExpandableGroup group) {
 
-        holder.bind((Stops) group.getItems().get(0));
+        StationCollector stationCollector = (StationCollector) group;
+        holder.bind(stationCollector.stop);
     }
 }

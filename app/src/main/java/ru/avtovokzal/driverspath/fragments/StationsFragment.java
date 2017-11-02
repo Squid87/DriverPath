@@ -15,6 +15,7 @@ import com.arellomobile.mvp.presenter.InjectPresenter;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import butterknife.BindView;
@@ -23,6 +24,7 @@ import ru.avtovokzal.driverspath.R;
 import ru.avtovokzal.driverspath.adaptersStation.StationAdapter;
 import ru.avtovokzal.driverspath.modelStation.StationCollector;
 import ru.avtovokzal.driverspath.modelStation.Stops;
+import ru.avtovokzal.driverspath.modelStation.Ticket;
 import ru.avtovokzal.driverspath.mvp.StationInfoPresenter;
 import ru.avtovokzal.driverspath.mvp.View.StationInformationView;
 
@@ -64,7 +66,11 @@ public class StationsFragment extends MvpAppCompatFragment implements StationInf
         List<StationCollector> mStationCollectors = new ArrayList<>();
 
         for (Stops stop : station) {
-            StationCollector stationCollector = new StationCollector(stop.getName(), new ArrayList<>(stop.getIn()));
+            Collection<Ticket> tickets = stop.getIn();
+            if (tickets == null) {
+                tickets = Collections.emptyList();
+            }
+            StationCollector stationCollector = new StationCollector(stop, new ArrayList<>(tickets));
             mStationCollectors.add(stationCollector);
         }
         mStationAdapter = new StationAdapter(mStationCollectors);
