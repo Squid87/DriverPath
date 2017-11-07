@@ -36,16 +36,11 @@ public class StationAdapter extends ExpandableRecyclerViewAdapter<StationParenHo
 
     @Override
     public void onBindChildViewHolder(StationChildHolder holder, int flatPosition, ExpandableGroup group, int childIndex) {
-        //holder.bind((Stops) group.getItems().get(childIndex));
-
-
-        //вот тут нужно кинуть по идеи класс IN или Out в bind. и собственно показывать его. Типа holder.bind2(stops.getIn);
         holder.bind((Ticket)group.getItems().get(childIndex));
     }
 
     @Override
     public void onBindGroupViewHolder(StationParenHolder holder, int flatPosition, ExpandableGroup group) {
-
         StationCollector stationCollector = (StationCollector) group;
         holder.bind(stationCollector.stop);
     }

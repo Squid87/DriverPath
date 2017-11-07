@@ -19,10 +19,10 @@ public class Stops {
     public String mArrivaltime;
 
     @SerializedName("in")
-    public Collection<Ticket> mIn;
+    public Collection<In> mIn;
 
     @SerializedName("out")
-    public Collection<Ticket> mOut;
+    public Collection<Out> mOut;
 
     @SerializedName("order")
     public int mOrder;
@@ -35,11 +35,11 @@ public class Stops {
         return mDispatchtime;
     }
 
-    public Collection<Ticket> getIn() {
+    public Collection<In> getIn() {
         return mIn;
     }
 
-    public Collection<Ticket> getOut() {
+    public Collection<Out> getOut() {
         return mOut;
     }
 

@@ -15,13 +15,14 @@ import com.arellomobile.mvp.presenter.InjectPresenter;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import ru.avtovokzal.driverspath.R;
 import ru.avtovokzal.driverspath.adaptersStation.StationAdapter;
+import ru.avtovokzal.driverspath.modelStation.In;
+import ru.avtovokzal.driverspath.modelStation.Out;
 import ru.avtovokzal.driverspath.modelStation.StationCollector;
 import ru.avtovokzal.driverspath.modelStation.Stops;
 import ru.avtovokzal.driverspath.modelStation.Ticket;
@@ -66,9 +67,21 @@ public class StationsFragment extends MvpAppCompatFragment implements StationInf
         List<StationCollector> mStationCollectors = new ArrayList<>();
 
         for (Stops stop : station) {
-            Collection<Ticket> tickets = stop.getIn();
-            if (tickets == null) {
-                tickets = Collections.emptyList();
+
+            List<Ticket> tickets = new ArrayList<>();
+
+            Collection<In> in = stop.getIn();
+            Collection<Out> out = stop.getOut();
+
+            if (in != null) {
+                for (In item : in) {
+                    tickets.add(createTicketIn(item));
+                }
+            }
+            if (out != null) {
+                for (Out item : out) {
+                    tickets.add(createTicketOut(item));
+                }
             }
             StationCollector stationCollector = new StationCollector(stop, new ArrayList<>(tickets));
             mStationCollectors.add(stationCollector);
@@ -76,6 +89,24 @@ public class StationsFragment extends MvpAppCompatFragment implements StationInf
         mStationAdapter = new StationAdapter(mStationCollectors);
         mStationRecyclerView.setAdapter(mStationAdapter);
 
+    }
+
+    private Ticket createTicketOut(Out item) {
+        Ticket ticket = new Ticket();
+        ticket.mSeatnum = item.mSeatnum;
+        ticket.mDispatchstationname = item.mDispatchstationname;
+        ticket.mArrivalstationname = item.mArrivalstationname;
+        ticket.direction = "OUT";
+        return ticket;
+    }
+
+    private Ticket createTicketIn(In item) {
+        Ticket ticket = new Ticket();
+        ticket.mSeatnum = item.mSeatnum;
+        ticket.mDispatchstationname = item.mDispatchstationname;
+        ticket.mArrivalstationname = item.mArrivalstationname;
+        ticket.direction = "IN";
+        return ticket;
     }
 
     @Override
