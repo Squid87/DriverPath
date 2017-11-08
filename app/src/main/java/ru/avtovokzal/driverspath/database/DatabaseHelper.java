@@ -10,6 +10,9 @@ import com.j256.ormlite.support.ConnectionSource;
 
 import java.sql.SQLException;
 
+import ru.avtovokzal.driverspath.modelStation.In;
+import ru.avtovokzal.driverspath.modelStation.Out;
+import ru.avtovokzal.driverspath.modelStation.Stops;
 import ru.avtovokzal.driverspath.modelTickets.Body;
 import ru.avtovokzal.driverspath.modelTickets.Carrier;
 import ru.avtovokzal.driverspath.modelTickets.Passenger;
@@ -27,6 +30,11 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     private Dao<Carrier, Integer> dCarrier;
     private Dao<Ticket, Integer> dTicket;
     private Dao<Passenger, Integer> dPassenger;
+
+    private Dao<Stops, Integer> dStops;
+    private Dao<In, Integer> dIn;
+    private Dao<Out, Integer> dOut;
+
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -48,10 +56,17 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase database, ConnectionSource connectionSource) {
         try {
+            //Create Tickets Table
             Body.onCreate(database, connectionSource);
             Carrier.onCreate(database, connectionSource);
             Ticket.onCreate(database, connectionSource);
             Passenger.onCreate(database, connectionSource);
+
+            //Create Station Table
+            Stops.onCreate(database, connectionSource);
+            In.onCreate(database, connectionSource);
+            Out.onCreate(database, connectionSource);
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -89,5 +104,26 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             dPassenger = getDao(Passenger.class);
         }
         return dPassenger;
+    }
+
+    public Dao<Stops, Integer> getStopsDao() throws SQLException {
+        if (dStops == null) {
+            dStops = getDao(Stops.class);
+        }
+        return dStops;
+    }
+
+    public Dao<In, Integer> getInDao() throws SQLException {
+        if (dIn == null) {
+            dIn = getDao(In.class);
+        }
+        return dIn;
+    }
+
+    public Dao<Out, Integer> getOutDao() throws SQLException {
+        if (dOut == null) {
+            dOut = getDao(Out.class);
+        }
+        return dOut;
     }
 }

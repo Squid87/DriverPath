@@ -26,10 +26,10 @@ import rx.schedulers.Schedulers;
 public class TicketInfoPresenter extends MvpPresenter<TicketInformationView> {
 
     private String BASE_URL = "http://webapp.avtovokzal.ru";
+    private DatabaseService mDatabaseService = new DatabaseService(Application.getInstance());
+    private DatabaseHelper mDatabaseHelper = new DatabaseHelper(Application.getInstance());
 
-    public ApiService mApiService = ApiService.getsInstance(Application.getInstance(),BASE_URL);
-    DatabaseService mDatabaseService = new DatabaseService(Application.getInstance());
-    DatabaseHelper mDatabaseHelper = new DatabaseHelper(Application.getInstance());
+    public ApiService mApiService = ApiService.getsInstance(Application.getInstance(), BASE_URL);
 
 
     @Override
@@ -67,10 +67,9 @@ public class TicketInfoPresenter extends MvpPresenter<TicketInformationView> {
                         getViewState().showTicketInfo(registrationResponse.getBody());
 
                         try {
-                            if(!mDatabaseHelper.getBodyDao().isTableExists()){
+                            if (!mDatabaseHelper.getBodyDao().isTableExists()) {
                                 mDatabaseService.saveTickets(registrationResponse.getBody());
-                            }
-                            else {
+                            } else {
                                 mDatabaseService.deleteDatabase();
                                 mDatabaseService.saveTickets(registrationResponse.getBody());
                             }

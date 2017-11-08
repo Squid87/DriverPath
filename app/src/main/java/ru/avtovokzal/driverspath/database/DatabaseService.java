@@ -7,8 +7,12 @@ import com.j256.ormlite.stmt.DeleteBuilder;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
+import ru.avtovokzal.driverspath.modelStation.In;
+import ru.avtovokzal.driverspath.modelStation.Out;
+import ru.avtovokzal.driverspath.modelStation.Stops;
 import ru.avtovokzal.driverspath.modelTickets.Body;
 import ru.avtovokzal.driverspath.modelTickets.Carrier;
 import ru.avtovokzal.driverspath.modelTickets.Passenger;
@@ -57,6 +61,43 @@ public class DatabaseService {
 
         DeleteBuilder<Passenger, Integer> deletePassenger = mDatabaseHelper.getPassengerDao().deleteBuilder();
         deletePassenger.delete();
+
+        DeleteBuilder<Stops, Integer> deleteStops = mDatabaseHelper.getStopsDao().deleteBuilder();
+        deleteStops.delete();
+
+        DeleteBuilder<In, Integer> deleteIn = mDatabaseHelper.getInDao().deleteBuilder();
+        deleteIn.delete();
+
+        DeleteBuilder<Out, Integer> deleteOut = mDatabaseHelper.getOutDao().deleteBuilder();
+        deleteOut.delete();
+    }
+
+    public void saveStops(Collection<Stops> stops) throws SQLException {
+
+        List<Stops> mStops = new ArrayList<>(stops);
+
+        for (int i = 0; i < mStops.size(); i++) {
+            Stops mStop = mStops.get(i);
+            mStop.setmId(i);
+            if (mStop.getIn() != null) {
+                for (In mIn : mStop.getIn()) {
+                    mIn.setParentStops(mStop);
+                    mDatabaseHelper.getInDao().createOrUpdate(mIn);
+                }
+            }
+            if (mStop.getOut() != null) {
+                for (Out mOut : mStop.getOut()) {
+                    mOut.setParentStops(mStop);
+                    mDatabaseHelper.getOutDao().createOrUpdate(mOut);
+                }
+            }
+            mDatabaseHelper.getStopsDao().createOrUpdate(mStop);
+        }
+
+    }
+
+    public List<Stops> loadStops() throws SQLException {
+        return mDatabaseHelper.getStopsDao().queryForAll();
     }
 
 }

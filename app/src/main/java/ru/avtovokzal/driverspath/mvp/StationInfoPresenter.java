@@ -2,14 +2,19 @@ package ru.avtovokzal.driverspath.mvp;
 
 
 import android.util.Base64;
+import android.view.Gravity;
+import android.widget.Toast;
 
 import com.arellomobile.mvp.InjectViewState;
 import com.arellomobile.mvp.MvpPresenter;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import retrofit2.Response;
 import ru.avtovokzal.driverspath.Application;
+import ru.avtovokzal.driverspath.database.DatabaseHelper;
+import ru.avtovokzal.driverspath.database.DatabaseService;
 import ru.avtovokzal.driverspath.modelStation.StationResponse;
 import ru.avtovokzal.driverspath.mvp.View.StationInformationView;
 import ru.avtovokzal.driverspath.network.RegistrationBody;
@@ -23,6 +28,7 @@ public class StationInfoPresenter extends MvpPresenter<StationInformationView> {
 
     private String BASE_URL = "http://webapp.avtovokzal.ru";
     public ApiService mApiService = ApiService.getsInstance(Application.getInstance(), BASE_URL);
+    private DatabaseService mDatabaseService = new DatabaseService(Application.getInstance());
 
     @Override
     protected void onFirstViewAttach() {
@@ -40,7 +46,17 @@ public class StationInfoPresenter extends MvpPresenter<StationInformationView> {
 
                     @Override
                     public void onError(Throwable e) {
+                        getViewState().hideProgressBar();
+                        Toast toast = Toast.makeText(Application.getInstance(),
+                                "Данные загружены из Базы данных!", Toast.LENGTH_LONG);
+                        toast.show();
+                        toast.setGravity(Gravity.CENTER, 0, 0);
 
+                        try {
+                            getViewState().showStations(mDatabaseService.loadStops());
+                        } catch (SQLException e1) {
+                            e1.printStackTrace();
+                        }
                     }
 
                     @Override
@@ -48,6 +64,12 @@ public class StationInfoPresenter extends MvpPresenter<StationInformationView> {
                         getViewState().showProgressBar();
                         StationResponse stationResponse = response.body();
                         getViewState().showStations(stationResponse.getStops());
+
+                        try {
+                            mDatabaseService.saveStops(stationResponse.getStops());
+                        } catch (SQLException e) {
+                            e.printStackTrace();
+                        }
                     }
                 });
     }

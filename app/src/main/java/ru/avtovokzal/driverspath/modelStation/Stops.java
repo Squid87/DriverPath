@@ -1,26 +1,51 @@
 package ru.avtovokzal.driverspath.modelStation;
 
-import com.google.gson.annotations.SerializedName;
+import android.database.sqlite.SQLiteDatabase;
 
+import com.google.gson.annotations.SerializedName;
+import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.field.ForeignCollectionField;
+import com.j256.ormlite.support.ConnectionSource;
+import com.j256.ormlite.table.DatabaseTable;
+import com.j256.ormlite.table.TableUtils;
+
+import java.sql.SQLException;
 import java.util.Collection;
 
+import static ru.avtovokzal.driverspath.modelStation.Stops.STOPS;
+
+@DatabaseTable(tableName = STOPS)
 public class Stops {
 
+    public static final String STOPS = "stops";
+    private static final String STATION_NAME = "station_name";
+    private static final String DISPATCH_TIME = "dispatch_time";
+    private static final String OUT_PEOPLE = "out_people";
+    private static final String IN_PEOPLE = "in_people";
+    private static final String COLUMN_ID = "_id";
+
+    @DatabaseField(columnName = COLUMN_ID, id = true)
+    private int mId;
+
+    @DatabaseField(columnName = STATION_NAME)
     @SerializedName("name")
     public String mName;
 
     @SerializedName("uid")
     public String mUid;
 
+    @DatabaseField(columnName = DISPATCH_TIME)
     @SerializedName("dispatchTime")
     public String mDispatchtime;
 
     @SerializedName("arrivalTime")
     public String mArrivaltime;
 
+    @ForeignCollectionField(columnName = IN_PEOPLE, eager = true)
     @SerializedName("in")
     public Collection<In> mIn;
 
+    @ForeignCollectionField(columnName = OUT_PEOPLE, eager = true)
     @SerializedName("out")
     public Collection<Out> mOut;
 
@@ -45,5 +70,13 @@ public class Stops {
 
     public String getmArrivaltime() {
         return mArrivaltime;
+    }
+
+    public void setmId(int mId) {
+        this.mId = mId;
+    }
+
+    public static void onCreate(SQLiteDatabase database, ConnectionSource connectionSource) throws SQLException {
+        TableUtils.createTableIfNotExists(connectionSource, Stops.class);
     }
 }
