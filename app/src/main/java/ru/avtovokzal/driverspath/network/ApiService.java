@@ -3,12 +3,21 @@ package ru.avtovokzal.driverspath.network;
 
 import android.content.Context;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.concurrent.TimeUnit;
+
+import butterknife.internal.Utils;
+import okhttp3.Cache;
+import okhttp3.CacheControl;
+import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import ru.avtovokzal.driverspath.Application;
 
 public class ApiService {
     private Retrofit mRetrofit;
@@ -52,8 +61,24 @@ public class ApiService {
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         builder.addInterceptor(interceptor).build();
 
-        return builder.build();
+
+        return builder
+                .readTimeout(10, TimeUnit.SECONDS)
+                .cache(provideCache())
+                .build();
     }
+
+    public static Cache provideCache() {
+        Cache cache = null;
+        try {
+            File dir = Application.getInstance().getCacheDir();
+            cache = new Cache(new File(dir, "http-cache"), 10 * 1024 * 1024);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return cache;
+    }
+
 
     public TicketApiInterface createApi() {
         return mRetrofit.create(TicketApiInterface.class);

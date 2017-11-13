@@ -9,10 +9,12 @@ import com.arellomobile.mvp.InjectViewState;
 import com.arellomobile.mvp.MvpPresenter;
 
 import java.io.IOException;
+import java.sql.Date;
 import java.sql.SQLException;
 
 import retrofit2.Response;
 import ru.avtovokzal.driverspath.Application;
+import ru.avtovokzal.driverspath.Pref.Pref;
 import ru.avtovokzal.driverspath.database.DatabaseHelper;
 import ru.avtovokzal.driverspath.database.DatabaseService;
 import ru.avtovokzal.driverspath.modelStation.StationResponse;
@@ -29,6 +31,9 @@ public class StationInfoPresenter extends MvpPresenter<StationInformationView> {
     private String BASE_URL = "http://webapp.avtovokzal.ru";
     public ApiService mApiService = ApiService.getsInstance(Application.getInstance(), BASE_URL);
     private DatabaseService mDatabaseService = new DatabaseService(Application.getInstance());
+    private DatabaseHelper mDatabaseHelper = new DatabaseHelper(Application.getInstance());
+    private java.util.Date mDate = new java.util.Date();
+    private Pref mPref = new Pref();
 
     @Override
     protected void onFirstViewAttach() {
@@ -41,7 +46,6 @@ public class StationInfoPresenter extends MvpPresenter<StationInformationView> {
                     @Override
                     public void onCompleted() {
                         getViewState().hideProgressBar();
-
                     }
 
                     @Override
@@ -63,10 +67,22 @@ public class StationInfoPresenter extends MvpPresenter<StationInformationView> {
                     public void onNext(Response<StationResponse> response) {
                         getViewState().showProgressBar();
                         StationResponse stationResponse = response.body();
-                        getViewState().showStations(stationResponse.getStops());
 
                         try {
-                            mDatabaseService.saveStops(stationResponse.getStops());
+                            if (mDatabaseHelper.getStopsDao().idExists(1)) {
+                                long m = mDate.getTime();
+                                long s = mPref.loadTime();
+                                if (m - s < 50000) {
+                                    getViewState().showStations(mDatabaseService.loadStops());
+                                } else {
+                                    mDatabaseService.deleteDatabaseStatons();
+                                    getViewState().showStations(stationResponse.getStops());
+                                    mDatabaseService.saveStops(stationResponse.getStops());
+                                }
+                            } else {
+                                getViewState().showStations(stationResponse.getStops());
+                                mDatabaseService.saveStops(stationResponse.getStops());
+                            }
                         } catch (SQLException e) {
                             e.printStackTrace();
                         }

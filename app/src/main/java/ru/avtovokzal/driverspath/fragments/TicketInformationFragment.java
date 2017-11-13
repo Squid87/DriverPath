@@ -31,7 +31,8 @@ public class TicketInformationFragment extends MvpAppCompatFragment implements T
 
     @InjectPresenter
     TicketInfoPresenter mTicketInfoPresenter;
-    TicketAdapter mTicketAdapter;
+
+    private TicketAdapter mTicketAdapter;
 
     @BindView(R.id.fragment_ticket_info_recycler_view)
     RecyclerView mRecyclerView;
@@ -74,7 +75,7 @@ public class TicketInformationFragment extends MvpAppCompatFragment implements T
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-
+        mTicketInfoPresenter.startLoad();
     }
 
     @Override

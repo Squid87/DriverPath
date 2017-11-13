@@ -9,9 +9,11 @@ import com.arellomobile.mvp.MvpPresenter;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.sql.Time;
 
 import retrofit2.Response;
 import ru.avtovokzal.driverspath.Application;
+import ru.avtovokzal.driverspath.Pref.Pref;
 import ru.avtovokzal.driverspath.database.DatabaseHelper;
 import ru.avtovokzal.driverspath.database.DatabaseService;
 import ru.avtovokzal.driverspath.modelTickets.RegistrationResponse;
@@ -25,15 +27,15 @@ import rx.schedulers.Schedulers;
 @InjectViewState
 public class TicketInfoPresenter extends MvpPresenter<TicketInformationView> {
 
+    private java.util.Date mDate = new java.util.Date();
     private String BASE_URL = "http://webapp.avtovokzal.ru";
     private DatabaseService mDatabaseService = new DatabaseService(Application.getInstance());
     private DatabaseHelper mDatabaseHelper = new DatabaseHelper(Application.getInstance());
-
     public ApiService mApiService = ApiService.getsInstance(Application.getInstance(), BASE_URL);
+    private Pref mPref = new Pref();
 
 
-    @Override
-    protected void onFirstViewAttach() {
+    public void startLoad() {
         rx.Observable.fromCallable(this::requestTicketInfo)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -43,6 +45,7 @@ public class TicketInfoPresenter extends MvpPresenter<TicketInformationView> {
                     @Override
                     public void onCompleted() {
                         getViewState().hideProgressBar();
+                        mPref.saveTime(mDate.getTime());
                     }
 
                     @Override
@@ -64,13 +67,19 @@ public class TicketInfoPresenter extends MvpPresenter<TicketInformationView> {
                     public void onNext(Response<RegistrationResponse> response) {
                         getViewState().showProgressBar();
                         RegistrationResponse registrationResponse = response.body();
-                        getViewState().showTicketInfo(registrationResponse.getBody());
-
                         try {
-                            if (!mDatabaseHelper.getBodyDao().isTableExists()) {
-                                mDatabaseService.saveTickets(registrationResponse.getBody());
+                            if (mDatabaseHelper.getBodyDao().idExists(1)) {
+                                long m = mDate.getTime();
+                                long s = mPref.loadTime();
+                                if (m - s < 50000) {
+                                    getViewState().showTicketInfo(mDatabaseService.loadTickets());
+                                } else {
+                                    mDatabaseService.deleteDatabaseTicket();
+                                    getViewState().showTicketInfo(registrationResponse.getBody());
+                                    mDatabaseService.saveTickets(registrationResponse.getBody());
+                                }
                             } else {
-                                mDatabaseService.deleteDatabase();
+                                getViewState().showTicketInfo(registrationResponse.getBody());
                                 mDatabaseService.saveTickets(registrationResponse.getBody());
                             }
                         } catch (SQLException e) {

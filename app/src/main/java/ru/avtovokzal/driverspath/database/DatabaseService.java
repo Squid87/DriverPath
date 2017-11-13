@@ -48,7 +48,7 @@ public class DatabaseService {
         return mDatabaseHelper.getBodyDao().queryForId(1);
     }
 
-    public void deleteDatabase() throws SQLException {
+    public void deleteDatabaseTicket() throws SQLException {
 
         DeleteBuilder<Body, Integer> deleteBody = mDatabaseHelper.getBodyDao().deleteBuilder();
         deleteBody.delete();
@@ -61,15 +61,6 @@ public class DatabaseService {
 
         DeleteBuilder<Passenger, Integer> deletePassenger = mDatabaseHelper.getPassengerDao().deleteBuilder();
         deletePassenger.delete();
-
-        DeleteBuilder<Stops, Integer> deleteStops = mDatabaseHelper.getStopsDao().deleteBuilder();
-        deleteStops.delete();
-
-        DeleteBuilder<In, Integer> deleteIn = mDatabaseHelper.getInDao().deleteBuilder();
-        deleteIn.delete();
-
-        DeleteBuilder<Out, Integer> deleteOut = mDatabaseHelper.getOutDao().deleteBuilder();
-        deleteOut.delete();
     }
 
     public void saveStops(Collection<Stops> stops) throws SQLException {
@@ -98,6 +89,18 @@ public class DatabaseService {
 
     public List<Stops> loadStops() throws SQLException {
         return mDatabaseHelper.getStopsDao().queryForAll();
+    }
+
+    public void deleteDatabaseStatons() throws SQLException {
+
+        DeleteBuilder<Stops, Integer> deleteStops = mDatabaseHelper.getStopsDao().deleteBuilder();
+        deleteStops.delete();
+
+        DeleteBuilder<In, Integer> deleteIn = mDatabaseHelper.getInDao().deleteBuilder();
+        deleteIn.delete();
+
+        DeleteBuilder<Out, Integer> deleteOut = mDatabaseHelper.getOutDao().deleteBuilder();
+        deleteOut.delete();
     }
 
 }
