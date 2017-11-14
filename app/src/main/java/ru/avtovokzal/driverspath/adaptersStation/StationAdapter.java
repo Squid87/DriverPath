@@ -12,36 +12,50 @@ import java.util.List;
 
 import ru.avtovokzal.driverspath.R;
 import ru.avtovokzal.driverspath.modelStation.StationCollector;
-import ru.avtovokzal.driverspath.modelStation.Stops;
-import ru.avtovokzal.driverspath.modelStation.Ticket;
+import ru.avtovokzal.driverspath.modelStation.StationTicket;
 
 
 public class StationAdapter extends ExpandableRecyclerViewAdapter<StationParenHolder, StationChildHolder> {
 
-    public StationAdapter(List<? extends ExpandableGroup> groups) {
-        super(groups);
-    }
+	private Listener listener;
 
-    @Override
-    public StationParenHolder onCreateGroupViewHolder(ViewGroup parent, int viewType) {
-        View mInflate1 = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_station_parent, parent, false);
-        return new StationParenHolder(mInflate1);
-    }
+	public static interface Listener {
+		public void onClick(int position);
+	}
 
-    @Override
-    public StationChildHolder onCreateChildViewHolder(ViewGroup parent, int viewType) {
-        View mInflate2 = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_ticket_parent, parent, false);
-        return new StationChildHolder(mInflate2);
-    }
+	public void setListener(Listener listener) {
+		this.listener = listener;
+	}
 
-    @Override
-    public void onBindChildViewHolder(StationChildHolder holder, int flatPosition, ExpandableGroup group, int childIndex) {
-        holder.bind((Ticket)group.getItems().get(childIndex));
-    }
+	public StationAdapter(List<? extends ExpandableGroup> groups) {
+		super(groups);
+	}
 
-    @Override
-    public void onBindGroupViewHolder(StationParenHolder holder, int flatPosition, ExpandableGroup group) {
-        StationCollector stationCollector = (StationCollector) group;
-        holder.bind(stationCollector.stop);
-    }
+	@Override
+	public StationParenHolder onCreateGroupViewHolder(ViewGroup parent, int viewType) {
+		View mInflate1 = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_station_parent, parent, false);
+		return new StationParenHolder(mInflate1);
+	}
+
+	@Override
+	public StationChildHolder onCreateChildViewHolder(ViewGroup parent, int viewType) {
+		View mInflate2 = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_ticket_parent, parent, false);
+		return new StationChildHolder(mInflate2);
+	}
+
+	@Override
+	public void onBindChildViewHolder(StationChildHolder holder, int flatPosition, ExpandableGroup group, int childIndex) {
+		holder.bind((StationTicket) group.getItems().get(childIndex));
+		holder.itemView.setOnClickListener(view -> {
+			if (listener != null) {
+				listener.onClick(childIndex);
+			}
+		});
+	}
+
+	@Override
+	public void onBindGroupViewHolder(StationParenHolder holder, int flatPosition, ExpandableGroup group) {
+		StationCollector stationCollector = (StationCollector) group;
+		holder.bind(stationCollector.stop);
+	}
 }

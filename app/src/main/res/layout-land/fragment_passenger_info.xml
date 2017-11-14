@@ -72,7 +72,7 @@
 			android:textSize="@dimen/underline_item_text_size" />
 		
 		<TextView
-			android:id="@+id/item_passenger_second_name"
+			android:id="@+id/passenger_second_name"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_alignBaseline="@+id/textView"
@@ -89,7 +89,7 @@
 			android:layout_height="wrap_content"
 			android:layout_alignBaseline="@+id/textView5"
 			android:layout_alignBottom="@+id/textView5"
-			android:layout_alignStart="@+id/item_passenger_second_name"
+			android:layout_alignStart="@+id/passenger_second_name"
 			android:gravity="center"
 			android:textColor="@color/cardview_black_text"
 			android:textSize="@dimen/underline_item_text_size"
@@ -261,7 +261,7 @@
 		android:orientation="horizontal">
 		
 		<Button
-			android:id="@+id/item_ticket_attendance"
+			android:id="@+id/ticket_attendance"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:visibility="gone"
@@ -269,7 +269,7 @@
 			tools:ignore="HardcodedText" />
 		
 		<Button
-			android:id="@+id/item_ticket_no_attendance"
+			android:id="@+id/ticket_no_attendance"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:visibility="gone"

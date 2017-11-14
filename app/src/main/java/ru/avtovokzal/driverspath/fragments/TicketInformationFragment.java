@@ -79,6 +79,11 @@ public class TicketInformationFragment extends MvpAppCompatFragment implements T
     }
 
     @Override
+    public void onDetach() {
+        super.onDetach();
+    }
+
+    @Override
     public void showTicketInfo(Body mBody) {
         List<TicketCollector> mSomeList = new ArrayList<>();
         List<Ticket> mTickets = new ArrayList<>(mBody.getTicket());
@@ -93,7 +98,6 @@ public class TicketInformationFragment extends MvpAppCompatFragment implements T
         mRecyclerView.setAdapter(mTicketAdapter);
 
         bindToolHead(mBody);
-
     }
 
     public void bindToolHead(Body mBody){

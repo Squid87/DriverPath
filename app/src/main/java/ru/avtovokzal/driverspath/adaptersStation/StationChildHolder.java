@@ -9,7 +9,7 @@ import com.thoughtbot.expandablerecyclerview.viewholders.ChildViewHolder;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import ru.avtovokzal.driverspath.R;
-import ru.avtovokzal.driverspath.modelStation.Ticket;
+import ru.avtovokzal.driverspath.modelStation.StationTicket;
 
 class StationChildHolder extends ChildViewHolder {
 
@@ -34,19 +34,19 @@ class StationChildHolder extends ChildViewHolder {
 		ButterKnife.bind(this, itemView);
 	}
 
-	public void bind(Ticket ticket) {
-		if (ticket.direction == "IN") {
+	public void bind(StationTicket stationTicket) {
+		if (stationTicket.direction == "IN") {
 			mMesto.setText("↑ " + "Место");
-			mSeatNumber.setText(String.valueOf(ticket.mSeatnum));
-			mArrive.setText(ticket.mArrivalstationname);
-			mDispatch.setText(ticket.mDispatchstationname);
+			mSeatNumber.setText(String.valueOf(stationTicket.mSeatnum));
+			mArrive.setText(stationTicket.mArrivalstationname);
+			mDispatch.setText(stationTicket.mDispatchstationname);
 			mImageView.setVisibility(View.GONE);
 		}
-		if (ticket.direction == "OUT") {
+		if (stationTicket.direction == "OUT") {
 			mMesto.setText("↓ " + "Место");
-			mSeatNumber.setText(String.valueOf(ticket.mSeatnum));
-			mArrive.setText(ticket.mArrivalstationname);
-			mDispatch.setText(ticket.mDispatchstationname);
+			mSeatNumber.setText(String.valueOf(stationTicket.mSeatnum));
+			mArrive.setText(stationTicket.mArrivalstationname);
+			mDispatch.setText(stationTicket.mDispatchstationname);
 			mImageView.setVisibility(View.GONE);
 		}
 

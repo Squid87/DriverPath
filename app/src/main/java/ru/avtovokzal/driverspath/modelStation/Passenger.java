@@ -37,6 +37,39 @@ public class Passenger {
     @SerializedName("info")
     public String mInfo;
 
+    public String getFirstname() {
+        return mFirstname;
+    }
 
+    public String getLastname() {
+        return mLastname;
+    }
 
+    public String getMiddlename() {
+        return mMiddlename;
+    }
+
+    public String getDocnum() {
+        return mDocnum;
+    }
+
+    public String getDocseries() {
+        return mDocseries;
+    }
+
+    public String getBirthday() {
+        return mBirthday;
+    }
+
+    public String getCitizenshipiso2() {
+        return mCitizenshipiso2;
+    }
+
+    public String getGender() {
+        return mGender;
+    }
+
+    public String getDoctypeid() {
+        return mDoctypeid;
+    }
 }

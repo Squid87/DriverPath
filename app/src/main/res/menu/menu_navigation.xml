@@ -4,7 +4,7 @@
     <item
         android:id="@+id/menu_navigation_ticket"
         android:icon="@drawable/tickets_icon"
-        android:title="@string/tickets" />
+        android:title="@string/stationTickets" />
     <item
         android:id="@+id/menu_navigation_stations"
         android:icon="@drawable/bus_icon"

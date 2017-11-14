@@ -12,7 +12,7 @@
 	<string name="gender">Пол:</string>
 	<string name="ticket_price">Цена Билета:</string>
     <string name="noInformatione">No informat</string>
-    <string name="tickets">Билеты</string>
+    <string name="stationTickets">Билеты</string>
 	<string name="stations">Станции</string>
 	<string name="about">О программе</string>
 
