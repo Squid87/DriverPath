@@ -259,23 +259,7 @@
 		android:layout_marginTop="200dp"
 		android:gravity="center"
 		android:orientation="horizontal">
-		
-		<Button
-			android:id="@+id/item_ticket_attendance"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:visibility="gone"
-			android:text="Явка"
-			tools:ignore="HardcodedText" />
-		
-		<Button
-			android:id="@+id/item_ticket_no_attendance"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:visibility="gone"
-			android:text="Не явка"
-			tools:ignore="HardcodedText" />
-	
+
 	</LinearLayout>
 
 </RelativeLayout>

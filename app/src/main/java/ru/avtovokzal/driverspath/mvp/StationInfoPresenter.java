@@ -11,13 +11,21 @@ import com.arellomobile.mvp.MvpPresenter;
 import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 import retrofit2.Response;
 import ru.avtovokzal.driverspath.Application;
 import ru.avtovokzal.driverspath.Pref.Pref;
 import ru.avtovokzal.driverspath.database.DatabaseHelper;
 import ru.avtovokzal.driverspath.database.DatabaseService;
+import ru.avtovokzal.driverspath.modelStation.In;
+import ru.avtovokzal.driverspath.modelStation.Out;
+import ru.avtovokzal.driverspath.modelStation.StationCollector;
 import ru.avtovokzal.driverspath.modelStation.StationResponse;
+import ru.avtovokzal.driverspath.modelStation.StationTicket;
+import ru.avtovokzal.driverspath.modelStation.Stops;
 import ru.avtovokzal.driverspath.mvp.View.StationInformationView;
 import ru.avtovokzal.driverspath.network.RegistrationBody;
 import ru.avtovokzal.driverspath.network.ApiService;
@@ -57,7 +65,7 @@ public class StationInfoPresenter extends MvpPresenter<StationInformationView> {
                         toast.setGravity(Gravity.CENTER, 0, 0);
 
                         try {
-                            getViewState().showStations(mDatabaseService.loadStops());
+                            getViewState().showStations(createStationsCollectors(mDatabaseService.loadStops()));
                         } catch (SQLException e1) {
                             e1.printStackTrace();
                         }
@@ -73,14 +81,14 @@ public class StationInfoPresenter extends MvpPresenter<StationInformationView> {
                                 long m = mDate.getTime();
                                 long s = mPref.loadTime();
                                 if (m - s < 50000) {
-                                    getViewState().showStations(mDatabaseService.loadStops());
+                                    getViewState().showStations(createStationsCollectors(mDatabaseService.loadStops()));
                                 } else {
                                     mDatabaseService.deleteDatabaseStatons();
-                                    getViewState().showStations(stationResponse.getStops());
+                                    getViewState().showStations(createStationsCollectors(stationResponse.getStops()));
                                     mDatabaseService.saveStops(stationResponse.getStops());
                                 }
                             } else {
-                                getViewState().showStations(stationResponse.getStops());
+                                getViewState().showStations(createStationsCollectors(stationResponse.getStops()));
                                 mDatabaseService.saveStops(stationResponse.getStops());
                             }
                         } catch (SQLException e) {
@@ -102,5 +110,51 @@ public class StationInfoPresenter extends MvpPresenter<StationInformationView> {
         String base = userName + ":" + password;
         String authHeader = "Basic " + Base64.encodeToString(base.getBytes(), Base64.NO_WRAP);
         return mApiService.createApi().getStationInfo(authHeader, body).execute();
+    }
+
+    public List<StationCollector> createStationsCollectors(Collection<Stops> station) {
+        List<StationCollector> mStationCollectors = new ArrayList<>();
+        for (Stops stop : station) {
+
+            List<StationTicket> stationTickets = new ArrayList<>();
+
+            Collection<In> in = stop.getIn();
+            Collection<Out> out = stop.getOut();
+
+            if (in != null) {
+                for (In item : in) {
+                    stationTickets.add(createTicketIn(item));
+                }
+            }
+            if (out != null) {
+                for (Out item : out) {
+                    stationTickets.add(createTicketOut(item));
+                }
+            }
+            StationCollector stationCollector = new StationCollector(stop, new ArrayList<>(stationTickets));
+            mStationCollectors.add(stationCollector);
+        }
+        return mStationCollectors;
+    }
+
+    public StationTicket createTicketOut(Out item) {
+        StationTicket stationTicket = new StationTicket();
+        stationTicket.mSeatnum = item.mSeatnum;
+        stationTicket.setPassenger(item.mPassenger);
+        stationTicket.mDispatchstationname = item.mDispatchstationname;
+        stationTicket.mArrivalstationname = item.mArrivalstationname;
+        stationTicket.direction = "OUT";
+        return stationTicket;
+    }
+
+
+    public StationTicket createTicketIn(In item) {
+        StationTicket stationTicket = new StationTicket();
+        stationTicket.mSeatnum = item.mSeatnum;
+        stationTicket.setPassenger(item.mPassenger);
+        stationTicket.mDispatchstationname = item.mDispatchstationname;
+        stationTicket.mArrivalstationname = item.mArrivalstationname;
+        stationTicket.direction = "IN";
+        return stationTicket;
     }
 }

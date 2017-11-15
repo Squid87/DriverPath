@@ -8,12 +8,13 @@ import com.arellomobile.mvp.viewstate.strategy.StateStrategyType;
 import java.util.Collection;
 import java.util.List;
 
+import ru.avtovokzal.driverspath.modelStation.StationCollector;
 import ru.avtovokzal.driverspath.modelStation.Stops;
 
 @StateStrategyType(SkipStrategy.class)
 public interface StationInformationView extends MvpView {
 
-    void showStations(Collection<Stops> station);
+    void showStations(List<StationCollector> stationCollector);
 
     void showProgressBar();
 

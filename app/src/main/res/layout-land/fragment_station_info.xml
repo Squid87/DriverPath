@@ -23,7 +23,8 @@
                 android:layout_gravity="center"
                 android:textColor="@color/cardview_light_background"
                 android:textSize="@dimen/head_line_text_size"
-                tools:text="Промежуточные остановки " />
+                android:text="Промежуточные остановки"
+                tools:ignore="HardcodedText" />
 
         </LinearLayout>
 
