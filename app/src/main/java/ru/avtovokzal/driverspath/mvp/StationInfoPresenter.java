@@ -77,7 +77,13 @@ public class StationInfoPresenter extends MvpPresenter<StationInformationView> {
                         StationResponse stationResponse = response.body();
 
                         try {
-                            if (mDatabaseHelper.getStopsDao().idExists(1)) {
+                            boolean exists;
+                            try {
+                                exists = mDatabaseHelper.getStopsDao().idExists(1);
+                            } catch (SQLException e) {
+                                exists =false;
+                            }
+                            if (exists) {
                                 long m = mDate.getTime();
                                 long s = mPref.loadTime();
                                 if (m - s < 50000) {
