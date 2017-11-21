@@ -92,10 +92,10 @@ public class TicketInfoPresenter extends MvpPresenter<TicketInformationView> {
     private Response<RegistrationResponse> requestTicketInfo() throws IOException {
 
         RegistrationBody body = new RegistrationBody();
-        body.routeKey.dispatchStationUid = "E19A767A4C4C43F3855E10DA31CD3749";
-        body.routeKey.arrivalStationUid = "25CBF1CE4E224C0A85C4CCEAD3E4C537";
-        body.routeKey.dispatchTime = "11:30:00";
-        body.date = "2017-09-10";
+        body.routeKey.setDispatchStationUid(mPref.loadDispatchStation());
+        body.routeKey.setArrivalStationUid(mPref.loadArriveStation());
+        body.routeKey.setDispatchTime(mPref.loadDispatchTime());
+        body.setDate(mPref.loadDate());
 
         String userName = "transit-test";
         String password = "apsHFrD8";

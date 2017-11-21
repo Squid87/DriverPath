@@ -70,6 +70,7 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
     public void startShowTickets() {
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.activity_main_conteiner, new TicketInformationFragment())
+                .addToBackStack(null)
                 .commit();
         getSupportFragmentManager().executePendingTransactions();
     }
@@ -78,6 +79,7 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
     public void startShowStations() {
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.activity_main_conteiner, new StationsFragment())
+                .addToBackStack(null)
                 .commit();
         getSupportFragmentManager().executePendingTransactions();
 

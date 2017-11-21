@@ -18,5 +18,8 @@
     <!--landscape item view-->
     <dimen name="landscape_padding_headline_text">40dp</dimen>
 
+    <!--login Activity-->
+    <dimen name="login_activity_text">25sp</dimen>
+
 
 </resources>

@@ -6,4 +6,5 @@
 	<color name="cardview_light_background">#FFFFFF</color>
 	<color name="cardview_black_text">#121111</color>
 	<color name="cardview_background_linear_layout">#9b9999</color>
+	<color name="black_text">#121111</color>
 </resources>

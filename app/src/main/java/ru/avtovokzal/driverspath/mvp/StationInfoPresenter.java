@@ -106,11 +106,11 @@ public class StationInfoPresenter extends MvpPresenter<StationInformationView> {
 
     private Response<StationResponse> requestStationInfo() throws IOException {
         RegistrationBody body = new RegistrationBody();
+
         body.routeKey.dispatchStationUid = "E19A767A4C4C43F3855E10DA31CD3749";
         body.routeKey.arrivalStationUid = "25CBF1CE4E224C0A85C4CCEAD3E4C537";
         body.routeKey.dispatchTime = "11:30:00";
         body.date = "2017-09-10";
-
         String userName = "transit-test";
         String password = "apsHFrD8";
         String base = userName + ":" + password;

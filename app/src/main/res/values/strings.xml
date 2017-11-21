@@ -1,20 +1,31 @@
 <resources>
-	<!--passenger information-->
-	<string name="app_name">DriverPath</string>
-	<string name="last_name">Фамилия:</string>
-	<string name="first_name">Имя:</string>
-	<string name="meddle_name">Отчество:</string>
-	<string name="citizen">Гражданство:</string>
-	<string name="birthday">Дата рождения:</string>
-	<string name="document">Документ:</string>
-	<string name="docSeries">Серия:</string>
-	<string name="docNumber">Номер:</string>
-	<string name="gender">Пол:</string>
-	<string name="ticket_price">Цена Билета:</string>
+    <!--passenger information-->
+    <string name="app_name">DriverPath</string>
+    <string name="last_name">Фамилия:</string>
+    <string name="first_name">Имя:</string>
+    <string name="meddle_name">Отчество:</string>
+    <string name="citizen">Гражданство:</string>
+    <string name="birthday">Дата рождения:</string>
+    <string name="document">Документ:</string>
+    <string name="docSeries">Серия:</string>
+    <string name="docNumber">Номер:</string>
+    <string name="gender">Пол:</string>
+    <string name="ticket_price">Цена Билета:</string>
     <string name="noInformatione">No informat</string>
     <string name="stationTickets">Билеты</string>
-	<string name="stations">Станции</string>
-	<string name="about">О программе</string>
+    <string name="stations">Станции</string>
+    <string name="about">О программе</string>
+
+    <!--City for spinner-->
+    <string-array name="city">
+        <item>Барнаул</item>
+        <item>Бийск</item>
+        <item>Белокуриха</item>
+        <item>Новосибирск</item>
+        <item>Алейск</item>
+        <item>Поспелиха</item>
+        <item>Рубцовск</item>
+    </string-array>
 
 
 </resources>
