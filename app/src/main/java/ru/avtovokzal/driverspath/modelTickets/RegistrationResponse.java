@@ -10,6 +10,6 @@ public class RegistrationResponse {
     public Body mBody = new Body();
 
     public Body getBody() {
-        return mBody;
+            return mBody;
     }
 }

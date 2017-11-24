@@ -72,7 +72,7 @@ public class LoginActivity extends MvpAppCompatActivity implements LoginView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
-        setInitialDateTime();
+        //setInitialDateTime();
 
 
         //ArrayAdapter<?> adapterDispatch = ArrayAdapter.createFromResource(this, R.array.city, R.layout.spinner_text);
@@ -85,7 +85,7 @@ public class LoginActivity extends MvpAppCompatActivity implements LoginView {
         mSpinnerArrive.setAdapter(adapterArrive);
 
         mSetDateButton.setOnClickListener(this::setDate);
-        mSetTimeButton.setOnClickListener(this::setDate);
+        mSetTimeButton.setOnClickListener(this::setTime);
 
         mLoginButton.setOnClickListener(v -> {
             time = (String) mTimeTextView.getText();

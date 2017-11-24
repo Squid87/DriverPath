@@ -101,7 +101,7 @@ public class TicketInformationFragment extends MvpAppCompatFragment implements T
     }
 
     public void bindToolHead(Body mBody){
-        mFreeSeats.setText(String.valueOf(mBody.getFreeseats()) + " " + "/" + " ");
+        mFreeSeats.setText("Места " + String.valueOf(mBody.getFreeseats()) + " " + "/" + " ");
         mMaxSeats.setText(String.valueOf(mBody.getMaxseats()));
         mDispatchStation.setText("Белокуриха" + " " + "-");
         mArrivalStation.setText("Барнаул");

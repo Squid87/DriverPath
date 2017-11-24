@@ -24,6 +24,7 @@ import ru.avtovokzal.driverspath.modelStation.In;
 import ru.avtovokzal.driverspath.modelStation.Out;
 import ru.avtovokzal.driverspath.modelStation.StationCollector;
 import ru.avtovokzal.driverspath.modelStation.StationResponse;
+import ru.avtovokzal.driverspath.modelStation.StationResponseBody;
 import ru.avtovokzal.driverspath.modelStation.StationTicket;
 import ru.avtovokzal.driverspath.modelStation.Stops;
 import ru.avtovokzal.driverspath.mvp.View.StationInformationView;
@@ -50,7 +51,7 @@ public class StationInfoPresenter extends MvpPresenter<StationInformationView> {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 //.repeatWhen(completed -> completed.delay(10, TimeUnit.MINUTES))
-                .subscribe(new Subscriber<Response<StationResponse>>() {
+                .subscribe(new Subscriber<Response<StationResponseBody>>() {
                     @Override
                     public void onCompleted() {
                         getViewState().hideProgressBar();
@@ -72,9 +73,9 @@ public class StationInfoPresenter extends MvpPresenter<StationInformationView> {
                     }
 
                     @Override
-                    public void onNext(Response<StationResponse> response) {
+                    public void onNext(Response<StationResponseBody> response) {
                         getViewState().showProgressBar();
-                        StationResponse stationResponse = response.body();
+                        StationResponseBody stationResponse = response.body();
 
                         try {
                             boolean exists;
@@ -86,16 +87,16 @@ public class StationInfoPresenter extends MvpPresenter<StationInformationView> {
                             if (exists) {
                                 long m = mDate.getTime();
                                 long s = mPref.loadTime();
-                                if (m - s < 50000) {
+                                if (m - s < 300000) {
                                     getViewState().showStations(createStationsCollectors(mDatabaseService.loadStops()));
                                 } else {
                                     mDatabaseService.deleteDatabaseStatons();
-                                    getViewState().showStations(createStationsCollectors(stationResponse.getStops()));
-                                    mDatabaseService.saveStops(stationResponse.getStops());
+                                    getViewState().showStations(createStationsCollectors(stationResponse.getStationResponse().getStops()));
+                                    mDatabaseService.saveStops(stationResponse.getStationResponse().getStops());
                                 }
                             } else {
-                                getViewState().showStations(createStationsCollectors(stationResponse.getStops()));
-                                mDatabaseService.saveStops(stationResponse.getStops());
+                                getViewState().showStations(createStationsCollectors(stationResponse.getStationResponse().getStops()));
+                                mDatabaseService.saveStops(stationResponse.getStationResponse().getStops());
                             }
                         } catch (SQLException e) {
                             e.printStackTrace();
@@ -104,12 +105,12 @@ public class StationInfoPresenter extends MvpPresenter<StationInformationView> {
                 });
     }
 
-    private Response<StationResponse> requestStationInfo() throws IOException {
+    private Response<StationResponseBody> requestStationInfo() throws IOException {
         RegistrationBody body = new RegistrationBody();
 
-        body.routeKey.dispatchStationUid = "E19A767A4C4C43F3855E10DA31CD3749";
-        body.routeKey.arrivalStationUid = "25CBF1CE4E224C0A85C4CCEAD3E4C537";
-        body.routeKey.dispatchTime = "11:30:00";
+        body.routeKey.setDispatchStationUid(mPref.loadDispatchStation());
+        body.routeKey.setArrivalStationUid(mPref.loadArriveStation());
+        body.routeKey.setDispatchTime(mPref.loadDispatchTime());
         body.date = "2017-09-10";
         String userName = "transit-test";
         String password = "apsHFrD8";

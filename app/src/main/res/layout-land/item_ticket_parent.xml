@@ -24,6 +24,7 @@
             android:padding="5dp"
             android:textColor="@color/cardview_black_text"
             android:textSize="@dimen/head_line_text_size"
+            tools:ignore="RelativeOverlap"
             tools:text="Место" />
 
         <TextView
@@ -36,6 +37,7 @@
             android:padding="5dp"
             android:textColor="@color/cardview_black_text"
             android:textSize="@dimen/head_line_text_size"
+            tools:ignore="RelativeOverlap"
             tools:text="4" />
 
         <TextView
@@ -69,7 +71,8 @@
             android:scaleX="1.0"
             android:scaleY="1.0"
             android:src="@mipmap/ic_arrow"
-            android:visibility="visible" />
+            android:visibility="visible"
+            tools:ignore="ContentDescription" />
 
     </RelativeLayout>
 

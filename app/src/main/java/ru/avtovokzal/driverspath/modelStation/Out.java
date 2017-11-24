@@ -22,6 +22,7 @@ public class Out {
     private static final String SEAT_NUMBER = "seat_number";
     private static final String PARENT_STOPS = "parent_stops";
     private static final String COLUMN_ID = "_id";
+    private static final String MISGONE = "misgone";
 
 
     @DatabaseField(columnName = COLUMN_ID, generatedId = true)
@@ -65,6 +66,10 @@ public class Out {
 
     @SerializedName("price")
     public int mPrice;
+
+    @DatabaseField(columnName = MISGONE)
+    @SerializedName("isGone")
+    public boolean misGone;
 
     public void setParentStops(Stops parentStops) {
         this.mParentStops = parentStops;

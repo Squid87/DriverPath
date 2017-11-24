@@ -71,7 +71,7 @@ public class TicketInfoPresenter extends MvpPresenter<TicketInformationView> {
                             if (mDatabaseHelper.getBodyDao().idExists(1)) {
                                 long m = mDate.getTime();
                                 long s = mPref.loadTime();
-                                if (m - s < 50000) {
+                                if (m - s < 300000) {
                                     getViewState().showTicketInfo(mDatabaseService.loadTickets());
                                 } else {
                                     mDatabaseService.deleteDatabaseTicket();

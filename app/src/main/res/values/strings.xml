@@ -1,6 +1,8 @@
 <resources>
     <!--passenger information-->
     <string name="app_name">DriverPath</string>
+
+    <!--fragment_passenger_info-->
     <string name="last_name">Фамилия:</string>
     <string name="first_name">Имя:</string>
     <string name="meddle_name">Отчество:</string>
@@ -12,9 +14,19 @@
     <string name="gender">Пол:</string>
     <string name="ticket_price">Цена Билета:</string>
     <string name="noInformatione">No informat</string>
+    <string name="passenger_info_attendance">"  "Явка</string>
+    <string name="passenger_info_no_attendance">"  "Не явка</string>
+
+    <!--bottom_menu-->
     <string name="stationTickets">Билеты</string>
     <string name="stations">Станции</string>
     <string name="about">О программе</string>
+
+    <!--login_activity-->
+    <string name="login_activity_go">Поехали!</string>
+    <string name="login_activity_time">Установить время прибытия</string>
+    <string name="login_activity_date">Установить дату</string>
+
 
     <!--City for spinner-->
     <string-array name="city">

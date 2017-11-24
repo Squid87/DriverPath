@@ -25,7 +25,8 @@
             android:padding="5dp"
             android:textColor="@color/cardview_black_text"
             android:textSize="@dimen/head_line_text_size"
-            tools:text="Белокуриха" />
+            tools:text="Белокуриха"
+            tools:ignore="RelativeOverlap" />
 
         <TextView
             android:id="@+id/station_dispatch_time"
@@ -37,7 +38,8 @@
             android:padding="5dp"
             android:textColor="@color/cardview_black_text"
             android:textSize="@dimen/head_line_text_size"
-            tools:text="11:30" />
+            tools:text="11:30"
+            tools:ignore="RelativeOverlap" />
 
         <TextView
             android:id="@+id/station_in_people"
@@ -49,7 +51,8 @@
             android:padding="5dp"
             android:textColor="@color/cardview_black_text"
             android:textSize="@dimen/head_line_text_size"
-            tools:text="↑10" />
+            tools:text="↑10"
+            tools:ignore="RelativeOverlap" />
 
         <TextView
             android:id="@+id/station_out_people"
@@ -60,7 +63,8 @@
             android:padding="5dp"
             android:textColor="@color/cardview_black_text"
             android:textSize="@dimen/head_line_text_size"
-            tools:text="↓0" />
+            tools:text="↓0"
+            tools:ignore="RelativeOverlap" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -69,7 +73,8 @@
             android:scaleX="1.0"
             android:scaleY="1.0"
             android:src="@mipmap/ic_arrow"
-            android:visibility="visible" />
+            android:visibility="visible"
+            tools:ignore="ContentDescription" />
 
     </RelativeLayout>
 

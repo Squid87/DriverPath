@@ -68,11 +68,12 @@
             android:id="@+id/login_set_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="Установить дату"
+            android:layout_marginLeft="@dimen/marginLeft"
+            android:background="@drawable/bb_bottom_bar_top_shadow"
+            android:gravity="right|center_vertical"
+            android:text="@string/login_activity_date"
             android:textColor="@color/black_text"
-            android:textSize="20sp"
-            tools:ignore="HardcodedText" />
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/login_data"
@@ -92,11 +93,12 @@
             android:id="@+id/login_set_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="Установить время прибытия"
+            android:layout_marginLeft="@dimen/marginLeft"
+            android:background="@drawable/bb_bottom_bar_top_shadow"
+            android:gravity="right|center_vertical"
+            android:text="@string/login_activity_time"
             android:textColor="@color/black_text"
-            android:textSize="20sp"
-            tools:ignore="HardcodedText" />
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/login_time"
@@ -113,10 +115,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Поехали!"
+        android:background="@drawable/bb_bottom_bar_top_shadow"
+        android:drawableLeft="@drawable/ok_icon"
+        android:gravity="right|center_vertical"
+        android:padding="15dp"
+        android:text="@string/login_activity_go"
         android:textColor="@color/cardview_black_text"
         android:textSize="30sp"
-        tools:ignore="HardcodedText" />
+        android:textStyle="bold|italic" />
 
 </LinearLayout>
 

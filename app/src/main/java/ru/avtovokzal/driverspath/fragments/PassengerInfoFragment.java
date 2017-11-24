@@ -1,29 +1,37 @@
 package ru.avtovokzal.driverspath.fragments;
 
 
-import java.util.ArrayList;
-import java.util.List;
-
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.arellomobile.mvp.MvpAppCompatFragment;
+import com.arellomobile.mvp.presenter.InjectPresenter;
 
 import butterknife.BindView;
+import butterknife.BindViews;
 import butterknife.ButterKnife;
+import ru.avtovokzal.driverspath.Application;
 import ru.avtovokzal.driverspath.R;
 import ru.avtovokzal.driverspath.modelStation.StationTicket;
+import ru.avtovokzal.driverspath.mvp.PassengerInfoPresenter;
+import ru.avtovokzal.driverspath.mvp.View.PassengerInfoView;
 
 
 @SuppressLint("ValidFragment")
-public class PassengerInfoFragment extends Fragment {
+public class PassengerInfoFragment extends MvpAppCompatFragment implements PassengerInfoView {
+
+    @InjectPresenter
+    PassengerInfoPresenter mPassengerInfoPresenter;
 
     private StationTicket mStationTicket;
 
@@ -58,10 +66,10 @@ public class PassengerInfoFragment extends Fragment {
     TextView mTicketPrice;
 
     @BindView(R.id.ticket_attendance)
-    ImageButton mAttendance;
+    Button mAttendance;
 
     @BindView(R.id.ticket_no_attendance)
-    ImageButton mNoAttendance;
+    Button mNoAttendance;
 
     @SuppressLint("ValidFragment")
     public PassengerInfoFragment(StationTicket stationTicket) {
@@ -79,6 +87,9 @@ public class PassengerInfoFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.bind(this, view);
         showView(mStationTicket);
+
+        mAttendance.setOnClickListener(v -> mPassengerInfoPresenter.sendOnServerIsGone(true, mStationTicket.getmTicketid()));
+        mNoAttendance.setOnClickListener(v -> mPassengerInfoPresenter.sendOnServerIsGone(false, mStationTicket.getmTicketid()));
     }
 
 
@@ -151,4 +162,11 @@ public class PassengerInfoFragment extends Fragment {
         }
     }
 
+    @Override
+    public void showToast() {
+        Toast toast = Toast.makeText(Application.getInstance(),
+                "Данные данные отправлены!", Toast.LENGTH_LONG);
+        toast.show();
+        toast.setGravity(Gravity.CENTER, 0, 0);
+    }
 }

@@ -4,51 +4,57 @@ import com.google.gson.annotations.SerializedName;
 
 public class StationTicket {
 
-	public String direction;
+    public String direction;
 
-	@SerializedName("dispatchStationUid")
-	public String mDispatchstationuid;
+    @SerializedName("dispatchStationUid")
+    public String mDispatchstationuid;
 
-	@SerializedName("dispatchStationName")
-	public String mDispatchstationname;
+    @SerializedName("dispatchStationName")
+    public String mDispatchstationname;
 
-	@SerializedName("arrivalStationUid")
-	public String mArrivalstationuid;
+    @SerializedName("arrivalStationUid")
+    public String mArrivalstationuid;
 
-	@SerializedName("arrivalStationName")
-	public String mArrivalstationname;
+    @SerializedName("arrivalStationName")
+    public String mArrivalstationname;
 
-	@SerializedName("passenger")
-	public Passenger mPassenger;
+    @SerializedName("passenger")
+    public Passenger mPassenger;
 
-	@SerializedName("ticketId")
-	public String mTicketid;
+    @SerializedName("ticketId")
+    public String mTicketid;
 
-	@SerializedName("ticketSeries")
-	public String mTicketseries;
+    @SerializedName("ticketSeries")
+    public String mTicketseries;
 
-	@SerializedName("ticketNumber")
-	public String mTicketnumber;
+    @SerializedName("ticketNumber")
+    public String mTicketnumber;
 
-	@SerializedName("seatNum")
-	public int mSeatnum;
+    @SerializedName("seatNum")
+    public int mSeatnum;
 
-	@SerializedName("agent")
-	public String mAgent;
+    @SerializedName("agent")
+    public String mAgent;
 
-	@SerializedName("price")
-	public int mPrice;
+    @SerializedName("price")
+    public int mPrice;
 
-	public Passenger getPassenger() {
-		return mPassenger;
-	}
+    @SerializedName("isGone")
+    public boolean mIsGone;
 
-	public void setPassenger(Passenger passenger) {
-		mPassenger = passenger;
-	}
+    public Passenger getPassenger() {
+        return mPassenger;
+    }
 
-	public int getSeatnum() {
-		return mSeatnum;
-	}
+    public void setPassenger(Passenger passenger) {
+        mPassenger = passenger;
+    }
 
+    public int getSeatnum() {
+        return mSeatnum;
+    }
+
+    public String getmTicketid() {
+        return mTicketid;
+    }
 }

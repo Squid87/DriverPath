@@ -3,9 +3,9 @@ package ru.avtovokzal.driverspath.network;
 
 public class RouteKey {
 
-    public String dispatchStationUid;
-    public String arrivalStationUid;
-    public String dispatchTime;
+    private String dispatchStationUid;
+    private String arrivalStationUid;
+    private String dispatchTime;
 
     public String getDispatchStationUid() {
         return dispatchStationUid;
