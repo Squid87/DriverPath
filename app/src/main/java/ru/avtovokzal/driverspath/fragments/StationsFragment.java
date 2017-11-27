@@ -87,4 +87,5 @@ public class StationsFragment extends MvpAppCompatFragment implements StationInf
     public void hideProgressBar() {
         mStationProgressBar.setVisibility(ProgressBar.GONE);
     }
+
 }

@@ -54,7 +54,11 @@ public class StationTicket {
         return mSeatnum;
     }
 
-    public String getmTicketid() {
+    public String getTicketId() {
         return mTicketid;
+    }
+
+    public void setTicketId(String mTicketid) {
+        this.mTicketid = mTicketid;
     }
 }

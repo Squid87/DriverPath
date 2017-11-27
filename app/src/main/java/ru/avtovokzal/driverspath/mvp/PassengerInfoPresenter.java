@@ -29,8 +29,6 @@ public class PassengerInfoPresenter extends MvpPresenter<PassengerInfoView> {
 
     private String BASE_URL = "http://webapp.avtovokzal.ru";
     public ApiService mApiService = ApiService.getsInstance(Application.getInstance(), BASE_URL);
-    private DatabaseService mDatabaseService = new DatabaseService(Application.getInstance());
-    private DatabaseHelper mDatabaseHelper = new DatabaseHelper(Application.getInstance());
     private Pref mPref = new Pref();
 
     private boolean isGone;

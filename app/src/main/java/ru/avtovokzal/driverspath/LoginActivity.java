@@ -147,5 +147,11 @@ public class LoginActivity extends MvpAppCompatActivity implements LoginView {
     public void startTicket() {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+        finish();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 }

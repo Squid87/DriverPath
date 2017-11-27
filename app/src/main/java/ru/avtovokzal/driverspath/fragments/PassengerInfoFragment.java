@@ -3,9 +3,8 @@ package ru.avtovokzal.driverspath.fragments;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,7 +17,6 @@ import com.arellomobile.mvp.MvpAppCompatFragment;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 
 import butterknife.BindView;
-import butterknife.BindViews;
 import butterknife.ButterKnife;
 import ru.avtovokzal.driverspath.Application;
 import ru.avtovokzal.driverspath.R;
@@ -29,6 +27,8 @@ import ru.avtovokzal.driverspath.mvp.View.PassengerInfoView;
 
 @SuppressLint("ValidFragment")
 public class PassengerInfoFragment extends MvpAppCompatFragment implements PassengerInfoView {
+    private StationsFragment mStationsFragment;
+    private FragmentManager mFragmentManager;
 
     @InjectPresenter
     PassengerInfoPresenter mPassengerInfoPresenter;
@@ -88,8 +88,24 @@ public class PassengerInfoFragment extends MvpAppCompatFragment implements Passe
         ButterKnife.bind(this, view);
         showView(mStationTicket);
 
-        mAttendance.setOnClickListener(v -> mPassengerInfoPresenter.sendOnServerIsGone(true, mStationTicket.getmTicketid()));
-        mNoAttendance.setOnClickListener(v -> mPassengerInfoPresenter.sendOnServerIsGone(false, mStationTicket.getmTicketid()));
+        mAttendance.setOnClickListener(v -> {
+            mStationsFragment = new StationsFragment();
+            mFragmentManager = getFragmentManager();
+            mPassengerInfoPresenter.sendOnServerIsGone(true, mStationTicket.getTicketId());
+            mFragmentManager.beginTransaction().
+                    replace(R.id.activity_main_conteiner, new StationsFragment())
+                    .commit();
+        });
+
+
+        mNoAttendance.setOnClickListener(v -> {
+            mStationsFragment = new StationsFragment();
+            mFragmentManager = getFragmentManager();
+            mPassengerInfoPresenter.sendOnServerIsGone(false, mStationTicket.getTicketId());
+            mFragmentManager.beginTransaction().
+                    replace(R.id.activity_main_conteiner, new StationsFragment())
+                    .commit();
+        });
     }
 
 

@@ -9,7 +9,6 @@ import com.arellomobile.mvp.InjectViewState;
 import com.arellomobile.mvp.MvpPresenter;
 
 import java.io.IOException;
-import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -23,7 +22,6 @@ import ru.avtovokzal.driverspath.database.DatabaseService;
 import ru.avtovokzal.driverspath.modelStation.In;
 import ru.avtovokzal.driverspath.modelStation.Out;
 import ru.avtovokzal.driverspath.modelStation.StationCollector;
-import ru.avtovokzal.driverspath.modelStation.StationResponse;
 import ru.avtovokzal.driverspath.modelStation.StationResponseBody;
 import ru.avtovokzal.driverspath.modelStation.StationTicket;
 import ru.avtovokzal.driverspath.modelStation.Stops;
@@ -150,6 +148,7 @@ public class StationInfoPresenter extends MvpPresenter<StationInformationView> {
         stationTicket.setPassenger(item.mPassenger);
         stationTicket.mDispatchstationname = item.mDispatchstationname;
         stationTicket.mArrivalstationname = item.mArrivalstationname;
+        stationTicket.setTicketId(item.mTicketid);
         stationTicket.direction = "OUT";
         return stationTicket;
     }
@@ -161,6 +160,7 @@ public class StationInfoPresenter extends MvpPresenter<StationInformationView> {
         stationTicket.setPassenger(item.mPassenger);
         stationTicket.mDispatchstationname = item.mDispatchstationname;
         stationTicket.mArrivalstationname = item.mArrivalstationname;
+        stationTicket.setTicketId(item.mTicketid);
         stationTicket.direction = "IN";
         return stationTicket;
     }

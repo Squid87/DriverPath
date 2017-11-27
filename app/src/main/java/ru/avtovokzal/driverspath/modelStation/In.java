@@ -24,6 +24,7 @@ public class In {
     private static final String PARENT_STOPS = "parent_stops";
     private static final String COLUMN_ID = "_id";
     private static final String MISGONE = "misgone";
+    private static final String TICKET_ID = "ticket_id";
 
 
     @DatabaseField(columnName = COLUMN_ID, generatedId = true)
@@ -49,6 +50,7 @@ public class In {
     @SerializedName("passenger")
     public Passenger mPassenger;
 
+    @DatabaseField(columnName = TICKET_ID)
     @SerializedName("ticketId")
     public String mTicketid;
 
