@@ -41,7 +41,6 @@ public class Passenger {
     public String mGender;
 
     @DatabaseField(columnName = FIRST_NAME)
-
     @SerializedName("firstName")
     public String mFirstName;
 

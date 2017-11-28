@@ -29,7 +29,8 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     private Dao<Body, Integer> dBody;
     private Dao<Carrier, Integer> dCarrier;
     private Dao<Ticket, Integer> dTicket;
-    private Dao<Passenger, Integer> dPassenger;
+    private Dao<Passenger, Integer> dPassengerTicket;
+    private Dao<ru.avtovokzal.driverspath.modelStation.Passenger, Integer> dPassengerStation;
 
     private Dao<Stops, Integer> dStops;
     private Dao<In, Integer> dIn;
@@ -66,6 +67,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             Stops.onCreate(database, connectionSource);
             In.onCreate(database, connectionSource);
             Out.onCreate(database, connectionSource);
+            ru.avtovokzal.driverspath.modelStation.Passenger.onCreate(database, connectionSource);
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -100,10 +102,10 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     }
 
     public Dao<Passenger, Integer> getPassengerDao() throws SQLException {
-        if (dPassenger == null) {
-            dPassenger = getDao(Passenger.class);
+        if (dPassengerTicket == null) {
+            dPassengerTicket = getDao(Passenger.class);
         }
-        return dPassenger;
+        return dPassengerTicket;
     }
 
     public Dao<Stops, Integer> getStopsDao() throws SQLException {
@@ -125,5 +127,12 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             dOut = getDao(Out.class);
         }
         return dOut;
+    }
+
+    public Dao<ru.avtovokzal.driverspath.modelStation.Passenger, Integer> getPassengerStationDao() throws SQLException {
+        if (dPassengerStation == null) {
+            dPassengerStation = getDao(ru.avtovokzal.driverspath.modelStation.Passenger.class);
+        }
+        return dPassengerStation;
     }
 }

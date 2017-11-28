@@ -10,8 +10,6 @@ import com.j256.ormlite.table.TableUtils;
 
 import java.sql.SQLException;
 
-import ru.avtovokzal.driverspath.modelTickets.Body;
-
 import static ru.avtovokzal.driverspath.modelStation.In.IN_PEOPLE;
 
 @DatabaseTable(tableName = IN_PEOPLE)
@@ -23,8 +21,9 @@ public class In {
     private static final String SEAT_NUMBER = "seat_number";
     private static final String PARENT_STOPS = "parent_stops";
     private static final String COLUMN_ID = "_id";
-    private static final String MISGONE = "misgone";
+    private static final String IS_GONE = "is_gone";
     private static final String TICKET_ID = "ticket_id";
+    private static final String PASSENGER = "passengerStation";
 
 
     @DatabaseField(columnName = COLUMN_ID, generatedId = true)
@@ -47,6 +46,7 @@ public class In {
     @SerializedName("arrivalStationName")
     public String mArrivalstationname;
 
+    @DatabaseField(columnName = PASSENGER, foreign = true, foreignAutoRefresh = true)
     @SerializedName("passenger")
     public Passenger mPassenger;
 
@@ -70,12 +70,17 @@ public class In {
     @SerializedName("price")
     public int mPrice;
 
-    @DatabaseField(columnName = MISGONE)
+    @DatabaseField(columnName = IS_GONE)
     @SerializedName("isGone")
     public boolean misGone;
 
+
     public void setParentStops(Stops parentStops) {
         this.mParentStops = parentStops;
+    }
+
+    public Passenger getmPassenger() {
+        return mPassenger;
     }
 
     public static void onCreate(SQLiteDatabase database, ConnectionSource connectionSource) throws SQLException {

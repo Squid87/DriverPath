@@ -88,7 +88,7 @@ public class StationInfoPresenter extends MvpPresenter<StationInformationView> {
                                 if (m - s < 300000) {
                                     getViewState().showStations(createStationsCollectors(mDatabaseService.loadStops()));
                                 } else {
-                                    mDatabaseService.deleteDatabaseStatons();
+                                    mDatabaseService.deleteDatabaseStations();
                                     getViewState().showStations(createStationsCollectors(stationResponse.getStationResponse().getStops()));
                                     mDatabaseService.saveStops(stationResponse.getStationResponse().getStops());
                                 }
@@ -104,12 +104,13 @@ public class StationInfoPresenter extends MvpPresenter<StationInformationView> {
     }
 
     private Response<StationResponseBody> requestStationInfo() throws IOException {
-        RegistrationBody body = new RegistrationBody();
 
+        RegistrationBody body = new RegistrationBody();
         body.routeKey.setDispatchStationUid(mPref.loadDispatchStation());
         body.routeKey.setArrivalStationUid(mPref.loadArriveStation());
         body.routeKey.setDispatchTime(mPref.loadDispatchTime());
-        body.date = "2017-09-10";
+        body.setDate(mPref.loadDate());
+
         String userName = "transit-test";
         String password = "apsHFrD8";
         String base = userName + ":" + password;

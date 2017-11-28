@@ -73,13 +73,17 @@ public class DatabaseService {
             if (mStop.getIn() != null) {
                 for (In mIn : mStop.getIn()) {
                     mIn.setParentStops(mStop);
+                    mIn.getmPassenger().setParentIn(mIn);
                     mDatabaseHelper.getInDao().createOrUpdate(mIn);
+                    mDatabaseHelper.getPassengerStationDao().createOrUpdate(mIn.getmPassenger());
                 }
             }
             if (mStop.getOut() != null) {
                 for (Out mOut : mStop.getOut()) {
                     mOut.setParentStops(mStop);
+                    mOut.getmPassenger().setParentOut(mOut);
                     mDatabaseHelper.getOutDao().createOrUpdate(mOut);
+                    mDatabaseHelper.getPassengerStationDao().createOrUpdate(mOut.getmPassenger());
                 }
             }
             mDatabaseHelper.getStopsDao().createOrUpdate(mStop);
@@ -91,7 +95,7 @@ public class DatabaseService {
         return mDatabaseHelper.getStopsDao().queryForAll();
     }
 
-    public void deleteDatabaseStatons() throws SQLException {
+    public void deleteDatabaseStations() throws SQLException {
 
         DeleteBuilder<Stops, Integer> deleteStops = mDatabaseHelper.getStopsDao().deleteBuilder();
         deleteStops.delete();
@@ -101,6 +105,9 @@ public class DatabaseService {
 
         DeleteBuilder<Out, Integer> deleteOut = mDatabaseHelper.getOutDao().deleteBuilder();
         deleteOut.delete();
+
+        DeleteBuilder<ru.avtovokzal.driverspath.modelStation.Passenger, Integer> deletePassengerStation = mDatabaseHelper.getPassengerStationDao().deleteBuilder();
+        deletePassengerStation.delete();
     }
 
 }
