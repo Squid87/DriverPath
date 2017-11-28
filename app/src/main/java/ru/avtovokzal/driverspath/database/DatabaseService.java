@@ -20,94 +20,93 @@ import ru.avtovokzal.driverspath.modelTickets.Ticket;
 
 public class DatabaseService {
 
-    private DatabaseHelper mDatabaseHelper;
+	private DatabaseHelper mDatabaseHelper;
 
-    public DatabaseService(Context context) {
-        mDatabaseHelper = DatabaseHelper.getInstance(context);
-    }
+	public DatabaseService(Context context) {
+		mDatabaseHelper = DatabaseHelper.getInstance(context);
+	}
 
-    public void saveTickets(Body body) throws SQLException {
+	public void saveTickets(Body body) throws SQLException {
 
-        List<Ticket> mTickets = new ArrayList<>(body.getTicket());
-        body.setmId(1);
-        body.getCarrier().setmId(1);
-        mDatabaseHelper.getBodyDao().createOrUpdate(body);
-        mDatabaseHelper.getCarrierDao().createOrUpdate(body.getCarrier());
+		List<Ticket> mTickets = new ArrayList<>(body.getTicket());
+		body.setmId(1);
+		body.getCarrier().setmId(1);
+		mDatabaseHelper.getBodyDao().createOrUpdate(body);
+		mDatabaseHelper.getCarrierDao().createOrUpdate(body.getCarrier());
 
-        for (int i = 0; i < mTickets.size(); i++) {
-            mTickets.get(i).setmId(i);
-            mTickets.get(i).getPassenger().setmId(i);
-            mTickets.get(i).setParentBodyId(body);
-            mDatabaseHelper.getTicketDao().createOrUpdate(mTickets.get(i));
-            mDatabaseHelper.getPassengerDao().createOrUpdate(mTickets.get(i).getPassenger());
-        }
+		for (int i = 0; i < mTickets.size(); i++) {
+			mTickets.get(i).setmId(i);
+			mTickets.get(i).getPassenger().setmId(i);
+			mTickets.get(i).setParentBodyId(body);
+			mDatabaseHelper.getTicketDao().createOrUpdate(mTickets.get(i));
+			mDatabaseHelper.getPassengerDao().createOrUpdate(mTickets.get(i).getPassenger());
+		}
 
-    }
+	}
 
-    public Body loadTickets() throws SQLException {
-        return mDatabaseHelper.getBodyDao().queryForId(1);
-    }
+	public Body loadTickets() throws SQLException {
+		return mDatabaseHelper.getBodyDao().queryForId(1);
+	}
 
-    public void deleteDatabaseTicket() throws SQLException {
+	public void deleteDatabaseTicket() throws SQLException {
 
-        DeleteBuilder<Body, Integer> deleteBody = mDatabaseHelper.getBodyDao().deleteBuilder();
-        deleteBody.delete();
+		DeleteBuilder<Body, Integer> deleteBody = mDatabaseHelper.getBodyDao().deleteBuilder();
+		deleteBody.delete();
 
-        DeleteBuilder<Carrier, Integer> deleteCarrier = mDatabaseHelper.getCarrierDao().deleteBuilder();
-        deleteCarrier.delete();
+		DeleteBuilder<Carrier, Integer> deleteCarrier = mDatabaseHelper.getCarrierDao().deleteBuilder();
+		deleteCarrier.delete();
 
-        DeleteBuilder<Ticket, Integer> deleteTicket = mDatabaseHelper.getTicketDao().deleteBuilder();
-        deleteTicket.delete();
+		DeleteBuilder<Ticket, Integer> deleteTicket = mDatabaseHelper.getTicketDao().deleteBuilder();
+		deleteTicket.delete();
 
-        DeleteBuilder<Passenger, Integer> deletePassenger = mDatabaseHelper.getPassengerDao().deleteBuilder();
-        deletePassenger.delete();
-    }
+		DeleteBuilder<Passenger, Integer> deletePassenger = mDatabaseHelper.getPassengerDao().deleteBuilder();
+		deletePassenger.delete();
+	}
 
-    public void saveStops(Collection<Stops> stops) throws SQLException {
+	public void saveStops(Collection<Stops> stops) throws SQLException {
 
-        List<Stops> mStops = new ArrayList<>(stops);
+		List<Stops> mStops = new ArrayList<>(stops);
 
-        for (int i = 0; i < mStops.size(); i++) {
-            Stops mStop = mStops.get(i);
-            mStop.setmId(i);
-            if (mStop.getIn() != null) {
-                for (In mIn : mStop.getIn()) {
-                    mIn.setParentStops(mStop);
-                    mIn.getmPassenger().setParentIn(mIn);
-                    mDatabaseHelper.getInDao().createOrUpdate(mIn);
-                    mDatabaseHelper.getPassengerStationDao().createOrUpdate(mIn.getmPassenger());
-                }
-            }
-            if (mStop.getOut() != null) {
-                for (Out mOut : mStop.getOut()) {
-                    mOut.setParentStops(mStop);
-                    mOut.getmPassenger().setParentOut(mOut);
-                    mDatabaseHelper.getOutDao().createOrUpdate(mOut);
-                    mDatabaseHelper.getPassengerStationDao().createOrUpdate(mOut.getmPassenger());
-                }
-            }
-            mDatabaseHelper.getStopsDao().createOrUpdate(mStop);
-        }
+		for (int i = 0; i < mStops.size(); i++) {
+			Stops mStop = mStops.get(i);
+			mStop.setmId(i);
+			if (mStop.getIn() != null) {
+				for (In mIn : mStop.getIn()) {
+					mIn.setParentStops(mStop);
+					mDatabaseHelper.getPassengerStationDao().createOrUpdate(mIn.getmPassenger());
+					mDatabaseHelper.getInDao().createOrUpdate(mIn);
+					mDatabaseHelper.getPassengerStationDao().createOrUpdate(mIn.getmPassenger());
+				}
+			}
+			if (mStop.getOut() != null) {
+				for (Out mOut : mStop.getOut()) {
+					mOut.setParentStops(mStop);
+					mDatabaseHelper.getPassengerStationDao().createOrUpdate(mOut.getmPassenger());
+					mDatabaseHelper.getOutDao().createOrUpdate(mOut);
+				}
+			}
+			mDatabaseHelper.getStopsDao().createOrUpdate(mStop);
+		}
 
-    }
+	}
 
-    public List<Stops> loadStops() throws SQLException {
-        return mDatabaseHelper.getStopsDao().queryForAll();
-    }
+	public List<Stops> loadStops() throws SQLException {
+		return mDatabaseHelper.getStopsDao().queryForAll();
+	}
 
-    public void deleteDatabaseStations() throws SQLException {
+	public void deleteDatabaseStations() throws SQLException {
 
-        DeleteBuilder<Stops, Integer> deleteStops = mDatabaseHelper.getStopsDao().deleteBuilder();
-        deleteStops.delete();
+		DeleteBuilder<Stops, Integer> deleteStops = mDatabaseHelper.getStopsDao().deleteBuilder();
+		deleteStops.delete();
 
-        DeleteBuilder<In, Integer> deleteIn = mDatabaseHelper.getInDao().deleteBuilder();
-        deleteIn.delete();
+		DeleteBuilder<In, Integer> deleteIn = mDatabaseHelper.getInDao().deleteBuilder();
+		deleteIn.delete();
 
-        DeleteBuilder<Out, Integer> deleteOut = mDatabaseHelper.getOutDao().deleteBuilder();
-        deleteOut.delete();
+		DeleteBuilder<Out, Integer> deleteOut = mDatabaseHelper.getOutDao().deleteBuilder();
+		deleteOut.delete();
 
-        DeleteBuilder<ru.avtovokzal.driverspath.modelStation.Passenger, Integer> deletePassengerStation = mDatabaseHelper.getPassengerStationDao().deleteBuilder();
-        deletePassengerStation.delete();
-    }
+		DeleteBuilder<ru.avtovokzal.driverspath.modelStation.Passenger, Integer> deletePassengerStation = mDatabaseHelper.getPassengerStationDao().deleteBuilder();
+		deletePassengerStation.delete();
+	}
 
 }

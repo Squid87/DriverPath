@@ -16,120 +16,104 @@ import ru.avtovokzal.driverspath.modelTickets.Body;
 @DatabaseTable(tableName = ru.avtovokzal.driverspath.modelStation.Passenger.TABME_NAME)
 public class Passenger {
 
-    private static final String COLUMN_ID = "_id";
-    public static final String TABME_NAME = "passengerStation";
-    private static final String GENDER = "gender";
-    private static final String FIRST_NAME = "first_name";
-    private static final String LAST_NAME = "last_name";
-    private static final String MIDDLE_NAME = "middle_name";
-    private static final String DOC_NUMBER = "doc_number";
-    private static final String DOC_SERIES = "doc_series";
-    private static final String DOC_TYPE_ID = "doc_type_id";
-    private static final String BIRTHDAY = "birthday";
-    private static final String CITIZENSHIP = "citizenship";
-    private static final String PARENT_IN = "parent_in";
-    private static final String PARENT_OUT = "parent_out";
+	private static final String COLUMN_ID = "_id";
+	public static final String TABME_NAME = "passengerStation";
+	private static final String GENDER = "gender";
+	private static final String FIRST_NAME = "first_name";
+	private static final String LAST_NAME = "last_name";
+	private static final String MIDDLE_NAME = "middle_name";
+	private static final String DOC_NUMBER = "doc_number";
+	private static final String DOC_SERIES = "doc_series";
+	private static final String DOC_TYPE_ID = "doc_type_id";
+	private static final String BIRTHDAY = "birthday";
+	private static final String CITIZENSHIP = "citizenship";
 
-    @DatabaseField(columnName = PARENT_IN, foreign = true)
-    private In parentIn;
+	@DatabaseField(columnName = COLUMN_ID, generatedId = true)
+	private int mId;
 
-    @DatabaseField(columnName = PARENT_OUT, foreign = true)
-    private Out parentOut;
+	@DatabaseField(columnName = FIRST_NAME)
+	@SerializedName("firstName")
+	public String mFirstname;
 
-    @DatabaseField(columnName = COLUMN_ID, generatedId = true)
-    private int mId;
+	@DatabaseField(columnName = LAST_NAME)
+	@SerializedName("lastName")
+	public String mLastname;
 
-    @DatabaseField(columnName = FIRST_NAME)
-    @SerializedName("firstName")
-    public String mFirstname;
+	@DatabaseField(columnName = MIDDLE_NAME)
+	@SerializedName("middleName")
+	public String mMiddlename;
 
-    @DatabaseField(columnName = LAST_NAME)
-    @SerializedName("lastName")
-    public String mLastname;
+	@DatabaseField(columnName = DOC_NUMBER)
+	@SerializedName("docNum")
+	public String mDocnum;
 
-    @DatabaseField(columnName = MIDDLE_NAME)
-    @SerializedName("middleName")
-    public String mMiddlename;
+	@DatabaseField(columnName = DOC_SERIES)
+	@SerializedName("docSeries")
+	public String mDocseries;
 
-    @DatabaseField(columnName = DOC_NUMBER)
-    @SerializedName("docNum")
-    public String mDocnum;
+	@DatabaseField(columnName = DOC_TYPE_ID)
+	@SerializedName("docTypeId")
+	public String mDoctypeid;
 
-    @DatabaseField(columnName = DOC_SERIES)
-    @SerializedName("docSeries")
-    public String mDocseries;
+	@DatabaseField(columnName = BIRTHDAY)
+	@SerializedName("birthday")
+	public String mBirthday;
 
-    @DatabaseField(columnName = DOC_TYPE_ID)
-    @SerializedName("docTypeId")
-    public String mDoctypeid;
+	@DatabaseField(columnName = CITIZENSHIP)
+	@SerializedName("citizenshipISO2")
+	public String mCitizenshipiso2;
 
-    @DatabaseField(columnName = BIRTHDAY)
-    @SerializedName("birthday")
-    public String mBirthday;
+	@DatabaseField(columnName = GENDER)
+	@SerializedName("gender")
+	public String mGender;
 
-    @DatabaseField(columnName = CITIZENSHIP)
-    @SerializedName("citizenshipISO2")
-    public String mCitizenshipiso2;
+	@SerializedName("phone")
+	public String mPhone;
 
-    @DatabaseField(columnName = GENDER)
-    @SerializedName("gender")
-    public String mGender;
+	@SerializedName("info")
+	public String mInfo;
 
-    @SerializedName("phone")
-    public String mPhone;
+	public String getFirstname() {
+		return mFirstname;
+	}
 
-    @SerializedName("info")
-    public String mInfo;
+	public String getLastname() {
+		return mLastname;
+	}
 
-    public String getFirstname() {
-        return mFirstname;
-    }
+	public String getMiddlename() {
+		return mMiddlename;
+	}
 
-    public String getLastname() {
-        return mLastname;
-    }
+	public String getDocnum() {
+		return mDocnum;
+	}
 
-    public String getMiddlename() {
-        return mMiddlename;
-    }
+	public String getDocseries() {
+		return mDocseries;
+	}
 
-    public String getDocnum() {
-        return mDocnum;
-    }
+	public String getBirthday() {
+		return mBirthday;
+	}
 
-    public String getDocseries() {
-        return mDocseries;
-    }
+	public String getCitizenshipiso2() {
+		return mCitizenshipiso2;
+	}
 
-    public String getBirthday() {
-        return mBirthday;
-    }
+	public String getGender() {
+		return mGender;
+	}
 
-    public String getCitizenshipiso2() {
-        return mCitizenshipiso2;
-    }
+	public String getDoctypeid() {
+		return mDoctypeid;
+	}
 
-    public String getGender() {
-        return mGender;
-    }
+	public void setmId(int mId) {
+		this.mId = mId;
+	}
 
-    public String getDoctypeid() {
-        return mDoctypeid;
-    }
-
-    public void setParentIn(In parentIn) {
-        this.parentIn = parentIn;
-    }
-
-    public void setParentOut(Out parentOut) {
-        this.parentOut = parentOut;
-    }
-
-    public void setmId(int mId) {
-        this.mId = mId;
-    }
-
-    public static void onCreate(SQLiteDatabase database, ConnectionSource connectionSource) throws SQLException {
-        TableUtils.createTableIfNotExists(connectionSource, Passenger.class);
-    }
+	public static void onCreate(SQLiteDatabase database, ConnectionSource connectionSource) throws SQLException {
+		TableUtils.createTableIfNotExists(connectionSource, Passenger.class);
+	}
 }

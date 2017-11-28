@@ -5,14 +5,14 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     tools:context="ru.avtovokzal.driverspath.LoginActivity">
-
-
+    
+    
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="357dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:paddingTop="@dimen/marginTop">
-
+        
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -21,7 +21,7 @@
             android:textColor="@color/black_text"
             android:textSize="@dimen/login_activity_text"
             tools:ignore="HardcodedText" />
-
+        
         <Spinner
             android:id="@+id/spinner_dispatch_station"
             android:layout_width="wrap_content"
@@ -29,31 +29,31 @@
             android:layout_marginLeft="@dimen/marginLeft"
             android:padding="10dp"
             android:spinnerMode="dialog" />
-
-
+    
+    
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
-
+    
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="284dp"
             android:layout_height="wrap_content"
             android:padding="10dp"
             android:text="Станция назначения"
             android:textColor="@color/black_text"
             android:textSize="@dimen/login_activity_text"
             tools:ignore="HardcodedText" />
-
+    
         <Spinner
             android:id="@+id/spinner_arrive_station"
-            android:layout_width="wrap_content"
+            android:layout_width="62dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/marginLeft"
+            android:layout_marginLeft="10dp"
             android:padding="10dp">
-
+    
         </Spinner>
 
 

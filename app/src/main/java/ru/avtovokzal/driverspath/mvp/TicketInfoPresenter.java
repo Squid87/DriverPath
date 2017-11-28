@@ -67,6 +67,9 @@ public class TicketInfoPresenter extends MvpPresenter<TicketInformationView> {
                     public void onNext(Response<RegistrationResponse> response) {
                         getViewState().showProgressBar();
                         RegistrationResponse registrationResponse = response.body();
+                        if (registrationResponse.mError != null) {
+
+                        }
                         try {
                             if (mDatabaseHelper.getBodyDao().idExists(1)) {
                                 long m = mDate.getTime();

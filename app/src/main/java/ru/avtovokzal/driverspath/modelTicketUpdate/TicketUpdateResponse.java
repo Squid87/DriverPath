@@ -1,6 +1,7 @@
 package ru.avtovokzal.driverspath.modelTicketUpdate;
 
 
+import ru.avtovokzal.driverspath.AbstractResponse;
 
-public class TicketUpdateResponse {
+public class TicketUpdateResponse extends AbstractResponse {
 }
