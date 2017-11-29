@@ -270,7 +270,7 @@
             android:layout_gravity="center"
             android:layout_marginStart="350dp"
             android:gravity="center"
-            android:text="Явиля/Не явился"
+            android:text="Явился/Не явился"
             android:textColor="@color/black_text"
             android:textSize="@dimen/underline_item_text_size"
             android:textStyle="italic|bold"

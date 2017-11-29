@@ -98,6 +98,7 @@ public class PassengerInfoFragment extends MvpAppCompatFragment implements Passe
             mPassengerInfoPresenter.sendOnServerIsGone(true, mStationTicket.getTicketId());
             mFragmentManager.beginTransaction().
                     replace(R.id.activity_main_conteiner, new StationsFragment())
+                    .addToBackStack(null)
                     .commit();
         });
 
@@ -108,6 +109,7 @@ public class PassengerInfoFragment extends MvpAppCompatFragment implements Passe
             mPassengerInfoPresenter.sendOnServerIsGone(false, mStationTicket.getTicketId());
             mFragmentManager.beginTransaction().
                     replace(R.id.activity_main_conteiner, new StationsFragment())
+                    .addToBackStack(null)
                     .commit();
         });
     }

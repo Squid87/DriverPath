@@ -42,8 +42,7 @@ public class StationInfoPresenter extends MvpPresenter<StationInformationView> {
     private java.util.Date mDate = new java.util.Date();
     private Pref mPref = new Pref();
 
-    @Override
-    protected void onFirstViewAttach() {
+    public void startShowStation() {
         super.onFirstViewAttach();
         rx.Observable.fromCallable(this::requestStationInfo)
                 .subscribeOn(Schedulers.io())
