@@ -1,268 +1,249 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:gravity="center">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <android.support.v7.widget.CardView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="265dp"
-        android:layout_marginTop="10dp"
-        android:paddingLeft="@dimen/marginLeft"
-        android:paddingRight="@dimen/marginRight"
-        android:paddingTop="@dimen/marginTop"
-        card_view:cardCornerRadius="20dp">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="60dp"
-                android:padding="@dimen/padding_headline_text"
-                android:text="@string/last_name"
-                android:textColor="@color/cardview_black_text"
-                android:textSize="@dimen/underline_item_text_size" />
-
-            <TextView
-                android:id="@+id/textView5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginTop="100dp"
-                android:gravity="center"
-                android:padding="@dimen/padding_headline_text"
-                android:text="@string/first_name"
-                android:textColor="@color/cardview_black_text"
-                android:textSize="@dimen/underline_item_text_size" />
-
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginTop="140dp"
-                android:gravity="center"
-                android:padding="@dimen/padding_headline_text"
-                android:text="@string/meddle_name"
-                android:textColor="@color/cardview_black_text"
-                android:textSize="@dimen/underline_item_text_size" />
-
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginTop="180dp"
-                android:gravity="center"
-                android:padding="@dimen/padding_headline_text"
-                android:text="@string/citizen"
-                android:textColor="@color/cardview_black_text"
-                android:textSize="@dimen/underline_item_text_size" />
-
-            <TextView
-                android:id="@+id/textView6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginTop="220dp"
-                android:gravity="center"
-                android:padding="@dimen/padding_headline_text"
-                android:text="@string/birthday"
-                android:textColor="@color/cardview_black_text"
-                android:textSize="@dimen/underline_item_text_size" />
-
-            <TextView
-                android:id="@+id/item_passenger_second_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/textView"
-                android:layout_alignBottom="@+id/textView"
-                android:layout_toEndOf="@+id/textView3"
-                android:gravity="center"
-                android:textColor="@color/cardview_black_text"
-                android:textSize="@dimen/underline_item_text_size"
-                tools:text="Палицкий" />
-
-            <TextView
-                android:id="@+id/item_passenger_first_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/textView5"
-                android:layout_alignBottom="@+id/textView5"
-                android:layout_alignStart="@+id/item_passenger_second_name"
-                android:gravity="center"
-                android:textColor="@color/cardview_black_text"
-                android:textSize="@dimen/underline_item_text_size"
-                tools:text="Александр" />
-
-            <TextView
-                android:id="@+id/item_passenger_middle_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/textView3"
-                android:layout_alignBottom="@+id/textView3"
-                android:layout_alignStart="@+id/item_passenger_first_name"
-                android:gravity="center"
-                android:textColor="@color/cardview_black_text"
-                android:textSize="@dimen/underline_item_text_size"
-                tools:text="Михайлович" />
-
-            <TextView
-                android:id="@+id/item_passenger_citizen"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/textView2"
-                android:layout_alignBottom="@+id/textView2"
-                android:layout_toEndOf="@+id/textView2"
-                android:gravity="center"
-                android:textColor="@color/cardview_black_text"
-                android:textSize="@dimen/underline_item_text_size"
-                tools:text="RU" />
-
-            <TextView
-                android:id="@+id/item_passenger_birthday"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/textView6"
-                android:layout_alignBottom="@+id/textView6"
-                android:layout_toEndOf="@+id/textView6"
-                android:gravity="center"
-                android:textColor="@color/cardview_black_text"
-                android:textSize="@dimen/underline_item_text_size"
-                tools:text="01/01/01" />
-
-            <TextView
-                android:id="@+id/textView7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/item_passenger_second_name"
-                android:layout_alignBottom="@+id/item_passenger_second_name"
-                android:layout_marginStart="20dp"
-                android:layout_toEndOf="@+id/item_passenger_birthday"
-                android:gravity="center"
-                android:text="@string/document"
-                android:textColor="@color/cardview_black_text"
-                android:textSize="@dimen/underline_item_text_size" />
-
-            <TextView
-                android:id="@+id/textView8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/item_passenger_first_name"
-                android:layout_alignBottom="@+id/item_passenger_first_name"
-                android:layout_alignEnd="@+id/textView7"
-                android:gravity="center"
-                android:text="@string/docSeries"
-                android:textColor="@color/cardview_black_text"
-                android:textSize="@dimen/underline_item_text_size" />
-
-            <TextView
-                android:id="@+id/textView9"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/item_passenger_middle_name"
-                android:layout_alignBottom="@+id/item_passenger_middle_name"
-                android:layout_alignEnd="@+id/textView8"
-                android:gravity="center"
-                android:text="@string/docNumber"
-                android:textColor="@color/cardview_black_text"
-                android:textSize="@dimen/underline_item_text_size" />
-
-            <TextView
-                android:id="@+id/textView10"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/item_passenger_citizen"
-                android:layout_alignBottom="@+id/item_passenger_citizen"
-                android:layout_alignEnd="@+id/textView9"
-                android:gravity="center"
-                android:text="@string/gender"
-                android:textColor="@color/cardview_black_text"
-                android:textSize="@dimen/underline_item_text_size" />
-
-            <TextView
-                android:id="@+id/textView12"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/item_passenger_birthday"
-                android:layout_alignBottom="@+id/item_passenger_birthday"
-                android:layout_alignStart="@+id/textView7"
-                android:gravity="center"
-                android:text="@string/ticket_price"
-                android:textColor="@color/cardview_black_text"
-                android:textSize="@dimen/underline_item_text_size"
-                tools:text="Цена билета" />
-
-            <TextView
-                android:id="@+id/item_document"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/textView7"
-                android:layout_alignBottom="@+id/textView7"
-                android:layout_marginStart="20dp"
-                android:layout_toEndOf="@+id/textView7"
-                android:textColor="@color/cardview_black_text"
-                android:textSize="@dimen/underline_item_text_size"
-                tools:text="Паспорт" />
-
-            <TextView
-                android:id="@+id/item_document_series"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/textView8"
-                android:layout_alignBottom="@+id/textView8"
-                android:layout_alignStart="@+id/item_document"
-                android:textColor="@color/cardview_black_text"
-                android:textSize="@dimen/underline_item_text_size"
-                tools:text="01 00" />
-
-            <TextView
-                android:id="@+id/item_document_number"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/textView9"
-                android:layout_alignBottom="@+id/textView9"
-                android:layout_alignStart="@+id/item_document_series"
-                android:textColor="@color/cardview_black_text"
-                android:textSize="@dimen/underline_item_text_size"
-                tools:text="11 11 11" />
-
-            <TextView
-                android:id="@+id/item_passenger_gender"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/textView10"
-                android:layout_alignBottom="@+id/textView10"
-                android:layout_alignStart="@+id/item_document_number"
-                android:textColor="@color/cardview_black_text"
-                android:textSize="@dimen/underline_item_text_size"
-                tools:text="М/Ж" />
-
-            <TextView
-                android:id="@+id/item_ticket_price"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/textView12"
-                android:layout_alignBottom="@+id/textView12"
-                android:layout_toEndOf="@+id/textView12"
-                android:textColor="@color/cardview_black_text"
-                android:textSize="@dimen/underline_item_text_size"
-                tools:text="450" />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="120dp"
+            android:padding="@dimen/padding_headline_text"
+            android:text="@string/last_name"
+            android:textColor="@color/cardview_black_text"
+            android:textSize="@dimen/underline_item_text_size" />
 
 
-        </RelativeLayout>
+        <TextView
+            android:id="@+id/item_passenger_second_name"
+            android:layout_width="252dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/padding_headline_text"
+            android:textColor="@color/cardview_black_text"
+            android:textSize="@dimen/underline_item_text_size"
+            tools:text="Палицкий" />
 
-    </android.support.v7.widget.CardView>
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/padding_headline_text"
+            android:text="@string/document"
+            android:textColor="@color/cardview_black_text"
+            android:textSize="@dimen/underline_item_text_size" />
+
+        <TextView
+            android:id="@+id/item_document"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/padding_headline_text"
+            android:textColor="@color/cardview_black_text"
+            android:textSize="@dimen/underline_item_text_size"
+            tools:text="Паспорт" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="160dp"
+            android:gravity="center"
+            android:padding="@dimen/padding_headline_text"
+            android:text="@string/first_name"
+            android:textColor="@color/cardview_black_text"
+            android:textSize="@dimen/underline_item_text_size" />
+
+        <TextView
+            android:id="@+id/item_passenger_first_name"
+            android:layout_width="253dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/padding_headline_text"
+            android:textColor="@color/cardview_black_text"
+            android:textSize="@dimen/underline_item_text_size"
+            tools:text="Александр" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="148dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/padding_headline_text"
+            android:text="@string/docSeries"
+            android:textColor="@color/cardview_black_text"
+            android:textSize="@dimen/underline_item_text_size" />
+
+        <TextView
+            android:id="@+id/item_document_series"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/padding_headline_text"
+            android:textColor="@color/cardview_black_text"
+            android:textSize="@dimen/underline_item_text_size"
+            tools:text="01 00" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="120dp"
+            android:gravity="center"
+            android:padding="@dimen/padding_headline_text"
+            android:text="@string/meddle_name"
+            android:textColor="@color/cardview_black_text"
+            android:textSize="@dimen/underline_item_text_size" />
 
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/item_passenger_middle_name"
+            android:layout_width="252dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/padding_headline_text"
+            android:textColor="@color/cardview_black_text"
+            android:textSize="@dimen/underline_item_text_size"
+            tools:text="Михайлович" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="148dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/padding_headline_text"
+            android:text="@string/docNumber"
+            android:textColor="@color/cardview_black_text"
+            android:textSize="@dimen/underline_item_text_size" />
+
+        <TextView
+            android:id="@+id/item_document_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/padding_headline_text"
+            android:textColor="@color/cardview_black_text"
+            android:textSize="@dimen/underline_item_text_size"
+            tools:text="11 11 11" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="70dp"
+            android:gravity="center"
+            android:padding="@dimen/padding_headline_text"
+            android:text="@string/citizen"
+            android:textColor="@color/cardview_black_text"
+            android:textSize="@dimen/underline_item_text_size" />
+
+        <TextView
+            android:id="@+id/item_passenger_citizen"
+            android:layout_width="245dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/padding_headline_text"
+            android:textColor="@color/cardview_black_text"
+            android:textSize="@dimen/underline_item_text_size"
+            tools:text="RU" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="146dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/padding_headline_text"
+            android:text="@string/gender"
+            android:textColor="@color/cardview_black_text"
+            android:textSize="@dimen/underline_item_text_size" />
+
+        <TextView
+            android:id="@+id/item_passenger_gender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/padding_headline_text"
+            android:textColor="@color/cardview_black_text"
+            android:textSize="@dimen/underline_item_text_size"
+            tools:text="М/Ж" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:gravity="center"
+            android:padding="@dimen/padding_headline_text"
+            android:text="@string/birthday"
+            android:textColor="@color/cardview_black_text"
+            android:textSize="@dimen/underline_item_text_size" />
+
+        <TextView
+            android:id="@+id/item_passenger_birthday"
+            android:layout_width="247dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/padding_headline_text"
+            android:textColor="@color/cardview_black_text"
+            android:textSize="@dimen/underline_item_text_size"
+            tools:text="01/01/01" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/padding_headline_text"
+            android:text="@string/ticket_price"
+            android:textColor="@color/cardview_black_text"
+            android:textSize="@dimen/underline_item_text_size"
+            tools:text="Цена билета:" />
+
+
+        <TextView
+            android:id="@+id/item_ticket_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/padding_headline_text"
+            android:textColor="@color/cardview_black_text"
+            android:textSize="@dimen/underline_item_text_size"
+            tools:text="450" />
+
+    </LinearLayout>
+
+</LinearLayout>

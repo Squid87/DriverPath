@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -71,6 +72,9 @@ public class PassengerInfoFragment extends MvpAppCompatFragment implements Passe
     @BindView(R.id.ticket_no_attendance)
     Button mNoAttendance;
 
+    @BindView(R.id.isGone)
+    CheckBox mCheckBoxIsGone;
+
     @SuppressLint("ValidFragment")
     public PassengerInfoFragment(StationTicket stationTicket) {
         mStationTicket = stationTicket;
@@ -125,56 +129,59 @@ public class PassengerInfoFragment extends MvpAppCompatFragment implements Passe
         if (tikets.getPassenger() != null && tikets.getPassenger().getLastname() != null) {
             mPassengerSecondName.setText(tikets.getPassenger().getLastname());
         } else {
-            mPassengerSecondName.setText(R.string.noInformatione);
+            mPassengerSecondName.setText("");
         }
         if (tikets.getPassenger() != null && tikets.getPassenger().getFirstname() != null) {
             mPassengerFirstName.setText(tikets.getPassenger().getFirstname());
         } else {
-            mPassengerFirstName.setText(R.string.noInformatione);
+            mPassengerFirstName.setText("");
         }
         if (tikets.getPassenger() != null && tikets.getPassenger().getMiddlename() != null) {
             mPassengerMiddleName.setText(tikets.getPassenger().getMiddlename());
         } else {
-            mPassengerMiddleName.setText(R.string.noInformatione);
+            mPassengerMiddleName.setText("");
         }
 
         if (tikets.getPassenger() != null && tikets.getPassenger().getCitizenshipiso2() != null) {
-            mPassengerCitizen.setText(tikets.getPassenger().getFirstname());
+            mPassengerCitizen.setText(tikets.getPassenger().getCitizenshipiso2());
         } else {
-            mPassengerCitizen.setText(R.string.noInformatione);
+            mPassengerCitizen.setText("");
         }
 
         if (tikets.getPassenger() != null && tikets.getPassenger().getBirthday() != null) {
             mPassengerBirthday.setText(tikets.getPassenger().getBirthday());
         } else {
-            mPassengerBirthday.setText(R.string.noInformatione);
+            mPassengerBirthday.setText("");
         }
 
         if (tikets.getPassenger() != null && tikets.getPassenger().getDocnum() != null) {
-            mDocument.setText(tikets.getPassenger().getFirstname());
+            mDocument.setText(tikets.getPassenger().getDocnum());
         } else {
-            mDocument.setText(R.string.noInformatione);
+            mDocument.setText("");
         }
         if (tikets.getPassenger() != null && tikets.getPassenger().getDocseries() != null) {
             mDocumentSeries.setText(tikets.getPassenger().getDocseries());
         } else {
-            mDocumentSeries.setText(R.string.noInformatione);
+            mDocumentSeries.setText("");
         }
 
         if (tikets.getPassenger() != null && tikets.getPassenger().getDoctypeid() != null) {
             mDocumentNumber.setText(tikets.getPassenger().getDoctypeid());
         } else {
-            mDocumentNumber.setText(R.string.noInformatione);
+            mDocumentNumber.setText("");
         }
 
         if (tikets.getPassenger() != null && tikets.getPassenger().getGender() != null) {
             mPassengerGender.setText(tikets.getPassenger().getGender());
         } else {
-            mPassengerGender.setText(R.string.noInformatione);
+            mPassengerGender.setText("");
         }
         if (tikets.direction == "IN") {
             mAttendance.setVisibility(View.VISIBLE);
             mNoAttendance.setVisibility(View.VISIBLE);
+        }
+        if(tikets.isGone()){
+            mCheckBoxIsGone.setChecked(true);
         }
     }
 

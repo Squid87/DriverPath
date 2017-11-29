@@ -58,6 +58,14 @@ public class StationTicket {
         return mTicketid;
     }
 
+    public boolean isGone() {
+        return mIsGone;
+    }
+
+    public void setIsGone(boolean mIsGone) {
+        this.mIsGone = mIsGone;
+    }
+
     public void setTicketId(String mTicketid) {
         this.mTicketid = mTicketid;
     }

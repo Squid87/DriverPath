@@ -12,7 +12,7 @@
     <!--Text Size item_ticket_child-->
     <dimen name="head_item_text_size">20sp</dimen>
     <dimen name="portrait_under_line">10sp</dimen>
-    <dimen name="padding_headline_text">10dp</dimen>
+    <dimen name="padding_headline_text">0dp</dimen>
     <dimen name="underline_item_text_size">30sp</dimen>
 
     <!--landscape item view-->

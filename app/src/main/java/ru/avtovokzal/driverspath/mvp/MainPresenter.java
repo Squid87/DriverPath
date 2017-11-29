@@ -73,12 +73,12 @@ public class MainPresenter extends MvpPresenter<MainView> {
                                             "Нет интернета!", Toast.LENGTH_LONG);
                                     toast.show();
                                     toast.setGravity(Gravity.CENTER, 0, 0);
-                                    getViewState().startShowTickets();
+                                    getViewState().startShowStations();
 
                                 }
                             }
                             if (isconnect) {
-                                getViewState().startShowTickets();
+                                getViewState().startShowStations();
                             }
 
                         } catch (SQLException e) {

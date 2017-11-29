@@ -147,6 +147,7 @@ public class StationInfoPresenter extends MvpPresenter<StationInformationView> {
         StationTicket stationTicket = new StationTicket();
         stationTicket.mSeatnum = item.mSeatnum;
         stationTicket.setPassenger(item.mPassenger);
+        stationTicket.setIsGone(item.misGone);
         stationTicket.mDispatchstationname = item.mDispatchstationname;
         stationTicket.mArrivalstationname = item.mArrivalstationname;
         stationTicket.setTicketId(item.mTicketid);
@@ -159,6 +160,7 @@ public class StationInfoPresenter extends MvpPresenter<StationInformationView> {
         StationTicket stationTicket = new StationTicket();
         stationTicket.mSeatnum = item.mSeatnum;
         stationTicket.setPassenger(item.mPassenger);
+        stationTicket.setIsGone(item.misGone);
         stationTicket.mDispatchstationname = item.mDispatchstationname;
         stationTicket.mArrivalstationname = item.mArrivalstationname;
         stationTicket.setTicketId(item.mTicketid);
