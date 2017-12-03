@@ -1,4 +1,4 @@
-package ru.avtovokzal.driverspath.fragments;
+package ru.avtovokzal.driverspath.modelTickets;
 
 
 import android.os.Bundle;
@@ -20,12 +20,12 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import ru.avtovokzal.driverspath.R;
-import ru.avtovokzal.driverspath.adaptersTickets.TicketAdapter;
+import ru.avtovokzal.driverspath.modelTickets.adaptersTickets.TicketAdapter;
 import ru.avtovokzal.driverspath.modelTickets.Body;
 import ru.avtovokzal.driverspath.modelTickets.Ticket;
 import ru.avtovokzal.driverspath.modelTickets.TicketCollector;
-import ru.avtovokzal.driverspath.mvp.TicketInfoPresenter;
-import ru.avtovokzal.driverspath.mvp.View.TicketInformationView;
+import ru.avtovokzal.driverspath.modelTickets.TicketInfoPresenter;
+import ru.avtovokzal.driverspath.modelTickets.TicketInformationView;
 
 public class TicketInformationFragment extends MvpAppCompatFragment implements TicketInformationView {
 

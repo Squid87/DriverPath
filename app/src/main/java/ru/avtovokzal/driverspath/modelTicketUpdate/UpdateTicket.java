@@ -1,5 +1,7 @@
-package ru.avtovokzal.driverspath.network;
+package ru.avtovokzal.driverspath.modelTicketUpdate;
 
+
+import ru.avtovokzal.driverspath.network.RouteKey;
 
 public class UpdateTicket {
 

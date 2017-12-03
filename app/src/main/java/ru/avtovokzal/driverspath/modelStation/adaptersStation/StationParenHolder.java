@@ -1,13 +1,10 @@
-package ru.avtovokzal.driverspath.adaptersStation;
+package ru.avtovokzal.driverspath.modelStation.adaptersStation;
 
 
-import android.view.TextureView;
 import android.view.View;
 import android.widget.TextView;
 
 import com.thoughtbot.expandablerecyclerview.viewholders.GroupViewHolder;
-
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

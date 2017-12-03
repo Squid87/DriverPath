@@ -1,4 +1,4 @@
-package ru.avtovokzal.driverspath.mvp.View;
+package ru.avtovokzal.driverspath.modelTicketUpdate;
 
 
 import com.arellomobile.mvp.MvpView;

@@ -4,6 +4,7 @@ import com.google.gson.annotations.SerializedName;
 
 
 public abstract class AbstractResponse {
+
 	@SerializedName("error")
 	public Error mError;
 

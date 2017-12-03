@@ -5,9 +5,9 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
-import ru.avtovokzal.driverspath.modelStation.StationResponse;
 import ru.avtovokzal.driverspath.modelStation.StationResponseBody;
 import ru.avtovokzal.driverspath.modelTicketUpdate.TicketUpdateResponse;
+import ru.avtovokzal.driverspath.modelTicketUpdate.UpdateTicket;
 import ru.avtovokzal.driverspath.modelTickets.RegistrationResponse;
 
 public interface TicketApiInterface {

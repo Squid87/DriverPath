@@ -30,12 +30,12 @@
 
     <!--City for spinner-->
     <string-array name="city">
-        <item>Барнаул</item>
-        <item>Бийск</item>
+        <!--<item>Барнаул</item>-->
+        <!--<item>Бийск</item>-->
         <item>Белокуриха</item>
-        <item>Новосибирск</item>
-        <item>Алейск</item>
-        <item>Поспелиха</item>
+        <!--<item>Новосибирск</item>-->
+        <!--<item>Алейск</item>-->
+        <!--<item>Поспелиха</item>-->
         <item>Рубцовск</item>
     </string-array>
 

@@ -1,4 +1,4 @@
-package ru.avtovokzal.driverspath.mvp;
+package ru.avtovokzal.driverspath.modelTickets;
 
 import android.util.Base64;
 import android.view.Gravity;
@@ -9,15 +9,12 @@ import com.arellomobile.mvp.MvpPresenter;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.sql.Time;
 
 import retrofit2.Response;
 import ru.avtovokzal.driverspath.Application;
 import ru.avtovokzal.driverspath.Pref.Pref;
 import ru.avtovokzal.driverspath.database.DatabaseHelper;
 import ru.avtovokzal.driverspath.database.DatabaseService;
-import ru.avtovokzal.driverspath.modelTickets.RegistrationResponse;
-import ru.avtovokzal.driverspath.mvp.View.TicketInformationView;
 import ru.avtovokzal.driverspath.network.RegistrationBody;
 import ru.avtovokzal.driverspath.network.ApiService;
 import rx.Subscriber;

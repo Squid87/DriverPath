@@ -12,8 +12,8 @@ import com.arellomobile.mvp.presenter.InjectPresenter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import ru.avtovokzal.driverspath.fragments.StationsFragment;
-import ru.avtovokzal.driverspath.fragments.TicketInformationFragment;
+import ru.avtovokzal.driverspath.modelStation.StationsFragment;
+import ru.avtovokzal.driverspath.modelTickets.TicketInformationFragment;
 import ru.avtovokzal.driverspath.mvp.MainPresenter;
 import ru.avtovokzal.driverspath.mvp.View.MainView;
 

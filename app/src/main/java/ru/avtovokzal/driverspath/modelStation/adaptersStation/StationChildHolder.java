@@ -1,4 +1,4 @@
-package ru.avtovokzal.driverspath.adaptersStation;
+package ru.avtovokzal.driverspath.modelStation.adaptersStation;
 
 import android.view.View;
 import android.widget.ImageView;

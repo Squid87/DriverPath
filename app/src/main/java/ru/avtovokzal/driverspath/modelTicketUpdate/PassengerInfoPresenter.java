@@ -1,4 +1,4 @@
-package ru.avtovokzal.driverspath.mvp;
+package ru.avtovokzal.driverspath.modelTicketUpdate;
 
 
 import android.util.Base64;
@@ -7,19 +7,11 @@ import com.arellomobile.mvp.InjectViewState;
 import com.arellomobile.mvp.MvpPresenter;
 
 import java.io.IOException;
-import java.util.concurrent.ScheduledExecutorService;
 
 import retrofit2.Response;
 import ru.avtovokzal.driverspath.Application;
 import ru.avtovokzal.driverspath.Pref.Pref;
-import ru.avtovokzal.driverspath.database.DatabaseHelper;
-import ru.avtovokzal.driverspath.database.DatabaseService;
-import ru.avtovokzal.driverspath.modelStation.StationResponseBody;
-import ru.avtovokzal.driverspath.modelTicketUpdate.TicketUpdateResponse;
-import ru.avtovokzal.driverspath.mvp.View.PassengerInfoView;
 import ru.avtovokzal.driverspath.network.ApiService;
-import ru.avtovokzal.driverspath.network.UpdateTicket;
-import rx.Scheduler;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;

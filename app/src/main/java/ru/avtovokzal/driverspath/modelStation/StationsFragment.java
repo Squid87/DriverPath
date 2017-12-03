@@ -1,7 +1,6 @@
-package ru.avtovokzal.driverspath.fragments;
+package ru.avtovokzal.driverspath.modelStation;
 
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
@@ -14,21 +13,13 @@ import android.widget.ProgressBar;
 import com.arellomobile.mvp.MvpAppCompatFragment;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import ru.avtovokzal.driverspath.R;
-import ru.avtovokzal.driverspath.adaptersStation.StationAdapter;
-import ru.avtovokzal.driverspath.modelStation.In;
-import ru.avtovokzal.driverspath.modelStation.Out;
-import ru.avtovokzal.driverspath.modelStation.StationCollector;
-import ru.avtovokzal.driverspath.modelStation.StationTicket;
-import ru.avtovokzal.driverspath.modelStation.Stops;
-import ru.avtovokzal.driverspath.mvp.StationInfoPresenter;
-import ru.avtovokzal.driverspath.mvp.View.StationInformationView;
+import ru.avtovokzal.driverspath.modelStation.adaptersStation.StationAdapter;
+import ru.avtovokzal.driverspath.modelTicketUpdate.PassengerInfoFragment;
 
 
 public class StationsFragment extends MvpAppCompatFragment implements StationInformationView {

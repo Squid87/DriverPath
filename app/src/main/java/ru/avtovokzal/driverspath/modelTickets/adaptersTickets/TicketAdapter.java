@@ -1,4 +1,4 @@
-package ru.avtovokzal.driverspath.adaptersTickets;
+package ru.avtovokzal.driverspath.modelTickets.adaptersTickets;
 
 
 import java.util.List;
