@@ -18,7 +18,7 @@
     <string name="passenger_info_no_attendance">"  "Не явка</string>
 
     <!--bottom_menu-->
-    <string name="stationTickets">Билеты</string>
+    <string name="stationTickets">Места</string>
     <string name="stations">Станции</string>
     <string name="about">О программе</string>
 
