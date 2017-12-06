@@ -19,8 +19,8 @@ public class StationAdapter extends ExpandableRecyclerViewAdapter<StationParenHo
 
     private Listener listener;
 
-    public static interface Listener {
-        public void onClick(StationTicket ticket);
+    public interface Listener {
+        void onClick(StationTicket ticket);
     }
 
     public void setListener(Listener listener) {
