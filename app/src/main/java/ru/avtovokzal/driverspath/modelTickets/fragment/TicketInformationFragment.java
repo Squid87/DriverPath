@@ -1,6 +1,7 @@
 package ru.avtovokzal.driverspath.modelTickets.fragment;
 
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
@@ -99,6 +100,7 @@ public class TicketInformationFragment extends MvpAppCompatFragment implements T
 
         bindToolHead(mBody);
     }
+
 
     public void bindToolHead(Body mBody){
         mFreeSeats.setText("Места " + String.valueOf(mBody.getFreeSeats()) + " " + "/" + " ");

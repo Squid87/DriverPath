@@ -49,8 +49,6 @@ android {
         /* utils */
         compile "io.reactivex:rxjava:1.3.2"
         compile 'io.reactivex:rxandroid:1.2.1'
-        //compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
-        //compile "io.reactivex.rxjava2:rxjava:2.1.3"
 
         /* mvp */
         compile "com.arello-mobile:moxy:$MOXY_VERSION"
@@ -66,7 +64,7 @@ android {
         compile 'com.thoughtbot:expandablecheckrecyclerview:1.4'
 
         /*ORM*/
-        compile 'com.squareup.okhttp3:logging-interceptor:3.3.1'
+        compile 'com.squareup.okhttp3:logging-interceptor:3.9.0'
         compile 'com.j256.ormlite:ormlite-android:5.0'
         compile 'com.j256.ormlite:ormlite-core:5.0'
 
