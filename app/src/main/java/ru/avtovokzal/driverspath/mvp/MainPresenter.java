@@ -48,10 +48,10 @@ public class MainPresenter extends MvpPresenter<MainView> {
                     }
 
                     @Override
-                    public void onNext(Boolean isconnect) {
+                    public void onNext(Boolean isConnect) {
 
                         try {
-                            if (!isconnect && !mDatabaseHelper.getBodyDao().idExists(1)) {
+                            if (!isConnect && !mDatabaseHelper.getBodyDao().idExists(1)) {
 
                                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
                                 builder.setTitle("Важное сообщение!")
@@ -68,7 +68,7 @@ public class MainPresenter extends MvpPresenter<MainView> {
                                 alert.show();
 
                             } else {
-                                if (!isconnect && mDatabaseHelper.getBodyDao().isTableExists()) {
+                                if (!isConnect && mDatabaseHelper.getBodyDao().isTableExists()) {
                                     Toast toast = Toast.makeText(Application.getInstance(),
                                             "Нет интернета!", Toast.LENGTH_LONG);
                                     toast.show();
@@ -77,7 +77,7 @@ public class MainPresenter extends MvpPresenter<MainView> {
 
                                 }
                             }
-                            if (isconnect) {
+                            if (isConnect) {
                                 getViewState().startShowStations();
                             }
 

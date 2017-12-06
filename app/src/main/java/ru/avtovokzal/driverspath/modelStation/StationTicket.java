@@ -7,31 +7,31 @@ public class StationTicket {
 	public String direction;
 
 	@SerializedName("dispatchStationUid")
-	public String mDispatchstationuid;
+	public String mDispatchStationId;
 
 	@SerializedName("dispatchStationName")
-	public String mDispatchstationname;
+	public String mDispatchStationName;
 
 	@SerializedName("arrivalStationUid")
-	public String mArrivalstationuid;
+	public String mArrivalStationId;
 
 	@SerializedName("arrivalStationName")
-	public String mArrivalstationname;
+	public String mArrivalStationName;
 
 	@SerializedName("passenger")
 	public Passenger mPassenger;
 
 	@SerializedName("ticketId")
-	public String mTicketid;
+	public String mTicketId;
 
 	@SerializedName("ticketSeries")
-	public String mTicketseries;
+	public String mTicketSeries;
 
 	@SerializedName("ticketNumber")
-	public String mTicketnumber;
+	public String mTicketNumber;
 
 	@SerializedName("seatNum")
-	public int mSeatnum;
+	public int mSeatNum;
 
 	@SerializedName("agent")
 	public String mAgent;
@@ -50,12 +50,12 @@ public class StationTicket {
 		mPassenger = passenger;
 	}
 
-	public int getSeatnum() {
-		return mSeatnum;
+	public int getSeatNum() {
+		return mSeatNum;
 	}
 
 	public String getTicketId() {
-		return mTicketid;
+		return mTicketId;
 	}
 
 	public boolean isGone() {
@@ -66,8 +66,8 @@ public class StationTicket {
 		this.mIsGone = mIsGone;
 	}
 
-	public void setTicketId(String mTicketid) {
-		this.mTicketid = mTicketid;
+	public void setTicketId(String mTicketId) {
+		this.mTicketId = mTicketId;
 	}
 
 	public int getPrice() {

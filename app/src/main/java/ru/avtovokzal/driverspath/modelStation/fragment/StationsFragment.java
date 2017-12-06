@@ -1,4 +1,4 @@
-package ru.avtovokzal.driverspath.modelStation;
+package ru.avtovokzal.driverspath.modelStation.fragment;
 
 
 import android.os.Bundle;
@@ -18,8 +18,11 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import ru.avtovokzal.driverspath.R;
+import ru.avtovokzal.driverspath.modelStation.StationCollector;
 import ru.avtovokzal.driverspath.modelStation.adaptersStation.StationAdapter;
-import ru.avtovokzal.driverspath.modelTicketUpdate.PassengerInfoFragment;
+import ru.avtovokzal.driverspath.modelStation.mvp.StationInfoPresenter;
+import ru.avtovokzal.driverspath.modelStation.mvp.StationInformationView;
+import ru.avtovokzal.driverspath.modelTicketUpdate.fragment.PassengerInfoFragment;
 
 
 public class StationsFragment extends MvpAppCompatFragment implements StationInformationView {

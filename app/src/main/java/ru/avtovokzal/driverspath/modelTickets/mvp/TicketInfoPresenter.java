@@ -1,4 +1,4 @@
-package ru.avtovokzal.driverspath.modelTickets;
+package ru.avtovokzal.driverspath.modelTickets.mvp;
 
 import android.util.Base64;
 import android.view.Gravity;
@@ -15,6 +15,7 @@ import ru.avtovokzal.driverspath.Application;
 import ru.avtovokzal.driverspath.Pref.Pref;
 import ru.avtovokzal.driverspath.database.DatabaseHelper;
 import ru.avtovokzal.driverspath.database.DatabaseService;
+import ru.avtovokzal.driverspath.modelTickets.RegistrationResponse;
 import ru.avtovokzal.driverspath.network.RegistrationBody;
 import ru.avtovokzal.driverspath.network.ApiService;
 import rx.Subscriber;

@@ -1,4 +1,4 @@
-package ru.avtovokzal.driverspath.modelTickets;
+package ru.avtovokzal.driverspath.modelTickets.fragment;
 
 
 import android.os.Bundle;
@@ -20,12 +20,12 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import ru.avtovokzal.driverspath.R;
-import ru.avtovokzal.driverspath.modelTickets.adaptersTickets.TicketAdapter;
 import ru.avtovokzal.driverspath.modelTickets.Body;
 import ru.avtovokzal.driverspath.modelTickets.Ticket;
 import ru.avtovokzal.driverspath.modelTickets.TicketCollector;
-import ru.avtovokzal.driverspath.modelTickets.TicketInfoPresenter;
-import ru.avtovokzal.driverspath.modelTickets.TicketInformationView;
+import ru.avtovokzal.driverspath.modelTickets.adaptersTickets.TicketAdapter;
+import ru.avtovokzal.driverspath.modelTickets.mvp.TicketInfoPresenter;
+import ru.avtovokzal.driverspath.modelTickets.mvp.TicketInformationView;
 
 public class TicketInformationFragment extends MvpAppCompatFragment implements TicketInformationView {
 
@@ -101,8 +101,8 @@ public class TicketInformationFragment extends MvpAppCompatFragment implements T
     }
 
     public void bindToolHead(Body mBody){
-        mFreeSeats.setText("Места " + String.valueOf(mBody.getFreeseats()) + " " + "/" + " ");
-        mMaxSeats.setText(String.valueOf(mBody.getMaxseats()));
+        mFreeSeats.setText("Места " + String.valueOf(mBody.getFreeSeats()) + " " + "/" + " ");
+        mMaxSeats.setText(String.valueOf(mBody.getMaxSeats()));
         mDispatchStation.setText("Белокуриха" + " " + "-");
         mArrivalStation.setText("Барнаул");
         mDriverTimeOut.setText("11:30");

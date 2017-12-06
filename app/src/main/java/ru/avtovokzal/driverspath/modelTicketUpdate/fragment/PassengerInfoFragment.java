@@ -1,4 +1,4 @@
-package ru.avtovokzal.driverspath.modelTicketUpdate;
+package ru.avtovokzal.driverspath.modelTicketUpdate.fragment;
 
 
 import android.annotation.SuppressLint;
@@ -22,7 +22,9 @@ import butterknife.ButterKnife;
 import ru.avtovokzal.driverspath.Application;
 import ru.avtovokzal.driverspath.R;
 import ru.avtovokzal.driverspath.modelStation.StationTicket;
-import ru.avtovokzal.driverspath.modelStation.StationsFragment;
+import ru.avtovokzal.driverspath.modelStation.fragment.StationsFragment;
+import ru.avtovokzal.driverspath.modelTicketUpdate.mvp.PassengerInfoPresenter;
+import ru.avtovokzal.driverspath.modelTicketUpdate.mvp.PassengerInfoView;
 
 
 @SuppressLint("ValidFragment")
@@ -31,7 +33,7 @@ public class PassengerInfoFragment extends MvpAppCompatFragment implements Passe
 	private FragmentManager mFragmentManager;
 
 	@InjectPresenter
-	PassengerInfoPresenter mPassengerInfoPresenter;
+    PassengerInfoPresenter mPassengerInfoPresenter;
 
 	private StationTicket mStationTicket;
 
@@ -126,68 +128,68 @@ public class PassengerInfoFragment extends MvpAppCompatFragment implements Passe
 	}
 
 	@SuppressLint("SetTextI18n")
-	private void showView(StationTicket tikets) {
+	private void showView(StationTicket tickets) {
 
-		if (tikets.getPassenger() != null && tikets.getPassenger().getLastname() != null) {
-			mPassengerSecondName.setText(tikets.getPassenger().getLastname());
+		if (tickets.getPassenger() != null && tickets.getPassenger().getLastName() != null) {
+			mPassengerSecondName.setText(tickets.getPassenger().getLastName());
 		} else {
 			mPassengerSecondName.setText("");
 		}
-		if (tikets.getPassenger() != null && tikets.getPassenger().getFirstname() != null) {
-			mPassengerFirstName.setText(tikets.getPassenger().getFirstname());
+		if (tickets.getPassenger() != null && tickets.getPassenger().getFirstName() != null) {
+			mPassengerFirstName.setText(tickets.getPassenger().getFirstName());
 		} else {
 			mPassengerFirstName.setText("");
 		}
-		if (tikets.getPassenger() != null && tikets.getPassenger().getMiddlename() != null) {
-			mPassengerMiddleName.setText(tikets.getPassenger().getMiddlename());
+		if (tickets.getPassenger() != null && tickets.getPassenger().getMiddleName() != null) {
+			mPassengerMiddleName.setText(tickets.getPassenger().getMiddleName());
 		} else {
 			mPassengerMiddleName.setText("");
 		}
 
-		if (tikets.getPassenger() != null && tikets.getPassenger().getCitizenshipiso2() != null) {
-			mPassengerCitizen.setText(tikets.getPassenger().getCitizenshipiso2());
+		if (tickets.getPassenger() != null && tickets.getPassenger().getCitizenShip() != null) {
+			mPassengerCitizen.setText(tickets.getPassenger().getCitizenShip());
 		} else {
 			mPassengerCitizen.setText("");
 		}
 
-		if (tikets.getPassenger() != null && tikets.getPassenger().getBirthday() != null) {
-			mPassengerBirthday.setText(tikets.getPassenger().getBirthday());
+		if (tickets.getPassenger() != null && tickets.getPassenger().getBirthday() != null) {
+			mPassengerBirthday.setText(tickets.getPassenger().getBirthday());
 		} else {
 			mPassengerBirthday.setText("");
 		}
 
-		if (tikets.getPassenger() != null && tikets.getPassenger().getDocnum() != null) {
-			mDocument.setText(tikets.getPassenger().getDocnum());
+		if (tickets.getPassenger() != null && tickets.getPassenger().getDocNum() != null) {
+			mDocument.setText(tickets.getPassenger().getDocNum());
 		} else {
 			mDocument.setText("");
 		}
-		if (tikets.getPassenger() != null && tikets.getPassenger().getDocseries() != null) {
-			mDocumentSeries.setText(tikets.getPassenger().getDocseries());
+		if (tickets.getPassenger() != null && tickets.getPassenger().getDocSeries() != null) {
+			mDocumentSeries.setText(tickets.getPassenger().getDocSeries());
 		} else {
 			mDocumentSeries.setText("");
 		}
 
-		if (tikets.getPassenger() != null && tikets.getPassenger().getDoctypeid() != null) {
-			mDocumentNumber.setText(tikets.getPassenger().getDoctypeid());
+		if (tickets.getPassenger() != null && tickets.getPassenger().getDocTypeId() != null) {
+			mDocumentNumber.setText(tickets.getPassenger().getDocTypeId());
 		} else {
 			mDocumentNumber.setText("");
 		}
 
-		if (tikets.getPassenger() != null && tikets.getPassenger().getGender() != null) {
-			mPassengerGender.setText(tikets.getPassenger().getGender());
+		if (tickets.getPassenger() != null && tickets.getPassenger().getGender() != null) {
+			mPassengerGender.setText(tickets.getPassenger().getGender());
 		} else {
 			mPassengerGender.setText("");
 		}
 
-		mTicketPrice.setText(tikets.getPrice() + " " + "руб.");
+		mTicketPrice.setText(tickets.getPrice() + " " + "руб.");
 
 
-		if (tikets.direction == "IN") {
+		if (tickets.direction == "IN") {
 			mAttendance.setVisibility(View.VISIBLE);
 			mNoAttendance.setVisibility(View.VISIBLE);
 		}
 		
-		if (tikets.isGone()) {
+		if (tickets.isGone()) {
 			mCheckBoxIsGone.setChecked(true);
 			mCheckBoxIsGone.setText("Явился");
 		} else {

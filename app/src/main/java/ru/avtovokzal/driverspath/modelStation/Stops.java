@@ -36,10 +36,10 @@ public class Stops {
 
     @DatabaseField(columnName = DISPATCH_TIME)
     @SerializedName("dispatchTime")
-    public String mDispatchtime;
+    public String mDispatchTime;
 
     @SerializedName("arrivalTime")
-    public String mArrivaltime;
+    public String mArrivalTime;
 
     @ForeignCollectionField(columnName = IN_PEOPLE, eager = true)
     @SerializedName("in")
@@ -56,8 +56,8 @@ public class Stops {
         return mName;
     }
 
-    public String getDispatchtime() {
-        return mDispatchtime;
+    public String getDispatchTime() {
+        return mDispatchTime;
     }
 
     public Collection<In> getIn() {
@@ -68,11 +68,11 @@ public class Stops {
         return mOut;
     }
 
-    public String getmArrivaltime() {
-        return mArrivaltime;
+    public String getArrivalTime() {
+        return mArrivalTime;
     }
 
-    public void setmId(int mId) {
+    public void setId(int mId) {
         this.mId = mId;
     }
 

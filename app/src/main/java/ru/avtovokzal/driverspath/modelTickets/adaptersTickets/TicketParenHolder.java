@@ -10,7 +10,7 @@ import butterknife.ButterKnife;
 import ru.avtovokzal.driverspath.R;
 import ru.avtovokzal.driverspath.modelTickets.Ticket;
 
-public class TiсketParenHolder extends GroupViewHolder {
+public class TicketParenHolder extends GroupViewHolder {
 
     @BindView(R.id.item_ticket_seat)
     TextView mSeatNumber;
@@ -19,12 +19,12 @@ public class TiсketParenHolder extends GroupViewHolder {
     TextView mMesto;
 
     @BindView(R.id.item_ticket_dispatch)
-    TextView mDespetch;
+    TextView mDispatch;
 
     @BindView(R.id.item_ticket_arrive)
     TextView mArrive;
 
-    public TiсketParenHolder(View itemView) {
+    public TicketParenHolder(View itemView) {
         super(itemView);
         ButterKnife.bind(this, itemView);
     }
@@ -32,9 +32,9 @@ public class TiсketParenHolder extends GroupViewHolder {
 
     public void bind(Ticket tickets) {
         mMesto.setText("Место ");
-        mSeatNumber.setText(String.valueOf(tickets.getSeatnum()));
+        mSeatNumber.setText(String.valueOf(tickets.getSeatNum()));
         mArrive.setText(tickets.getArrivalStationName());
-        mDespetch.setText(tickets.getDispatchStationName());
+        mDispatch.setText(tickets.getDispatchStationName());
     }
 
 

@@ -33,11 +33,11 @@ public class Body {
 
     @DatabaseField(columnName = FREE_SEATS)
     @SerializedName("freeSeats")
-    public int mFreeseats;
+    public int mFreeSeats;
 
     @DatabaseField(columnName = MAX_SEATS)
     @SerializedName("maxSeats")
-    public int mMaxseats;
+    public int mMaxSeats;
 
     @ForeignCollectionField(columnName = TICKETS, eager = true)
     @SerializedName("ticket")
@@ -48,23 +48,23 @@ public class Body {
         return mCarrier;
     }
 
-    public int getFreeseats() {
-        return mFreeseats;
+    public int getFreeSeats() {
+        return mFreeSeats;
     }
 
-    public int getMaxseats() {
-        return mMaxseats;
+    public int getMaxSeats() {
+        return mMaxSeats;
     }
 
     public Collection<Ticket> getTicket() {
         return mTicket;
     }
 
-    public void setmId(int mId) {
+    public void setId(int mId) {
         this.mId = mId;
     }
 
-    public int getmId() {
+    public int getId() {
         return mId;
     }
 

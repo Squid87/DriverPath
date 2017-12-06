@@ -10,12 +10,12 @@ import com.j256.ormlite.table.TableUtils;
 
 import java.sql.SQLException;
 
-@DatabaseTable(tableName = Passenger.TABME_NAME)
+@DatabaseTable(tableName = Passenger.TABLE_NAME)
 public class Passenger {
 
 
     private static final String COLUMN_ID = "_id";
-    public static final String TABME_NAME = "passenger";
+    public static final String TABLE_NAME = "passenger";
     private static final String GENDER = "gender";
     private static final String FIRST_NAME = "first_name";
     private static final String LAST_NAME = "last_name";
@@ -58,11 +58,11 @@ public class Passenger {
 
     @DatabaseField(columnName = DOC_SERIES)
     @SerializedName("docSeries")
-    public String mDocseries;
+    public String mDocSeries;
 
     @DatabaseField(columnName = DOC_TYPE_ID)
     @SerializedName("docTypeId")
-    public String mDoctypeid;
+    public String mDocTypeId;
 
     @DatabaseField(columnName = BIRTHDAY)
     @SerializedName("birthday")
@@ -70,9 +70,9 @@ public class Passenger {
 
     @DatabaseField(columnName = CITIZENSHIP)
     @SerializedName("citizenshipISO2")
-    public String mCitizenshipiso2;
+    public String mCitizenShip;
 
-    public void setmId(int mId) {
+    public void setId(int mId) {
         this.mId = mId;
     }
 
@@ -93,11 +93,11 @@ public class Passenger {
     }
 
     public String getDocSeries() {
-        return mDocseries;
+        return mDocSeries;
     }
 
     public String getDocTypeId() {
-        return mDoctypeid;
+        return mDocTypeId;
     }
 
     public String getBirthday() {
@@ -105,7 +105,7 @@ public class Passenger {
     }
 
     public String getCitizenship() {
-        return mCitizenshipiso2;
+        return mCitizenShip;
     }
 
     public String getGender() {

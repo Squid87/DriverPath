@@ -13,7 +13,7 @@
     <string name="docNumber">Номер:</string>
     <string name="gender">Пол:</string>
     <string name="ticket_price">Цена Билета:</string>
-    <string name="noInformatione">No informat</string>
+    <string name="noInformation">No info</string>
     <string name="passenger_info_attendance">"  "Явка</string>
     <string name="passenger_info_no_attendance">"  "Не явка</string>
 

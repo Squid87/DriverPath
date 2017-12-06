@@ -29,14 +29,14 @@ public class DatabaseService {
 	public void saveTickets(Body body) throws SQLException {
 
 		List<Ticket> mTickets = new ArrayList<>(body.getTicket());
-		body.setmId(1);
-		body.getCarrier().setmId(1);
+		body.setId(1);
+		body.getCarrier().setId(1);
 		mDatabaseHelper.getBodyDao().createOrUpdate(body);
 		mDatabaseHelper.getCarrierDao().createOrUpdate(body.getCarrier());
 
 		for (int i = 0; i < mTickets.size(); i++) {
-			mTickets.get(i).setmId(i);
-			mTickets.get(i).getPassenger().setmId(i);
+			mTickets.get(i).setId(i);
+			mTickets.get(i).getPassenger().setId(i);
 			mTickets.get(i).setParentBodyId(body);
 			mDatabaseHelper.getTicketDao().createOrUpdate(mTickets.get(i));
 			mDatabaseHelper.getPassengerDao().createOrUpdate(mTickets.get(i).getPassenger());
@@ -69,19 +69,19 @@ public class DatabaseService {
 
 		for (int i = 0; i < mStops.size(); i++) {
 			Stops mStop = mStops.get(i);
-			mStop.setmId(i);
+			mStop.setId(i);
 			if (mStop.getIn() != null) {
 				for (In mIn : mStop.getIn()) {
 					mIn.setParentStops(mStop);
-					mDatabaseHelper.getPassengerStationDao().createOrUpdate(mIn.getmPassenger());
+					mDatabaseHelper.getPassengerStationDao().createOrUpdate(mIn.getPassenger());
 					mDatabaseHelper.getInDao().createOrUpdate(mIn);
-					mDatabaseHelper.getPassengerStationDao().createOrUpdate(mIn.getmPassenger());
+					mDatabaseHelper.getPassengerStationDao().createOrUpdate(mIn.getPassenger());
 				}
 			}
 			if (mStop.getOut() != null) {
 				for (Out mOut : mStop.getOut()) {
 					mOut.setParentStops(mStop);
-					mDatabaseHelper.getPassengerStationDao().createOrUpdate(mOut.getmPassenger());
+					mDatabaseHelper.getPassengerStationDao().createOrUpdate(mOut.getPassenger());
 					mDatabaseHelper.getOutDao().createOrUpdate(mOut);
 				}
 			}

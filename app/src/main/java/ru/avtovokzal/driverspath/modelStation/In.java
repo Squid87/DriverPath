@@ -33,18 +33,18 @@ public class In {
     private Stops mParentStops;
 
     @SerializedName("dispatchStationUid")
-    public String mDispatchstationuid;
+    public String mDispatchStationId;
 
     @DatabaseField(columnName = DISPATCH_STATION)
     @SerializedName("dispatchStationName")
-    public String mDispatchstationname;
+    public String mDispatchStationName;
 
     @SerializedName("arrivalStationUid")
-    public String mArrivalstationuid;
+    public String mArrivalStationId;
 
     @DatabaseField(columnName = ARRIVE_STATION)
     @SerializedName("arrivalStationName")
-    public String mArrivalstationname;
+    public String mArrivalStationName;
 
     @DatabaseField(columnName = PASSENGER, foreign = true, foreignAutoRefresh = true)
     @SerializedName("passenger")
@@ -52,17 +52,17 @@ public class In {
 
     @DatabaseField(columnName = TICKET_ID)
     @SerializedName("ticketId")
-    public String mTicketid;
+    public String mTicketId;
 
     @SerializedName("ticketSeries")
-    public String mTicketseries;
+    public String mTicketSeries;
 
     @SerializedName("ticketNumber")
-    public String mTicketnumber;
+    public String mTicketNumber;
 
     @DatabaseField(columnName = SEAT_NUMBER)
     @SerializedName("seatNum")
-    public int mSeatnum;
+    public int mSeatNum;
 
     @SerializedName("agent")
     public String mAgent;
@@ -79,7 +79,7 @@ public class In {
         this.mParentStops = parentStops;
     }
 
-    public Passenger getmPassenger() {
+    public Passenger getPassenger() {
         return mPassenger;
     }
 

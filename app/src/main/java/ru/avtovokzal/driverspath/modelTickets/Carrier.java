@@ -37,7 +37,7 @@ public class Carrier {
         return mName;
     }
 
-    public void setmId(int mId) {
+    public void setId(int mId) {
         this.mId = mId;
     }
 

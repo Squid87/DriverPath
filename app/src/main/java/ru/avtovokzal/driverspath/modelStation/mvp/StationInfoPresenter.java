@@ -1,4 +1,4 @@
-package ru.avtovokzal.driverspath.modelStation;
+package ru.avtovokzal.driverspath.modelStation.mvp;
 
 
 import android.util.Base64;
@@ -19,6 +19,12 @@ import ru.avtovokzal.driverspath.Application;
 import ru.avtovokzal.driverspath.Pref.Pref;
 import ru.avtovokzal.driverspath.database.DatabaseHelper;
 import ru.avtovokzal.driverspath.database.DatabaseService;
+import ru.avtovokzal.driverspath.modelStation.In;
+import ru.avtovokzal.driverspath.modelStation.Out;
+import ru.avtovokzal.driverspath.modelStation.StationCollector;
+import ru.avtovokzal.driverspath.modelStation.StationResponseBody;
+import ru.avtovokzal.driverspath.modelStation.StationTicket;
+import ru.avtovokzal.driverspath.modelStation.Stops;
 import ru.avtovokzal.driverspath.network.RegistrationBody;
 import ru.avtovokzal.driverspath.network.ApiService;
 import rx.Subscriber;
@@ -131,12 +137,12 @@ public class StationInfoPresenter extends MvpPresenter<StationInformationView> {
 
 	public StationTicket createTicketOut(Out item) {
 		StationTicket stationTicket = new StationTicket();
-		stationTicket.mSeatnum = item.mSeatnum;
+		stationTicket.mSeatNum = item.mSeatNum;
 		stationTicket.setPassenger(item.mPassenger);
 		stationTicket.setIsGone(item.misGone);
-		stationTicket.mDispatchstationname = item.mDispatchstationname;
-		stationTicket.mArrivalstationname = item.mArrivalstationname;
-		stationTicket.setTicketId(item.mTicketid);
+		stationTicket.mDispatchStationName = item.mDispatchStationName;
+		stationTicket.mArrivalStationName = item.mArrivalStationName;
+		stationTicket.setTicketId(item.mTicketId);
 		stationTicket.setPrice(item.mPrice);
 		stationTicket.direction = "OUT";
 		return stationTicket;
@@ -145,13 +151,13 @@ public class StationInfoPresenter extends MvpPresenter<StationInformationView> {
 
 	public StationTicket createTicketIn(In item) {
 		StationTicket stationTicket = new StationTicket();
-		stationTicket.mSeatnum = item.mSeatnum;
+		stationTicket.mSeatNum = item.mSeatNum;
 		stationTicket.setPassenger(item.mPassenger);
 		stationTicket.setPrice(item.mPrice);
 		stationTicket.setIsGone(item.misGone);
-		stationTicket.mDispatchstationname = item.mDispatchstationname;
-		stationTicket.mArrivalstationname = item.mArrivalstationname;
-		stationTicket.setTicketId(item.mTicketid);
+		stationTicket.mDispatchStationName = item.mDispatchStationName;
+		stationTicket.mArrivalStationName = item.mArrivalStationName;
+		stationTicket.setTicketId(item.mTicketId);
 		stationTicket.direction = "IN";
 		return stationTicket;
 	}

@@ -37,36 +37,36 @@ public class Ticket {
 
     @DatabaseField(columnName = SEAT_NUMBER)
     @SerializedName("seatNum")
-    public int mSeatnum;
+    public int mSeatNum;
 
     @SerializedName("dispatchStationUid")
-    public String mDispatchstationuid;
+    public String mDispatchStationId;
 
     @DatabaseField(columnName = DISPATCH_STATION_NAME)
     @SerializedName("dispatchStationName")
-    public String mDispatchstationname;
+    public String mDispatchStationName;
 
     @SerializedName("arrivalStationUid")
-    public String mArrivalstationuid;
+    public String mArrivalStationId;
 
     @DatabaseField(columnName = ARRIVAL_STATION_NAME)
     @SerializedName("arrivalStationName")
-    public String mArrivalstationname;
+    public String mArrivalStationName;
 
     @DatabaseField(columnName = PASSENGER, foreign = true, foreignAutoRefresh = true)
     @SerializedName("passenger")
     public Passenger mPassenger;
 
     @SerializedName("ticketId")
-    public String mTicketid;
+    public String mTicketId;
 
     @SerializedName("ticketSeries")
-    public String mTicketseries;
+    public String mTicketSeries;
 
     @SerializedName("ticketNumber")
-    public String mTicketnumber;
+    public String mTicketNumber;
 
-    public void setmId(int mId) {
+    public void setId(int mId) {
         this.mId = mId;
     }
 
@@ -74,16 +74,16 @@ public class Ticket {
         return mPrice;
     }
 
-    public int getSeatnum() {
-        return mSeatnum;
+    public int getSeatNum() {
+        return mSeatNum;
     }
 
     public String getDispatchStationName() {
-        return mDispatchstationname;
+        return mDispatchStationName;
     }
 
     public String getArrivalStationName() {
-        return mArrivalstationname;
+        return mArrivalStationName;
     }
 
     public Passenger getPassenger() {

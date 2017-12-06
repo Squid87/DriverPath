@@ -1,4 +1,4 @@
-package ru.avtovokzal.driverspath.modelTicketUpdate;
+package ru.avtovokzal.driverspath.modelTicketUpdate.mvp;
 
 
 import android.util.Base64;
@@ -11,6 +11,8 @@ import java.io.IOException;
 import retrofit2.Response;
 import ru.avtovokzal.driverspath.Application;
 import ru.avtovokzal.driverspath.Pref.Pref;
+import ru.avtovokzal.driverspath.modelTicketUpdate.TicketUpdateResponse;
+import ru.avtovokzal.driverspath.modelTicketUpdate.UpdateTicket;
 import ru.avtovokzal.driverspath.network.ApiService;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
@@ -26,9 +28,9 @@ public class PassengerInfoPresenter extends MvpPresenter<PassengerInfoView> {
     private boolean isGone;
     private String ticketId;
 
-    public void sendOnServerIsGone(boolean isgone, String ticketid) {
-        isGone = isgone;
-        ticketId = ticketid;
+    public void sendOnServerIsGone(boolean isGone, String ticketId) {
+        this.isGone = isGone;
+        this.ticketId = ticketId;
 
         rx.Observable.fromCallable(this::requestUpdateTicket)
                 .subscribeOn(Schedulers.io())

@@ -6,7 +6,6 @@ import com.arellomobile.mvp.MvpPresenter;
 
 import ru.avtovokzal.driverspath.Pref.Pref;
 import ru.avtovokzal.driverspath.mvp.View.LoginView;
-import ru.avtovokzal.driverspath.network.RegistrationBody;
 
 @InjectViewState
 public class LoginPresenter extends MvpPresenter<LoginView> {

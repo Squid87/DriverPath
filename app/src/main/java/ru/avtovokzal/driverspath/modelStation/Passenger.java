@@ -1,6 +1,5 @@
 package ru.avtovokzal.driverspath.modelStation;
 
-import android.database.Observable;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.google.gson.annotations.SerializedName;
@@ -11,13 +10,11 @@ import com.j256.ormlite.table.TableUtils;
 
 import java.sql.SQLException;
 
-import ru.avtovokzal.driverspath.modelTickets.Body;
-
-@DatabaseTable(tableName = ru.avtovokzal.driverspath.modelStation.Passenger.TABME_NAME)
+@DatabaseTable(tableName = ru.avtovokzal.driverspath.modelStation.Passenger.TABLE_NAME)
 public class Passenger {
 
 	private static final String COLUMN_ID = "_id";
-	public static final String TABME_NAME = "passengerStation";
+	public static final String TABLE_NAME = "passengerStation";
 	private static final String GENDER = "gender";
 	private static final String FIRST_NAME = "first_name";
 	private static final String LAST_NAME = "last_name";
@@ -33,27 +30,27 @@ public class Passenger {
 
 	@DatabaseField(columnName = FIRST_NAME)
 	@SerializedName("firstName")
-	public String mFirstname;
+	public String mFirstName;
 
 	@DatabaseField(columnName = LAST_NAME)
 	@SerializedName("lastName")
-	public String mLastname;
+	public String mLastName;
 
 	@DatabaseField(columnName = MIDDLE_NAME)
 	@SerializedName("middleName")
-	public String mMiddlename;
+	public String mMiddleName;
 
 	@DatabaseField(columnName = DOC_NUMBER)
 	@SerializedName("docNum")
-	public String mDocnum;
+	public String mDocNum;
 
 	@DatabaseField(columnName = DOC_SERIES)
 	@SerializedName("docSeries")
-	public String mDocseries;
+	public String mDocSeries;
 
 	@DatabaseField(columnName = DOC_TYPE_ID)
 	@SerializedName("docTypeId")
-	public String mDoctypeid;
+	public String mDocTypeId;
 
 	@DatabaseField(columnName = BIRTHDAY)
 	@SerializedName("birthday")
@@ -61,7 +58,7 @@ public class Passenger {
 
 	@DatabaseField(columnName = CITIZENSHIP)
 	@SerializedName("citizenshipISO2")
-	public String mCitizenshipiso2;
+	public String mCitizenShip;
 
 	@DatabaseField(columnName = GENDER)
 	@SerializedName("gender")
@@ -73,43 +70,43 @@ public class Passenger {
 	@SerializedName("info")
 	public String mInfo;
 
-	public String getFirstname() {
-		return mFirstname;
+	public String getFirstName() {
+		return mFirstName;
 	}
 
-	public String getLastname() {
-		return mLastname;
+	public String getLastName() {
+		return mLastName;
 	}
 
-	public String getMiddlename() {
-		return mMiddlename;
+	public String getMiddleName() {
+		return mMiddleName;
 	}
 
-	public String getDocnum() {
-		return mDocnum;
+	public String getDocNum() {
+		return mDocNum;
 	}
 
-	public String getDocseries() {
-		return mDocseries;
+	public String getDocSeries() {
+		return mDocSeries;
 	}
 
 	public String getBirthday() {
 		return mBirthday;
 	}
 
-	public String getCitizenshipiso2() {
-		return mCitizenshipiso2;
+	public String getCitizenShip() {
+		return mCitizenShip;
 	}
 
 	public String getGender() {
 		return mGender;
 	}
 
-	public String getDoctypeid() {
-		return mDoctypeid;
+	public String getDocTypeId() {
+		return mDocTypeId;
 	}
 
-	public void setmId(int mId) {
+	public void setId(int mId) {
 		this.mId = mId;
 	}
 

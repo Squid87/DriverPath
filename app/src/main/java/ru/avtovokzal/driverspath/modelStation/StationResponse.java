@@ -21,9 +21,9 @@ public class StationResponse {
     public Carrier mCarrier;
 
     @SerializedName("maxSeats")
-    public int mMaxseats;
+    public int mMaxSeats;
 
-    public String getmName() {
+    public String getName() {
         return mName;
     }
 
@@ -31,7 +31,7 @@ public class StationResponse {
         return mStops;
     }
 
-    public Carrier getmCarrier() {
+    public Carrier getCarrier() {
         return mCarrier;
     }
 

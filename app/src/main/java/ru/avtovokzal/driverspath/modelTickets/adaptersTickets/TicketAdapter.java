@@ -13,7 +13,7 @@ import com.thoughtbot.expandablerecyclerview.models.ExpandableGroup;
 import ru.avtovokzal.driverspath.R;
 import ru.avtovokzal.driverspath.modelTickets.Ticket;
 
-public class TicketAdapter extends ExpandableRecyclerViewAdapter<TiсketParenHolder, TicketChildHolder> {
+public class TicketAdapter extends ExpandableRecyclerViewAdapter<TicketParenHolder, TicketChildHolder> {
 
 
 
@@ -22,9 +22,9 @@ public class TicketAdapter extends ExpandableRecyclerViewAdapter<TiсketParenHol
     }
 
     @Override
-    public TiсketParenHolder onCreateGroupViewHolder(ViewGroup parent, int viewType) {
+    public TicketParenHolder onCreateGroupViewHolder(ViewGroup parent, int viewType) {
         View mInflate1 = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_ticket_parent, parent, false);
-        return new TiсketParenHolder(mInflate1);
+        return new TicketParenHolder(mInflate1);
     }
 
     @Override
@@ -40,7 +40,7 @@ public class TicketAdapter extends ExpandableRecyclerViewAdapter<TiсketParenHol
 }
 
     @Override
-    public void onBindGroupViewHolder(TiсketParenHolder holder, int flatPosition, ExpandableGroup group) {
+    public void onBindGroupViewHolder(TicketParenHolder holder, int flatPosition, ExpandableGroup group) {
         holder.bind((Ticket) group.getItems().get(0));
     }
 
