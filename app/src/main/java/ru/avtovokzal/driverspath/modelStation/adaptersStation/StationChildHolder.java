@@ -43,7 +43,7 @@ class StationChildHolder extends ChildViewHolder {
 			mImageView.setVisibility(View.GONE);
 		}
 		if ("OUT".equals(stationTicket.direction)) {
-			mMesto.setText("↓ " + "Место");
+			mMesto.setText("↑ Место");
 			mSeatNumber.setText(String.valueOf(stationTicket.mSeatNum));
 			mArrive.setText(stationTicket.mArrivalStationName);
 			mDispatch.setText(stationTicket.mDispatchStationName);
