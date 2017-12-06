@@ -36,14 +36,14 @@ class StationChildHolder extends ChildViewHolder {
 
 	public void bind(StationTicket stationTicket) {
 		if (stationTicket.direction == "IN") {
-			mMesto.setText("↑ " + "Место");
+			mMesto.setText("↓ Место");
 			mSeatNumber.setText(String.valueOf(stationTicket.mSeatNum));
 			mArrive.setText(stationTicket.mArrivalStationName);
 			mDispatch.setText(stationTicket.mDispatchStationName);
 			mImageView.setVisibility(View.GONE);
 		}
 		if (stationTicket.direction == "OUT") {
-			mMesto.setText("↓ " + "Место");
+			mMesto.setText("↑ Место");
 			mSeatNumber.setText(String.valueOf(stationTicket.mSeatNum));
 			mArrive.setText(stationTicket.mArrivalStationName);
 			mDispatch.setText(stationTicket.mDispatchStationName);

@@ -33,14 +33,14 @@ class StationParenHolder extends GroupViewHolder {
 	public void bind(Stops stops) {
 		mStationDispatch.setText(stops.getName());
 		if (stops.getIn() != null) {
-			mPeopleIn.setText("↑ " + String.valueOf(stops.getIn().size()));
+			mPeopleIn.setText("↓ " + stops.getIn().size());
 		} else {
-			mPeopleIn.setText("↑ " + "0");
+			mPeopleIn.setText("↓ 0");
 		}
 		if (stops.getOut() != null) {
-			mPeopleOut.setText("↓ " + String.valueOf(stops.getOut().size()));
+			mPeopleOut.setText("↑ " + stops.getOut().size());
 		} else {
-			mPeopleOut.setText("↓ " + "0");
+			mPeopleOut.setText("↑ 0");
 		}
 	}
 }
