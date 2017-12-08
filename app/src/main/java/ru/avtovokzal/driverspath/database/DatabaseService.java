@@ -10,13 +10,13 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import ru.avtovokzal.driverspath.modelStation.In;
-import ru.avtovokzal.driverspath.modelStation.Out;
-import ru.avtovokzal.driverspath.modelStation.Stops;
-import ru.avtovokzal.driverspath.modelTickets.Body;
-import ru.avtovokzal.driverspath.modelTickets.Carrier;
-import ru.avtovokzal.driverspath.modelTickets.Passenger;
-import ru.avtovokzal.driverspath.modelTickets.Ticket;
+import ru.avtovokzal.driverspath.stations.model.In;
+import ru.avtovokzal.driverspath.stations.model.Out;
+import ru.avtovokzal.driverspath.stations.model.Stops;
+import ru.avtovokzal.driverspath.tickets.model.Body;
+import ru.avtovokzal.driverspath.tickets.model.Carrier;
+import ru.avtovokzal.driverspath.tickets.model.Passenger;
+import ru.avtovokzal.driverspath.tickets.model.Ticket;
 
 public class DatabaseService {
 
@@ -105,7 +105,7 @@ public class DatabaseService {
 		DeleteBuilder<Out, Integer> deleteOut = mDatabaseHelper.getOutDao().deleteBuilder();
 		deleteOut.delete();
 
-		DeleteBuilder<ru.avtovokzal.driverspath.modelStation.Passenger, Integer> deletePassengerStation = mDatabaseHelper.getPassengerStationDao().deleteBuilder();
+		DeleteBuilder<ru.avtovokzal.driverspath.stations.model.Passenger, Integer> deletePassengerStation = mDatabaseHelper.getPassengerStationDao().deleteBuilder();
 		deletePassengerStation.delete();
 	}
 
